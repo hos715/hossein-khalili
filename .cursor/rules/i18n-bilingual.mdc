@@ -1,0 +1,92 @@
+---
+description: Bilingual EN/FA i18n, locale routing, RTL, and formatting
+globs: frontend/**/*.{tsx,ts,css}
+alwaysApply: false
+---
+
+# Internationalization (EN + FA)
+
+## Library & Routing
+
+- Use **`next-intl`** with App Router
+- Locale prefix: `/en/...` and `/fa/...`
+- Default locale: **`en`** (international recruiters); FA equally complete
+- `middleware.ts` — locale detection from `Accept-Language` optional; always respect explicit `/fa` or `/en` in URL
+
+```tsx
+// Root layout per locale
+<html lang={locale} dir={locale === 'fa' ? 'rtl' : 'ltr'}>
+```
+
+## Message Files
+
+- `frontend/messages/en.json` and `frontend/messages/fa.json`
+- Keys: nested by section — `hero.title`, `projects.viewSite`, `contact.submit`
+- Never hardcode user-facing strings in JSX
+
+```tsx
+// ❌ BAD
+<h1>Front-End Developer</h1>
+
+// ✅ GOOD
+<h1>{t('hero.title')}</h1>
+```
+
+## Language Switcher
+
+- Component: `components/layout/LocaleSwitcher.tsx`
+- Preserves current path when switching — `/en/projects` → `/fa/projects`
+- Accessible: `aria-label` from i18n; show `EN | FA` or native labels
+
+## RTL (Persian)
+
+- `dir="rtl"` on `<html>` when `locale === 'fa'`
+- Use **logical CSS properties:** `margin-inline-start`, `padding-inline`, `text-start`
+- Directional icons (chevrons, arrows): flip with `rtl:rotate-180` or logical variants
+- Code blocks, URLs, email, phone: `dir="ltr"` + `className="font-mono text-start"`
+
+```css
+/* ✅ GOOD */
+.section { padding-inline: 1.5rem; margin-inline-start: auto; }
+
+/* ❌ BAD — breaks RTL */
+.section { padding-left: 1.5rem; margin-left: auto; }
+```
+
+## Typography
+
+- **EN:** professional sans (e.g. Inter via `next/font`)
+- **FA:** readable Persian stack (e.g. Vazirmatn or similar via `next/font`)
+- Apply locale-specific font in layout based on `locale`
+- Line-height ≥ 1.6 for FA body text
+
+## Dates & Numbers
+
+- EN: `Intl.DateTimeFormat('en-US', …)`
+- FA: Jalali optional for blog display (`dayjs` + `jalaliday`); store ISO dates in content frontmatter
+- Phone display: LTR always — `+98 903 922 8802` with `dir="ltr"`
+
+## SEO i18n
+
+- Each localized page: correct `lang`, `hreflang` alternates — see `seo.mdc`
+- Metadata titles/descriptions from i18n or content frontmatter per locale — not shared English-only metadata
+
+## Content vs UI Strings
+
+| Type | Location |
+|------|----------|
+| Buttons, labels, nav | `messages/*.json` |
+| Blog body | MDX in `content/blog/{locale}/` |
+| Projects, experience facts | `content/data/*.ts` with `en` / `fa` fields or separate locale files |
+
+```ts
+// ✅ GOOD — structured bilingual project data
+export const projects = [
+  {
+    slug: 'arz-me',
+    title: { en: 'Crypto Exchange', fa: 'صرافی ارز' },
+    summary: { en: '...', fa: '...' },
+    url: 'https://arz.me',
+  },
+];
+```

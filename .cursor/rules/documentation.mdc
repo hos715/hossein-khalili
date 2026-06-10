@@ -1,0 +1,89 @@
+---
+description: Code comments, naming conventions, and bilingual project documentation
+alwaysApply: true
+---
+
+# Documentation & Naming
+
+## Code Comments (English only)
+
+- Write comments in **clear, fluent English** — not telegraphic
+- Explain **why** and non-obvious **how**; do not restate the code
+- Comment: i18n edge cases, SEO/metadata helpers, email adapter behavior, honeypot anti-spam
+- Public utilities: short JSDoc with purpose and params
+- No commented-out dead code — delete it; git has history
+- UI strings belong in `messages/*.json`, never in comments as user-facing copy
+
+```ts
+// ✅ GOOD
+// hreflang alternates must include x-default pointing to English for international discovery.
+
+// ❌ BAD
+// set title
+```
+
+## Naming
+
+| Kind | Convention | Example |
+|------|------------|---------|
+| Files (TS) | kebab-case | `locale-switcher.tsx`, `email.adapter.ts` |
+| React components | PascalCase file + export | `ProjectCard.tsx` |
+| Functions / variables | camelCase, verb-led | `formatDate`, `getProjects` |
+| Types / interfaces | PascalCase | `Project`, `BlogPostMeta` |
+| Constants | SCREAMING_SNAKE or camel | `SITE_NAME`, `defaultLocale` |
+| NestJS modules | `<feature>.module.ts` | `contact.module.ts` |
+| i18n keys | dot.nested.camelCase | `projects.viewSite`, `hero.cta.contact` |
+| Blog slugs | kebab-case | `websocket-trading-state` |
+
+Names must be **meaningful** — prefer `experience-timeline.tsx` over `section3.tsx`.
+
+## Project Documentation (bilingual pairs)
+
+Every doc exists as two files:
+
+| English | Persian |
+|---------|---------|
+| `DOCUMENTNAME.md` | `DOCUMENTNAME.FA.md` |
+
+**Primary entry points:** `README.md` + `README.FA.md` at repo root.
+
+Add focused docs when an area grows (`docs/DEPLOYMENT.md` + `docs/DEPLOYMENT.FA.md`, `docs/CONTENT.md` + `docs/CONTENT.FA.md`). Keep **content in sync** — same sections and facts; only language differs.
+
+### Language switcher (first line of every bilingual doc)
+
+```markdown
+<p align="right"><strong>English</strong> · <a href="./README.FA.md">فارسی</a></p>
+```
+
+Persian file:
+
+```markdown
+<p align="right"><a href="./README.md">English</a> · <strong>فارسی</strong></p>
+```
+
+## When to Update Docs
+
+Update the relevant `.md` / `.FA.md` pair in the **same change** when you:
+
+- Add/remove pages, API routes, or env variables
+- Change i18n routing, contact flow, or deploy steps
+- Alter folder structure
+- Lock a new architectural decision
+
+Skip doc updates for trivial typo fixes unless they affect setup instructions.
+
+## Doc Quality
+
+- Complete enough for a new developer (or future you) to run the project
+- Include: purpose, prerequisites, commands, env vars, links to Cursor rules
+- Root README: stack, structure, dev commands, link to `AGENTS.md`
+
+## Agent / Contributor Checklist
+
+Before finishing a significant task:
+
+1. Code comments where logic is non-obvious
+2. Names reviewed for clarity
+3. Matching EN + FA doc files updated if user-facing setup changed
+4. `content-branding.mdc` facts respected — no invented copy
+5. i18n keys added for both `en.json` and `fa.json` when adding UI strings

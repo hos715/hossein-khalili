@@ -1,0 +1,108 @@
+---
+description: Professional visual design — typography, color, layout, dark/light theme
+globs: frontend/**/*.{tsx,ts,css}
+alwaysApply: false
+---
+
+# UI Design — Professional Portfolio
+
+Visual goal: **credible senior developer** — calm, readable, recruiter-friendly. Not a creative agency showcase.
+
+## Design Principles
+
+- **Speed over decoration** — if an effect costs LCP or JS, cut it (see `performance.mdc`)
+- **Clarity over decoration** — content (projects, experience) is the hero
+- **Consistent rhythm** — uniform section padding, heading sizes, card gaps
+- **Restrained motion** — subtle hover/focus only; no scroll-jacking or particle backgrounds
+- **Both themes polished** — light default; dark mode equally intentional
+
+## Hero
+
+- **Typography-first** — name, title, CTAs render as HTML without hero image (best LCP)
+- Optional avatar: small, circular, `priority` only if ≤ 80 KB and explicit width/height
+- No full-bleed background photos or video on home
+- CTAs: plain buttons/links — no animated gradients
+
+## Color System
+
+Use CSS variables in `globals.css` — ShadCN-compatible tokens.
+
+| Role | Light | Dark |
+|------|-------|------|
+| Background | near-white (`zinc-50`) | near-black (`zinc-950`) |
+| Foreground | `zinc-900` | `zinc-50` |
+| Muted text | `zinc-600` | `zinc-400` |
+| Accent | single accent — e.g. `blue-600` / `sky-500` | slightly brighter for contrast |
+| Border | `zinc-200` | `zinc-800` |
+
+- **One accent color** for links, primary buttons, focus rings
+- No rainbow gradients on hero; optional subtle gradient on hero background is OK if low contrast
+- Skill tags: muted badges — not neon
+
+## Typography Scale
+
+| Element | Class guidance |
+|---------|----------------|
+| Hero name | `text-4xl md:text-5xl font-semibold tracking-tight` |
+| Section title | `text-2xl md:text-3xl font-semibold` |
+| Body | `text-base leading-relaxed text-muted-foreground` |
+| Small meta | `text-sm text-muted-foreground` |
+
+- Max line length for prose: `max-w-prose` (~65ch)
+- Code in blog: monospace, slightly smaller, bordered surface
+
+## Layout
+
+- **Header:** sticky, blurred backdrop, logo/name + nav + locale + theme toggle
+- **Footer:** copyright, social icons (LinkedIn, Telegram, GitHub if added), minimal links
+- **Home flow:** Hero → Highlights/Skills strip → Featured Projects → Experience teaser → Blog teaser → Contact CTA
+- **Projects page:** grid `md:grid-cols-2` cards with image, title, summary, stack badges, links
+- **About page:** photo optional — professional headshot if provided in `public/`
+
+## Components Look & Feel
+
+### Project Card
+
+- Border card, rounded-lg, hover:border-accent/50
+- Stack as small `Badge` components
+- Primary action: "View case study" internal; "Visit site" external with icon
+
+### Experience Timeline
+
+- Vertical timeline with year + role + company
+- Muted connector line; no heavy illustration
+
+### Skills
+
+- Grouped categories with icon optional (lucide, single stroke)
+- "Learning" group visually distinct (dashed border or muted label) for NestJS
+
+## Dark Mode
+
+- `next-themes` with `class` strategy on `<html>`
+- Toggle in header; icons sun/moon with `aria-label`
+- Test contrast in both modes — see `accessibility.mdc`
+- Images: slight brightness reduction in dark mode optional (`dark:brightness-90`)
+
+## Icons
+
+- **Lucide React** — consistent 1.5px stroke, size 16–20px inline, 24px in buttons
+- Social icons in footer only — not scattered
+
+## Responsive
+
+- Mobile nav: hamburger → sheet/drawer; full nav links + locale + theme inside
+- Project grid: single column on mobile
+- Hero CTAs: stack vertically on small screens
+
+## Do Not
+
+- Glassmorphism overload, 3D transforms, cursor trails
+- Stock photo hero backgrounds unrelated to developer identity
+- Comic Sans, excessive emoji in professional sections
+- Auto-playing carousels for projects
+
+## OG Image
+
+- Static `public/og-image.png` — 1200×630, name + title + subtle brand color
+- Regenerate when title or branding changes

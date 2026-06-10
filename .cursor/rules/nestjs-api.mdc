@@ -1,0 +1,123 @@
+---
+description: NestJS contact API — modules, validation, rate limiting, email adapter
+globs: backend/**/*.ts
+alwaysApply: false
+---
+
+# NestJS API (Contact & Extensions)
+
+Optional **`backend/`** app — start with **contact form** only. Expand only when a measured need exists (newsletter, analytics).
+
+## Scope
+
+| Endpoint | Purpose | Priority |
+|----------|---------|----------|
+| `POST /contact` | Contact form → email to owner | First |
+| `GET /health` | Health check for deploy | First |
+| Future | Newsletter subscribe, view counter | Later — not without approval |
+
+Do **not** build auth, CMS, or database layer for v1 unless explicitly requested.
+
+## Module Structure
+
+```
+backend/src/
+├── contact/
+│   ├── contact.module.ts
+│   ├── contact.controller.ts
+│   ├── contact.service.ts
+│   ├── dto/
+│   │   └── create-contact.dto.ts
+│   └── email.adapter.ts      # Resend or SMTP
+├── health/
+│   └── health.controller.ts
+├── app.module.ts
+└── main.ts
+```
+
+Flat, feature-based — no repository pattern for a single email send.
+
+## Contact DTO
+
+```ts
+export class CreateContactDto {
+  @IsString() @Length(2, 100) name: string;
+  @IsEmail() email: string;
+  @IsString() @Length(10, 2000) message: string;
+  @IsOptional() @IsString() locale?: 'en' | 'fa';  // for email template language
+  // Honeypot field — must be empty; reject if filled (bot trap)
+  @IsOptional() @IsString() @MaxLength(0) website?: string;
+}
+```
+
+## Controller vs Service
+
+- Controller: validate DTO, apply throttler, CORS — no business logic
+- Service: call `email.adapter`, map errors to safe HTTP responses
+
+```ts
+@Post()
+@Throttle({ default: { limit: 5, ttl: 60000 } }) // 5 req/min per IP
+create(@Body() dto: CreateContactDto) {
+  return this.contactService.send(dto);
+}
+```
+
+## Response Shape
+
+```ts
+// Success
+{ data: { sent: true } }
+
+// Error
+{ statusCode: 429 | 400, message: string, error: string }
+```
+
+Never expose stack traces, SMTP errors, or internal config in production.
+
+## Email Adapter
+
+```ts
+// email.adapter.ts — narrow interface
+export interface EmailSender {
+  sendContactEmail(payload: ContactEmailPayload): Promise<void>;
+}
+```
+
+- Implement with **Resend** (preferred) or Nodemailer SMTP
+- Env: `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `EMAIL_FROM`
+- Email body: plain text + simple HTML; include sender email for reply-to
+- Log success/failure at `info`/`error` — **never log full message content** in production if PII-sensitive
+
+## Security
+
+- `@nestjs/throttler` globally + stricter on `POST /contact`
+- CORS: allow only `NEXT_PUBLIC_SITE_URL` origin(s)
+- `helmet` middleware
+- Validate and sanitize all inputs; `ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })`
+- Honeypot field in form — server rejects non-empty
+- Optional: Turnstile/reCAPTCHA later — not required day one
+
+## Frontend Integration
+
+- Frontend posts to `CONTACT_API_URL/contact` from Client Component form
+- Show loading, success, and error states with i18n messages
+- Fallback: `mailto:iamhosseinkhalili@gmail.com` link if API unavailable
+
+## Health
+
+```ts
+@Get('health')
+health() {
+  return { status: 'ok', timestamp: new Date().toISOString() };
+}
+```
+
+## Deployment
+
+- Env validated at bootstrap with `@nestjs/config` + Joi/Zod schema
+- Docker optional; can run as serverless function only if contact volume is low — prefer small Nest container on Railway/Fly/VPS
+
+## Honest Full-Stack Story
+
+This backend is intentionally **small and production-real** — suitable to mention as NestJS contact API work. Do not oversell as large-scale backend architecture.

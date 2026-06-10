@@ -1,0 +1,104 @@
+---
+description: Bilingual MDX blog — authoring, frontmatter, and publishing conventions
+globs: content/**/*,frontend/**/blog/**/*
+alwaysApply: false
+---
+
+# Blog
+
+Purpose: **establish expertise** (React, Next.js, WebSocket, state management, real project lessons) and **SEO**.
+
+## Content Location
+
+```
+content/blog/
+├── en/
+│   └── websocket-trading-state.mdx
+└── fa/
+    └── websocket-trading-state.mdx   # paired translation (optional but preferred)
+```
+
+- Slugs: **kebab-case**, lowercase, English characters
+- FA and EN posts on same topic share slug OR link via frontmatter `translationSlug`
+
+## Frontmatter (required)
+
+```yaml
+---
+title: "Managing Trade State with WebSockets in a Crypto Exchange"
+description: "Lessons from building live price feeds and order state on arz.me — without over-engineering."
+publishedAt: "2025-03-15"
+updatedAt: "2025-03-15"
+locale: en
+translationSlug: websocket-trading-state   # same slug in other locale folder
+tags: [react, websocket, state-management]
+draft: false
+---
+```
+
+| Field | Rules |
+|-------|--------|
+| `title` | Matches `<h1>`; unique per locale |
+| `description` | ≤ 160 chars; used for meta description |
+| `publishedAt` | ISO date `YYYY-MM-DD` |
+| `draft` | `true` — excluded from build and sitemap |
+| `tags` | Lowercase; from allowed set in `content/data/tags.ts` |
+
+## Writing Guidelines
+
+- **Honest, specific, practical** — same voice as `content-branding.mdc`
+- Draw from real projects (arz.me, e-commerce panels, Techsnovel) — no fabricated war stories
+- Code examples: TypeScript, minimal, runnable context
+- Length: **800–2000 words** for pillar posts; shorter notes OK for tips
+- EN and FA posts are **independent prose** — not literal translation; same facts and code
+
+## Suggested Initial Topics
+
+1. WebSocket + trade state patterns (from exchange work)
+2. Redux vs Zustand in multi-panel e-commerce
+3. Building offline-capable PWAs with Next.js
+4. SignalR real-time chat patterns (Techsnovel)
+5. What I learned moving toward NestJS (honest full-stack path)
+
+## MDX Features
+
+Allowed shortcodes/components:
+
+- `<Callout type="info|warning">` — tips and caveats
+- Code blocks with language tag
+- Internal links: `/en/projects/arz-me` style
+- External links: full URL with `rel="noopener noreferrer"`
+
+Do **not** embed scripts, iframes, or tracking pixels in MDX.
+
+## Blog Index Page
+
+- Sort by `publishedAt` descending
+- Filter by tag optional (phase 2) — structure data to allow it
+- PostCard: title, description excerpt, date, tags, reading time estimate
+
+## Reading Time
+
+```ts
+const words = content.split(/\s+/).length;
+const minutes = Math.ceil(words / 200);
+```
+
+Display via i18n: `t('blog.readingTime', { minutes })`
+
+## RSS (recommended)
+
+- `frontend/app/[locale]/blog/feed.xml/route.ts` or root `feed.xml`
+- Include EN and FA feeds or combined with `language` tags
+
+## SEO
+
+- Each post: `BlogPosting` JSON-LD — see `seo.mdc`
+- OG image: default site OG or per-post `ogImage` frontmatter field
+- Canonical URL includes locale prefix
+
+## Do Not
+
+- Publish empty placeholder posts with `draft: false`
+- Copy-paste documentation without personal angle
+- Use AI-slop phrases ("In today's fast-paced world", "Let's dive in") — write direct openings

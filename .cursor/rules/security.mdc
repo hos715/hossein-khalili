@@ -1,0 +1,52 @@
+---
+description: Security for contact API, env secrets, and public-facing frontend
+globs: backend/**/*.ts,frontend/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Security
+
+Portfolio is mostly static — focus on **contact form abuse**, **secret handling**, and **safe external links**.
+
+## Secrets
+
+- Never commit `.env`, API keys, or SMTP credentials
+- Provide `.env.example` with placeholder values only
+- Backend secrets: `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `EMAIL_FROM` — server only
+- Frontend: only `NEXT_PUBLIC_*` vars; no email API keys in client
+
+## Contact Form
+
+- Rate limit: `@nestjs/throttler` on `POST /contact` — see `nestjs-api.mdc`
+- Honeypot field hidden from users — reject if populated
+- Max body lengths enforced in DTO
+- Sanitize output in emails — no HTML injection from user message (escape or plain text)
+- CORS: whitelist site origin(s) only
+
+## Headers (NestJS)
+
+- `helmet()` enabled
+- Production: HTTPS only behind reverse proxy
+
+## Frontend
+
+- External links: `rel="noopener noreferrer"` on `target="_blank"`
+- No `dangerouslySetInnerHTML` unless MDX pipeline sanitizes content
+- MDX: disallow raw `<script>`, `<iframe>`, event handlers in user content
+- Resume PDF in `public/` — no sensitive data beyond public resume content
+
+## Dependencies
+
+- Run `npm audit` periodically; patch high/critical before deploy
+- Pin major versions in lockfile; review new packages before adding
+
+## Logging
+
+- Do not log contact form message bodies in production
+- Do not log env vars at startup beyond "configured/not configured"
+
+## Do Not
+
+- Add admin panel or database without auth hardening plan
+- Expose internal error details to API clients
+- Store contact submissions in DB without encryption/at-rest plan — email-only is fine for v1

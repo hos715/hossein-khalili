@@ -1,0 +1,128 @@
+---
+description: SEO, metadata, structured data, hreflang — non-negotiable owner priority
+globs: frontend/**/*.{tsx,ts}
+alwaysApply: true
+---
+
+# SEO (Non-Negotiable — Priority 1)
+
+Personal site goal: **discoverability for recruiters** and **technical credibility** via blog.
+
+**Owner priority:** SEO is as important as initial load speed — static HTML, complete metadata, and crawlable content beat interactive flourishes.
+
+## Rendering Strategy
+
+| Page | Strategy |
+|------|----------|
+| Home, About, Skills, Projects, Experience, Contact | **SSG** — static at build |
+| Blog index | **SSG** with `generateStaticParams` |
+| Blog post | **SSG** from MDX |
+| Contact form submit | API route or Nest — **noindex** on API responses |
+
+```tsx
+export const dynamic = 'force-static'; // default for marketing pages
+```
+
+## Metadata (every public page)
+
+Use `generateMetadata` with locale-aware titles.
+
+```tsx
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: 'metadata.home' });
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: `${base}/${params.locale}`,
+      type: 'website',
+      locale: params.locale === 'fa' ? 'fa_IR' : 'en_US',
+      images: [{ url: `${base}/og-image.png`, width: 1200, height: 630 }],
+    },
+    alternates: {
+      canonical: `${base}/${params.locale}`,
+      languages: {
+        en: `${base}/en`,
+        fa: `${base}/fa`,
+        'x-default': `${base}/en`,
+      },
+    },
+  };
+}
+```
+
+## URL Structure
+
+- Clean paths: `/en/projects`, `/fa/blog/my-post`, `/en/contact`
+- No query-string-only pages for primary content
+- Blog slugs: kebab-case, English slug even for FA posts (or matching slug pair via `translationSlug`)
+
+## Required Root Files
+
+- `frontend/app/sitemap.ts` — all locales and blog posts
+- `frontend/app/robots.ts` — allow public pages; disallow `/api/` if any
+
+## Structured Data (JSON-LD)
+
+Inject in Server Components via `<script type="application/ld+json">`.
+
+| Page | Schema |
+|------|--------|
+| Home / About | `Person` + `ProfilePage` |
+| Blog post | `BlogPosting` + `BreadcrumbList` |
+| Site-wide | `WebSite` with `inLanguage: ['en', 'fa']` |
+
+```json
+{
+  "@type": "Person",
+  "name": "Hossein Khalili",
+  "jobTitle": "Front-End Developer",
+  "url": "{{NEXT_PUBLIC_SITE_URL}}",
+  "sameAs": ["https://linkedin.com/in/...", "https://t.me/..."],
+  "knowsAbout": ["React", "Next.js", "TypeScript", "WebSocket"]
+}
+```
+
+## Blog SEO
+
+- Unique `<h1>` = post title
+- Meta description from frontmatter `description` (≤ 160 chars)
+- `article:published_time`, `article:modified_time` in Open Graph
+- Internal links to related projects/posts where natural
+
+## Indexing Rules
+
+- `robots: { index: true }` — all public marketing and blog pages
+- `noindex` — thank-you page after form if thin duplicate; API routes
+- Resume PDF: link with descriptive anchor text; optional `noindex` on raw PDF path
+
+## Content Quality
+
+- One `<h1>` per page
+- Heading hierarchy: `h1 → h2 → h3` without skips
+- Image `alt` text descriptive in page language
+- External project links: `rel="noopener noreferrer"`; do not claim ownership of domains you don't control in schema
+
+## Performance ↔ SEO (same priority)
+
+Google ranks on experience signals — treat SEO and speed as one requirement:
+
+- **Hero LCP:** typography-first or CSS-only hero preferred; no large above-fold image unless `priority` + optimized + ≤ 100 KB target
+- **Critical content in initial HTML** — name, title, summary, nav links must render without waiting for client JS hydration
+- **No client-only rendering** for indexable pages — marketing routes are Server Components + SSG
+- **Font loading** must not block text visibility — `display: swap`, subset per locale
+- **hreflang + canonical** on every indexable page — broken i18n SEO is a ship blocker
+- See `performance.mdc` for numeric budgets and Lighthouse gates
+
+## Ship Gates (SEO)
+
+Before merge/deploy, verify on **`/en` and `/fa`**:
+
+- [ ] Unique `title` + `description` + canonical on every public page
+- [ ] `sitemap.xml` and `robots.txt` include all locales and blog posts
+- [ ] JSON-LD validates (Rich Results Test)
+- [ ] One `<h1>` per page; logical heading order
+- [ ] View Page Source shows main text content (not empty shell waiting for JS)

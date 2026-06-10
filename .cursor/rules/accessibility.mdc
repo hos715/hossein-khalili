@@ -1,0 +1,86 @@
+---
+description: WCAG 2.1 AA accessibility for bilingual portfolio
+globs: frontend/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Accessibility (Priority 2)
+
+Target: **WCAG 2.1 AA** — recruiters and developers on varied devices.
+
+## Document & Language
+
+```tsx
+<html lang={locale} dir={locale === 'fa' ? 'rtl' : 'ltr'}>
+```
+
+- Switch `lang` and `dir` together when locale changes
+- Mixed-direction content: wrap LTR fragments (code, URLs) in `<span dir="ltr">`
+
+## Keyboard & Focus
+
+- All interactive elements reachable via Tab
+- Never remove focus outline without `:focus-visible` replacement
+- Skip link: first focusable element — i18n key `a11y.skipToContent`
+- Mobile menu: focus trap when open; close on Escape; return focus to menu button
+
+## Navigation
+
+- `<nav aria-label={t('a11y.mainNav')}>`
+- Current page: `aria-current="page"` on active link
+- Locale switcher: accessible name — not icon-only without label
+
+## Theme Toggle
+
+- Button with `aria-label` describing action (switch to dark/light)
+- Respect `prefers-color-scheme` default; persist choice in `localStorage`
+
+## Forms (Contact)
+
+```tsx
+<label htmlFor="email">{t('contact.email')}</label>
+<input
+  id="email"
+  type="email"
+  autoComplete="email"
+  aria-invalid={!!errors.email}
+  aria-describedby={errors.email ? 'email-error' : undefined}
+/>
+{errors.email && (
+  <p id="email-error" role="alert">{errors.email}</p>
+)}
+```
+
+- Placeholder supplements label — never replaces it
+- Submit: `aria-busy={isSubmitting}` during request
+- Success/error: `aria-live="polite"` region
+
+## Images & Media
+
+- Profile photo: meaningful `alt` with name
+- Project screenshots: describe UI purpose, not "screenshot"
+- Decorative elements: `alt=""` and `aria-hidden="true"`
+
+## Motion
+
+- Respect `prefers-reduced-motion`: disable scroll animations and non-essential transitions
+- No auto-playing video; no flashing content
+
+## Color & Contrast
+
+- Text contrast ≥ 4.5:1 (normal), ≥ 3:1 (large text)
+- Do not convey status by color alone — include text/icons
+- Dark and light themes must both meet contrast requirements — see `ui-design.mdc`
+
+## Headings
+
+- Single `<h1>` per page
+- Logical order; section titles as `<h2>`
+
+## External Links
+
+- Indicate opens external site when leaving portfolio — i18n `a11y.externalLink` (visually hidden or icon + sr-only)
+
+## Touch Targets
+
+- Minimum **44×44px** on mobile for buttons and nav items

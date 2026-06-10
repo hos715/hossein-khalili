@@ -1,0 +1,164 @@
+---
+description: Core Web Vitals, initial load budgets, and minimal JS — non-negotiable owner priority
+globs: frontend/**/*.{tsx,ts}
+alwaysApply: true
+---
+
+# Performance & Initial Load (Non-Negotiable — Priority 1)
+
+**Owner priority:** Fast first paint and low JS weight are as important as SEO. This site must feel instant on mid-tier mobile (4G).
+
+## Targets (mobile, Lighthouse simulated throttling)
+
+| Metric | Target | Stretch |
+|--------|--------|---------|
+| **LCP** | ≤ 2.0s | ≤ 1.8s |
+| **INP** | ≤ 200ms | ≤ 150ms |
+| **CLS** | ≤ 0.05 | 0 |
+| **TTFB** (static) | ≤ 600ms | ≤ 400ms |
+| **FCP** | ≤ 1.5s | ≤ 1.2s |
+| **Lighthouse Performance** | ≥ 90 | ≥ 95 |
+| **Lighthouse SEO** | ≥ 95 | 100 |
+
+Run on **`/en`**, **`/fa`**, **`/en/projects`**, and one blog post before every release.
+
+## Initial Load Strategy
+
+### Static-first (default for all marketing pages)
+
+```tsx
+export const dynamic = 'force-static';
+export const revalidate = false; // full static until explicit ISR need
+```
+
+- HTML for hero, nav, projects, and footer ships from CDN at build time
+- Zero client fetch waterfalls on home and listing pages
+- Contact form is the **only** section that may lazy-load client JS on `/contact`; on home, contact is a link — not an embedded form
+
+### JavaScript budget
+
+| Route | Max first-load JS (gzipped, approx.) |
+|-------|--------------------------------------|
+| Home | ≤ 80 KB |
+| About / Skills / Experience | ≤ 70 KB |
+| Projects list | ≤ 90 KB |
+| Blog post | ≤ 100 KB |
+| Contact | ≤ 120 KB (form allowed) |
+
+If over budget: remove client components, defer icons, split locale fonts — do not raise the budget.
+
+### `'use client'` allowlist
+
+Only these may be Client Components:
+
+- `ThemeToggle` (small; inline critical theme script prevents flash)
+- `MobileNav` / sheet
+- `LocaleSwitcher` (minimal)
+- `ContactForm` (contact page only — `dynamic()` import)
+- ShadCN primitives that require Radix behavior **inside** the above
+
+Everything else — Hero, Projects, Skills, Experience, Blog layout, Footer — **Server Components**.
+
+```tsx
+// ✅ GOOD — contact form not on home
+<Link href={`/${locale}/contact`}>{t('hero.cta.contact')}</Link>
+
+// ❌ BAD — pulls form + validation JS into home bundle
+<ContactForm />
+```
+
+## Images
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src={project.image}
+  alt={project.imageAlt}
+  width={800}
+  height={450}
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  loading="lazy"   // default; never priority below fold
+/>
+```
+
+- `next/image` for all photos; WebP/AVIF via optimizer
+- Project grid: **lazy** only; no `priority` on cards
+- Hero: **no image** preferred — if used, one `priority` image, explicit dimensions, ≤ 100 KB source
+- Placeholder: `blurDataURL` or solid `aspect-ratio` — never empty box CLS
+
+## Fonts (critical path)
+
+```tsx
+import { Inter, Vazirmatn } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans-en',
+  preload: true,
+});
+```
+
+- Load **one** font family per locale layout — EN layout loads Inter only; FA layout loads Vazirmatn only
+- No `@import` from Google Fonts in CSS
+- `font-display: swap` always; preload only the active locale's primary weight (400 + 600 max)
+
+## CSS
+
+- Tailwind purge enabled; no unused ShadCN components installed upfront — add on demand
+- Critical above-fold styles inline via Tailwind — no render-blocking extra CSS files
+- Animations: CSS only; `prefers-reduced-motion` respected
+
+## Data & Rendering
+
+- Projects, experience, skills: static import at build — **no** `useEffect` fetch
+- Blog MDX: compile at build; syntax highlighter loaded per-post, not globally if avoidable
+- No React Query, SWR, or Redux on marketing pages
+
+## Third Party (defer or skip)
+
+- **No** analytics in v1 unless deferred until after `load` or first interaction
+- **No** LinkedIn embed widgets — static link + icon
+- **No** chat widgets, heatmaps, or A/B scripts on initial load
+- Nest contact API called only from contact page submit — not prefetched
+
+## Theme (avoid flash + extra work)
+
+```tsx
+// inline in <head> — before paint, ~50 bytes
+<script dangerouslySetInnerHTML={{ __html: `...theme from localStorage...` }} />
+```
+
+- `suppressHydrationWarning` on `<html>`
+- Default theme: `light` (fewer paint surprises); dark via class toggle
+
+## Bundle hygiene
+
+```tsx
+import { ArrowUpRight } from 'lucide-react'; // ✅ single icon
+
+const ContactForm = dynamic(() => import('@/components/sections/ContactForm'), {
+  ssr: false,
+  loading: () => <ContactFormSkeleton />,
+});
+```
+
+- Analyze with `@next/bundle-analyzer` before release
+- Tree-shake lucide; no barrel imports from heavy libs
+- No Framer Motion, GSAP, or Lottie on marketing pages
+
+## Measurement workflow
+
+1. `npm run build && npm run start` — test production, not dev
+2. Lighthouse mobile on 4 routes × 2 locales
+3. [PageSpeed Insights](https://pagespeed.web.dev/) on production URL after deploy
+4. If any gate fails — fix before adding features
+
+## Ship Gates (Performance)
+
+- [ ] Lighthouse Performance ≥ 90 mobile (EN + FA home)
+- [ ] LCP element is text or pre-optimized image — not late-loading carousel
+- [ ] View Page Source: hero text visible in HTML
+- [ ] No layout shift on font or theme load
+- [ ] Project images lazy; hero has no heavy media by default

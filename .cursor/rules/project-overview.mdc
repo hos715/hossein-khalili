@@ -1,0 +1,130 @@
+---
+description: Core stack, full scope, and engineering principles for Hossein Khalili personal website
+alwaysApply: true
+---
+
+# Personal Website — Project Overview
+
+**Owner:** Hossein Khalili — Senior Front-End Developer expanding into Full-Stack (React / Next.js / NestJS).
+
+Greenfield project — build from scratch in this repository.
+
+## Locked Decisions
+
+| Topic | Choice |
+|-------|--------|
+| Audience | **Iran + international** — job search and personal branding |
+| Target roles | **Senior Front-End** and **Full-Stack** (honest positioning) |
+| Languages | **Bilingual EN + FA** — locale switcher, not machine-translated fluff |
+| NestJS positioning | **Honest:** front-end specialist actively learning/building with Nest; show side projects or API work, never claim expert without demos |
+| Live project links | **arz.me**, **xpay.co**, **ariascale.ir** — link when public; case studies for NDA or internal work |
+| Visual style | **Professional** — clean typography, restrained palette, no gimmicky animations |
+| Scope | **Full build** (not MVP) — all sections + blog from the start |
+| Domain | **TBD** — use env `NEXT_PUBLIC_SITE_URL`; no hardcoded domain in code |
+| Deployment (default) | **Vercel** for frontend; backend on same host or separate service when added |
+| **Non-negotiable** | **SEO**, **performance**, and **initial load** — see `seo.mdc` + `performance.mdc`; never ship features that regress Core Web Vitals or crawlability |
+
+## Site Sections (build all)
+
+1. **Home / Hero** — name, value proposition, primary CTAs (contact, resume, LinkedIn)
+2. **About** — professional summary; same honest tone as resume
+3. **Skills** — grouped: Core (React, Next.js, TS), UI, Real-time, State, Learning (NestJS)
+4. **Projects** — case studies with problem → role → stack → outcome; external links where allowed
+5. **Experience** — timeline (barman-tech, graphay, collaborations)
+6. **Blog** — bilingual MDX articles for expertise and SEO
+7. **Contact** — email, Telegram, optional form via NestJS API
+8. **Resume** — downloadable PDF + structured on-page version
+9. **Social proof** — LinkedIn recommendations count; link to profile
+
+## Stack
+
+| Layer | Technology |
+|-------|------------|
+| **frontend/** | Next.js 15 (App Router), TypeScript, Tailwind CSS, ShadCN UI |
+| **i18n** | `next-intl` — locale prefix routing (`/en`, `/fa`) |
+| **Content** | MDX for blog; typed JSON/TS for projects and experience in `content/` |
+| **backend/** (when needed) | NestJS REST — contact form, rate limiting, optional analytics |
+| **Email** | Resend or Nodemailer via adapter — no credentials in repo |
+| **Deploy** | Vercel (frontend); Docker or Railway/Fly for Nest if separate |
+
+## Code Principles
+
+- TypeScript everywhere
+- **Comments:** English only — see `documentation.mdc`
+- **UI strings:** i18n only — never hardcode EN or FA in JSX
+- **Content facts:** resume data in `content/` — see `content-branding.mdc`; do not invent projects or dates
+- Small, focused diffs; match existing patterns before inventing new ones
+- Priorities when trade-offs arise: **SEO + initial load / performance (tied, non-negotiable) → accessibility → content accuracy → visual polish**
+- If a design or feature hurts LCP, INP, crawlability, or JS weight — **change the design**, not the budget
+- **Tone:** professional, specific, no buzzwords — see `content-branding.mdc`
+- **Docs:** bilingual pairs (`NAME.md` + `NAME.FA.md`) — see `documentation.mdc`
+
+## Structure — Keep It Simple
+
+### Do
+
+- **Two apps when backend exists:** `frontend/` + `backend/` — no shared `packages/` until 3+ consumers
+- **Colocate:** feature components under `frontend/components/<feature>/`
+- **One pattern per concern:** one API client, one i18n setup, one theme provider
+- **Adapters** for email and external APIs: `resend.adapter.ts` — swap provider without touching controllers
+- **Explicit env:** validate at bootstrap; `NEXT_PUBLIC_*` only for client-safe values
+
+### Do not
+
+- CMS or headless admin in v1 — content lives in git (MDX + JSON)
+- Multiple state libraries — prefer React state + URL for UI; no Redux unless justified
+- Fake metrics, inflated titles, or projects not in `content-branding.mdc`
+- Hardcoded domain or absolute URLs without env base
+- Microservices, GraphQL, or auth system for a public portfolio
+
+### Where to put new work
+
+| Change | Where |
+|--------|--------|
+| New page | `frontend/app/[locale]/...` |
+| New UI section | `frontend/components/<feature>/` |
+| Blog post | `content/blog/en/` or `content/blog/fa/` |
+| Project / experience data | `content/data/projects.ts`, `content/data/experience.ts` |
+| New API endpoint | `backend/src/<feature>/` |
+| Shared UI primitive | `frontend/components/ui/` (ShadCN) |
+| Translations | `frontend/messages/en.json`, `frontend/messages/fa.json` |
+
+## Folder Layout
+
+```
+personal-website/
+├── frontend/
+│   ├── app/
+│   │   └── [locale]/           # all routes under locale
+│   ├── components/
+│   │   ├── ui/                 # ShadCN primitives
+│   │   ├── layout/             # Header, Footer, LocaleSwitcher
+│   │   ├── sections/           # Hero, Projects, Skills, …
+│   │   └── blog/
+│   ├── lib/                    # i18n config, utils, metadata helpers
+│   ├── messages/               # en.json, fa.json
+│   └── public/                 # resume PDF, og-image, favicons
+├── backend/                    # optional; contact API first
+│   └── src/
+│       ├── contact/
+│       └── common/
+├── content/
+│   ├── blog/
+│   │   ├── en/
+│   │   └── fa/
+│   └── data/                   # projects, experience, skills (typed)
+├── docs/
+├── .cursor/rules/
+├── AGENTS.md
+├── README.md
+└── README.FA.md
+```
+
+## Environment Variables (document in README)
+
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Canonical base URL (placeholder until domain chosen) |
+| `CONTACT_API_URL` | Nest contact endpoint (frontend) |
+| `RESEND_API_KEY` / SMTP | Email delivery (backend only) |
+| `CONTACT_TO_EMAIL` | Inbox for form submissions |

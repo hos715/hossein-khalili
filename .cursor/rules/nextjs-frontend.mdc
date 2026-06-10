@@ -1,0 +1,107 @@
+---
+description: Next.js App Router, components, ShadCN, and frontend conventions
+globs: frontend/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Next.js Frontend
+
+## Performance-first defaults
+
+Every page decision starts with: **does this increase initial JS or delay LCP?** If yes, find a static/server alternative.
+
+- **SSG** all marketing routes — `dynamic = 'force-static'`
+- **Server Components by default** — `'use client'` only per allowlist in `performance.mdc`
+- **No client fetch** on home, about, projects list, blog list — data imported at build time
+- **Contact form** lives on `/contact` only; lazy-loaded via `dynamic()`
+- Prefer **links** over embedded interactive widgets on landing sections
+
+## Version & Conventions
+
+- **Next.js 15** App Router, **TypeScript** strict
+- Path alias: `@/` → `frontend/` root (or project convention after scaffold)
+- **Server Components by default** — add `'use client'` only when required
+
+## App Structure
+
+```
+frontend/app/
+├── [locale]/
+│   ├── layout.tsx          # fonts, providers, header/footer
+│   ├── page.tsx            # home
+│   ├── about/page.tsx
+│   ├── projects/
+│   │   ├── page.tsx
+│   │   └── [slug]/page.tsx
+│   ├── blog/
+│   │   ├── page.tsx
+│   │   └── [slug]/page.tsx
+│   ├── contact/page.tsx
+│   └── not-found.tsx
+├── sitemap.ts
+└── robots.ts
+```
+
+- All user-facing routes under `[locale]`
+- Shared layout: Header (nav + locale + theme), Footer (social links)
+- `not-found.tsx` localized via next-intl
+
+## Components
+
+| Folder | Purpose |
+|--------|---------|
+| `components/ui/` | ShadCN primitives — Button, Card, Badge, Input, Textarea |
+| `components/layout/` | Header, Footer, LocaleSwitcher, ThemeToggle, MobileNav |
+| `components/sections/` | Hero, About, Skills, ProjectsGrid, ExperienceTimeline, Contact |
+| `components/blog/` | PostCard, PostLayout, TableOfContents |
+
+- Section components receive **typed props** from `content/data` — not inline magic strings
+- Extract repeated patterns (SectionHeading, ExternalLink) — don't duplicate markup
+
+## ShadCN + Tailwind
+
+- Initialize ShadCN with **neutral/slate** base — professional, not playful
+- Use `cn()` utility for conditional classes
+- Design tokens in `globals.css` — CSS variables for light/dark themes
+- No inline styles except dynamic values
+
+## Styling Rules
+
+- Mobile-first responsive: `sm:`, `md:`, `lg:` breakpoints
+- Max content width: `max-w-5xl` or `max-w-6xl` centered — readable prose on About/Blog
+- Section spacing consistent: e.g. `py-16 md:py-24`
+- Project cards: hover state subtle (border/shadow), not aggressive scale transforms
+
+## Links
+
+```tsx
+import Link from 'next/link';
+
+// Internal
+<Link href={`/${locale}/projects/${slug}`}>{title}</Link>
+
+// External
+<a href={url} target="_blank" rel="noopener noreferrer">{label}</a>
+```
+
+## MDX Integration
+
+- `@next/mdx` or `next-mdx-remote` — pick one pattern project-wide
+- MDX components map: `components/mdx/` — styled headings, code blocks, Callout
+- Syntax highlighting: `rehype-pretty-code` or Shiki
+
+## Error & Loading
+
+- `loading.tsx` for blog list if fetch ever added — optional skeleton
+- Contact form errors: inline field errors + toast optional
+- `error.tsx` boundary for blog segment — friendly i18n message
+
+## Env Usage
+
+- `NEXT_PUBLIC_SITE_URL` — metadata, sitemap, OG URLs only
+- Never expose API secrets in client components
+
+## Testing Hooks (when added)
+
+- Prefer Vitest + React Testing Library for utilities and critical form validation
+- No test requirement for static presentational sections unless logic exists

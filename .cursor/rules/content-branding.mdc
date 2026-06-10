@@ -1,0 +1,105 @@
+---
+description: Resume facts, tone, projects, and bilingual content rules — source of truth for all copy
+alwaysApply: true
+---
+
+# Content & Personal Branding
+
+All site copy must be **accurate**, **specific**, and **honest**. Do not invent employers, dates, metrics, or skills.
+
+## Owner Profile
+
+| Field | Value |
+|-------|--------|
+| Name | Hossein Khalili |
+| Title (EN) | Front-End Developer · React / Next.js Specialist |
+| Subtitle (EN) | TypeScript & Modern Web Architectures — expanding into Full-Stack (NestJS) |
+| Title (FA) | توسعه‌دهنده فرانت‌اند · متخصص React / Next.js |
+| Subtitle (FA) | TypeScript و معماری وب مدرن — در مسیر فول‌استک (NestJS) |
+| Experience since | 2018 |
+| Education | Bachelor of Software Engineering — HADAF University of Mazandaran (2015) |
+| Email | iamhosseinkhalili@gmail.com |
+| Phone | +989039228802 |
+| LinkedIn | Link from env or `content/data/social.ts` — highlight **6 recommendations** |
+| Telegram | Link from `content/data/social.ts` |
+
+## Positioning (both locales)
+
+- Primary strength: **Senior Front-End** — React, Next.js, TypeScript, real-time (WebSocket), complex UI state
+- Secondary (honest): **Full-Stack path** — NestJS with AI-assisted development; show learning + small API work, not "10 years backend"
+- Voice: clean code, modular architecture, continuous learning — **no buzzwords, no overpromising**
+- Avoid: "guru", "ninja", "10x", "AI expert", claiming deep Nest/production backend without evidence
+
+## Skills to List (grouped)
+
+**Core:** JavaScript, TypeScript, React.js, Next.js
+
+**State & data:** Redux, Zustand, REST API, WebSocket (Socket.io, SignalR)
+
+**UI:** Tailwind CSS, Radix UI, ShadCN, Material UI, SCSS
+
+**Tools:** Git, basic Agile/Scrum
+
+**AI / adjacent (as used in projects):** OpenAI, Llama, image processing — scope to project needs only
+
+**Learning / growing:** NestJS, Node.js backend patterns — label as "Learning" or "Building with" in UI
+
+## Featured Projects (with live links)
+
+Use these as primary case studies. Link externally when allowed.
+
+| Project | URL | Highlights |
+|---------|-----|------------|
+| Crypto exchange | https://arz.me | Landing, app, reporting, trading, wallet; WebSocket live prices; complex trade state |
+| Crypto exchange | https://xpay.co | Related exchange work — confirm scope in copy; link if same portfolio piece |
+| Ariascale | https://ariascale.ir | Include as featured external work — describe role/stack from known facts only |
+
+## Additional Projects (case study, no public link required)
+
+| Project | Highlights |
+|---------|------------|
+| Full e-commerce (multi-panel) | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux |
+| AI chatbot — Techsnovel | Real-time chat, typing indicators, message queue, RBAC; React, TS, Zustand, SignalR |
+| Marketplace — Pars Data | Listings, seller dashboard, multi-step checkout |
+| Hypermarket PWA — Arsal Web | Offline PWA, logistics dashboard, customer panel; Next.js + Tailwind |
+| Drug monitoring system | Mazandaran University of Medical Sciences — controlled drug monitoring UI |
+
+## Experience / Collaborations
+
+| Org | Notes |
+|-----|-------|
+| barman-tech | Led to arz.me — front-end architecture from scratch; WebSocket, trading, wallet, backend coordination |
+| graphay | AI projects — Llama/OpenAI chatbots, image processing; startup, architecture, features, fixes |
+| Others | Takanesh Academy, arz.me, xpay, etc. — Figma implementation, bug fixes, features, performance |
+
+## Bilingual Content Rules
+
+- **EN and FA are peers** — both professionally written, not word-for-word Google Translate
+- FA copy: natural Persian for developers; keep technical terms (React, Next.js, WebSocket) in English where standard
+- EN copy: concise, recruiter-friendly
+- Shared facts (dates, URLs, stack names) must match across locales
+- Blog: each post exists in **one locale per file** — `content/blog/en/slug.mdx` and `content/blog/fa/slug.mdx`; link translations via frontmatter `translationSlug`
+
+## Case Study Template (Projects section)
+
+Each project entry should include:
+
+1. **Title** + optional external link
+2. **One-line summary**
+3. **Problem / context** (1–2 sentences)
+4. **My role** — specific, not "worked on team"
+5. **Stack** — tags only from actual usage
+6. **Outcome / highlight** — e.g. live trading, offline PWA, multi-panel ops — no fake KPIs
+
+## CTAs (i18n keys, not hardcoded)
+
+- Contact / Get in touch
+- Download resume (PDF in `frontend/public/resume/`)
+- View on LinkedIn
+- Read case study / Visit site (external, `rel="noopener noreferrer"`)
+
+## Do Not
+
+- Add projects, clients, or certifications not listed above without owner approval
+- Claim sole credit for team projects — use "contributed to", "built front-end for", "led front-end architecture"
+- Use lorem ipsum in production sections — use real copy or clear `[TBD]` in dev-only placeholders

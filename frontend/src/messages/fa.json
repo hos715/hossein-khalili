@@ -1,0 +1,122 @@
+{
+  "nav": {
+    "home": "خانه",
+    "about": "درباره",
+    "projects": "پروژه‌ها",
+    "experience": "سوابق",
+    "blog": "وبلاگ",
+    "contact": "تماس",
+    "menu": "باز کردن منو",
+    "closeMenu": "بستن منو"
+  },
+  "hero": {
+    "name": "حسین خلیلی",
+    "title": "توسعه‌دهنده فرانت‌اند · متخصص React / Next.js",
+    "subtitle": "TypeScript و معماری وب مدرن — در مسیر فول‌استک با NestJS",
+    "ctaContact": "تماس",
+    "ctaProjects": "مشاهده پروژه‌ها",
+    "ctaResume": "دانلود رزومه",
+    "linkedinBadge": "{count} توصیه در LinkedIn",
+    "eyebrow": "Front-End · از ۲۰۱۸"
+  },
+  "about": {
+    "title": "درباره",
+    "summary1": "از ۲۰۱۸ در فرانت‌اند کار می‌کنم — عمدتاً React و Next.js: از صرافی و فروشگاه چندپنلی تا چت‌بات AI و PWA آفلاین.",
+    "summary2": "هم در تیم و هم مستقل کار کرده‌ام. کد ساده و قابل نگهداری را به buzzword ترجیح می‌دهم. در LinkedIn شش توصیه از همکاران و مدیران قبلی دارم.",
+    "summary3": "با WebSocket، REST API و Redux و Zustand راحت هستم. در حال یادگیری NestJS برای رشد به فول‌استک — با پروژه واقعی، نه عنوان inflated.",
+    "education": "کارشناسی مهندسی نرم‌افزار — دانشگاه هدف مازندران (۲۰۱۵)",
+    "since": "ساخت UI وب از ۲۰۱۸"
+  },
+  "skills": {
+    "title": "مهارت‌ها",
+    "learningLabel": "در حال یادگیری"
+  },
+  "projects": {
+    "title": "پروژه‌ها",
+    "featured": "کارهای برجسته",
+    "all": "همه پروژه‌ها",
+    "viewCaseStudy": "مطالعه مورد",
+    "visitSite": "مشاهده سایت",
+    "stack": "Stack",
+    "problem": "زمینه",
+    "role": "نقش من",
+    "outcome": "نتیجه",
+    "back": "بازگشت به پروژه‌ها"
+  },
+  "experience": {
+    "title": "سوابق"
+  },
+  "blog": {
+    "title": "وبلاگ",
+    "subtitle": "یادداشت از پروژه‌های واقعی — React، Next.js، WebSocket و state management.",
+    "readMore": "مطالعه مقاله",
+    "readingTime": "{minutes} دقیقه مطالعه",
+    "back": "بازگشت به وبلاگ",
+    "tags": "برچسب‌ها"
+  },
+  "contact": {
+    "title": "تماس",
+    "subtitle": "آماده فرصت‌های Senior Front-End و Full-Stack — ایران و ریموت.",
+    "email": "ایمیل",
+    "phone": "تلفن",
+    "telegram": "تلگرام",
+    "linkedin": "LinkedIn",
+    "formName": "نام",
+    "formEmail": "ایمیل",
+    "formMessage": "پیام",
+    "formSubmit": "ارسال پیام",
+    "formSending": "در حال ارسال…",
+    "formSuccess": "در حال باز کردن ایمیل… اگر باز نشد، مستقیم ایمیل بزنید.",
+    "formError": "لطفاً همه فیلدها را درست پر کنید.",
+    "mailtoFallback": "یا مستقیم ایمیل بزنید"
+  },
+  "footer": {
+    "rights": "تمامی حقوق محفوظ است.",
+    "builtWith": "ساخته‌شده با Next.js"
+  },
+  "theme": {
+    "light": "حالت روشن",
+    "dark": "حالت تیره"
+  },
+  "locale": {
+    "switchToEn": "English",
+    "switchToFa": "فارسی",
+    "label": "زبان"
+  },
+  "a11y": {
+    "skipToContent": "پرش به محتوای اصلی",
+    "mainNav": "ناوبری اصلی",
+    "externalLink": "(باز شدن در تب جدید)"
+  },
+  "metadata": {
+    "home": {
+      "title": "حسین خلیلی — توسعه‌دهنده React و Next.js",
+      "description": "توسعه‌دهنده Senior Front-End — React، Next.js، TypeScript. صرافی، e-commerce، WebSocket — در مسیر NestJS."
+    },
+    "about": {
+      "title": "درباره — حسین خلیلی",
+      "description": "توسعه‌دهنده فرانت‌اند از ۲۰۱۸. React، Next.js، WebSocket، Redux، Zustand."
+    },
+    "projects": {
+      "title": "پروژه‌ها — حسین خلیلی",
+      "description": "arz.me، xpay.co، ariascale.ir، فروشگاه چندپنلی، چت‌بات AI و PWA."
+    },
+    "experience": {
+      "title": "سوابق — حسین خلیلی",
+      "description": "معماری فرانت‌اند برای صرافی، محصولات AI و e-commerce."
+    },
+    "blog": {
+      "title": "وبلاگ — حسین خلیلی",
+      "description": "مقالات React، Next.js، WebSocket و state management از پروژه production."
+    },
+    "contact": {
+      "title": "تماس — حسین خلیلی",
+      "description": "تماس برای فرصت‌های Senior Front-End و Full-Stack."
+    }
+  },
+  "home": {
+    "experienceTeaser": "سوابق",
+    "blogTeaser": "آخرین نوشته‌ها",
+    "viewAll": "مشاهده همه"
+  }
+}

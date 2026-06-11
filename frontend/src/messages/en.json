@@ -1,0 +1,122 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "blog": "Blog",
+    "contact": "Contact",
+    "menu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "name": "Hossein Khalili",
+    "title": "Front-End Developer · React / Next.js Specialist",
+    "subtitle": "TypeScript & modern web architectures — expanding into full-stack with NestJS",
+    "ctaContact": "Get in touch",
+    "ctaProjects": "View projects",
+    "ctaResume": "Download resume",
+    "linkedinBadge": "{count} LinkedIn recommendations",
+    "eyebrow": "Front-End · since 2018"
+  },
+  "about": {
+    "title": "About",
+    "summary1": "I've been building front-ends since 2018, mostly with React and Next.js — from crypto exchanges and multi-panel e-commerce to AI chatbots and offline PWAs.",
+    "summary2": "I work well in teams and independently. I prefer simple, maintainable code over buzzwords. On LinkedIn, colleagues and managers have left six recommendations.",
+    "summary3": "I'm comfortable with WebSocket, REST APIs, and state libraries like Redux and Zustand. I'm actively learning NestJS to grow into full-stack work — honestly, with real projects, not inflated titles.",
+    "education": "Bachelor of Software Engineering — HADAF University of Mazandaran (2015)",
+    "since": "Building web UIs since 2018"
+  },
+  "skills": {
+    "title": "Skills",
+    "learningLabel": "Building with"
+  },
+  "projects": {
+    "title": "Projects",
+    "featured": "Featured work",
+    "all": "All projects",
+    "viewCaseStudy": "Case study",
+    "visitSite": "Visit site",
+    "stack": "Stack",
+    "problem": "Context",
+    "role": "My role",
+    "outcome": "Outcome",
+    "back": "Back to projects"
+  },
+  "experience": {
+    "title": "Experience"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Notes from real projects — React, Next.js, WebSocket, and state management.",
+    "readMore": "Read article",
+    "readingTime": "{minutes} min read",
+    "back": "Back to blog",
+    "tags": "Tags"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Open to senior front-end and full-stack opportunities — Iran and remote.",
+    "email": "Email",
+    "phone": "Phone",
+    "telegram": "Telegram",
+    "linkedin": "LinkedIn",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formMessage": "Message",
+    "formSubmit": "Send message",
+    "formSending": "Sending…",
+    "formSuccess": "Opening your email client… If nothing happens, email me directly.",
+    "formError": "Please fill in all fields correctly.",
+    "mailtoFallback": "Or email directly"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js"
+  },
+  "theme": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
+  },
+  "locale": {
+    "switchToEn": "English",
+    "switchToFa": "فارسی",
+    "label": "Language"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "mainNav": "Main navigation",
+    "externalLink": "(opens in new tab)"
+  },
+  "metadata": {
+    "home": {
+      "title": "Hossein Khalili — React & Next.js Developer",
+      "description": "Senior front-end developer specializing in React, Next.js, and TypeScript. Crypto exchanges, e-commerce, real-time WebSocket apps — expanding into NestJS."
+    },
+    "about": {
+      "title": "About — Hossein Khalili",
+      "description": "Front-end developer since 2018. React, Next.js, WebSocket, Redux, Zustand — clean code and real project experience."
+    },
+    "projects": {
+      "title": "Projects — Hossein Khalili",
+      "description": "Case studies: arz.me, xpay.co, ariascale.ir, multi-panel e-commerce, AI chatbots, and PWAs."
+    },
+    "experience": {
+      "title": "Experience — Hossein Khalili",
+      "description": "Front-end architecture for crypto exchanges, AI products, and e-commerce platforms."
+    },
+    "blog": {
+      "title": "Blog — Hossein Khalili",
+      "description": "Technical articles on React, Next.js, WebSocket, and state management from production projects."
+    },
+    "contact": {
+      "title": "Contact — Hossein Khalili",
+      "description": "Get in touch for senior front-end and full-stack roles. Email, Telegram, LinkedIn."
+    }
+  },
+  "home": {
+    "experienceTeaser": "Experience",
+    "blogTeaser": "Latest writing",
+    "viewAll": "View all"
+  }
+}

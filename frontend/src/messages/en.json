@@ -3,8 +3,10 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
+    "skills": "Skills",
     "experience": "Experience",
     "blog": "Blog",
+    "resume": "Resume",
     "contact": "Contact",
     "menu": "Open menu",
     "closeMenu": "Close menu"
@@ -21,7 +23,8 @@
   },
   "about": {
     "title": "About",
-    "summary1": "I've been building front-ends since 2018, mostly with React and Next.js — from crypto exchanges and multi-panel e-commerce to AI chatbots and offline PWAs.",
+    "pageTitle": "About Hossein Khalili",
+    "summary1": "I'm Hossein Khalili, a front-end developer since 2018 — mostly with React and Next.js, from crypto exchanges and multi-panel e-commerce to AI chatbots and offline PWAs.",
     "summary2": "I work well in teams and independently. I prefer simple, maintainable code over buzzwords. On LinkedIn, colleagues and managers have left six recommendations.",
     "summary3": "I'm comfortable with WebSocket, REST APIs, and state libraries like Redux and Zustand. I'm actively learning NestJS to grow into full-stack work — honestly, with real projects, not inflated titles.",
     "education": "Bachelor of Software Engineering — HADAF University of Mazandaran (2015)",
@@ -29,10 +32,13 @@
   },
   "skills": {
     "title": "Skills",
+    "pageTitle": "Skills — Hossein Khalili",
+    "intro": "Core strengths and tools I use on production projects — React, Next.js, real-time WebSocket apps, and honest full-stack learning with NestJS.",
     "learningLabel": "Building with"
   },
   "projects": {
     "title": "Projects",
+    "pageTitle": "Projects by Hossein Khalili",
     "featured": "Featured work",
     "all": "All projects",
     "viewCaseStudy": "Case study",
@@ -44,10 +50,13 @@
     "back": "Back to projects"
   },
   "experience": {
-    "title": "Experience"
+    "title": "Experience",
+    "pageTitle": "Experience — Hossein Khalili"
   },
   "blog": {
     "title": "Blog",
+    "pageTitle": "Blog — Hossein Khalili",
+    "byline": "By Hossein Khalili",
     "subtitle": "Notes from real projects — React, Next.js, WebSocket, and state management.",
     "readMore": "Read article",
     "readingTime": "{minutes} min read",
@@ -56,6 +65,7 @@
   },
   "contact": {
     "title": "Contact",
+    "pageTitle": "Contact Hossein Khalili",
     "subtitle": "Open to senior front-end and full-stack opportunities — Iran and remote.",
     "email": "Email",
     "phone": "Phone",
@@ -69,6 +79,15 @@
     "formSuccess": "Opening your email client… If nothing happens, email me directly.",
     "formError": "Please fill in all fields correctly.",
     "mailtoFallback": "Or email directly"
+  },
+  "resume": {
+    "pageTitle": "Resume — Hossein Khalili",
+    "intro": "On-page summary and downloadable PDF — Hossein Khalili, front-end developer since 2018.",
+    "download": "Download PDF",
+    "downloadNote": "Replace the placeholder PDF in public/resume/ with your latest resume.",
+    "skillsHeading": "Skills",
+    "experienceHeading": "Experience",
+    "educationHeading": "Education"
   },
   "footer": {
     "rights": "All rights reserved.",
@@ -112,6 +131,14 @@
     "contact": {
       "title": "Contact — Hossein Khalili",
       "description": "Get in touch for senior front-end and full-stack roles. Email, Telegram, LinkedIn."
+    },
+    "skills": {
+      "title": "Skills — Hossein Khalili",
+      "description": "React, Next.js, TypeScript, WebSocket, Redux, Zustand, Tailwind — and NestJS in progress."
+    },
+    "resume": {
+      "title": "Resume — Hossein Khalili",
+      "description": "Front-end developer resume — React, Next.js, crypto exchanges, e-commerce, and real-time apps since 2018."
     }
   },
   "home": {

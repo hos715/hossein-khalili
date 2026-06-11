@@ -4,7 +4,25 @@ import { projects } from "@/content/data/projects";
 import { routing } from "@/i18n/routing";
 import { getSiteUrl } from "@/lib/utils";
 
-const staticPaths = ["", "/about", "/projects", "/experience", "/blog", "/contact"];
+const staticPaths = [
+  "",
+  "/about",
+  "/projects",
+  "/skills",
+  "/experience",
+  "/blog",
+  "/resume",
+  "/contact",
+];
+
+function localeAlternates(path: string) {
+  const base = getSiteUrl();
+  return {
+    languages: Object.fromEntries(
+      routing.locales.map((l) => [l, `${base}/${l}${path}`]),
+    ),
+  };
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -16,12 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${base}/${locale}${path}`,
         lastModified: new Date(),
         changeFrequency: path === "" ? "weekly" : "monthly",
-        priority: path === "" ? 1 : 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            routing.locales.map((l) => [l, `${base}/${l}${path}`]),
-          ),
-        },
+        priority: path === "" ? 1 : path === "/resume" ? 0.85 : 0.8,
+        alternates: localeAlternates(path),
       });
     }
 
@@ -31,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: project.featured ? 0.9 : 0.7,
+        alternates: localeAlternates(`/projects/${project.slug}`),
       });
     }
 
@@ -40,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(post.updatedAt),
         changeFrequency: "monthly",
         priority: 0.75,
+        alternates: localeAlternates(`/blog/${post.slug}`),
       });
     }
   }

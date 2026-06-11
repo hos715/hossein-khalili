@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ProjectsGrid } from "@/components/sections/project-card";
-import { SectionHeading } from "@/components/sections/section-heading";
-import { projects } from "@/content/data/projects";
+import { SkillsSection } from "@/components/sections/skills-section";
 import { buildPageMetadata } from "@/lib/metadata";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -18,28 +16,22 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata.projects" });
+  const t = await getTranslations({ locale, namespace: "metadata.skills" });
   return buildPageMetadata({
     locale: locale as Locale,
     title: t("title"),
     description: t("description"),
-    path: "/projects",
+    path: "/skills",
   });
 }
 
-export default async function ProjectsPage({
+export default async function SkillsPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "projects" });
 
-  return (
-    <section className="py-16 md:py-24">
-      <SectionHeading title={t("pageTitle")} subtitle={t("all")} as="h1" />
-      <ProjectsGrid items={projects} locale={locale as Locale} />
-    </section>
-  );
+  return <SkillsSection locale={locale as Locale} standalone />;
 }

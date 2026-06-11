@@ -3,12 +3,21 @@ import { experience } from "@/content/data/experience";
 import { SectionHeading } from "@/components/sections/section-heading";
 import type { Locale } from "@/i18n/routing";
 
-export async function ExperienceSection({ locale }: { locale: Locale }) {
+export async function ExperienceSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const t = await getTranslations({ locale, namespace: "experience" });
 
   return (
     <section className="py-16 md:py-20">
-      <SectionHeading title={t("title")} />
+      <SectionHeading
+        title={standalone ? t("pageTitle") : t("title")}
+        as={standalone ? "h1" : "h2"}
+      />
       <ol className="relative border-s border-border ps-6">
         {experience.map((entry) => (
           <li key={entry.id} className="mb-10 last:mb-0">

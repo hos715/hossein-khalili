@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { Inter, Vazirmatn } from "next/font/google";
+import { getSiteUrl } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -6,7 +8,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ThemeProvider } from "@/components/layout/theme-provider";
-import { PersonJsonLd } from "@/components/seo/json-ld";
+import { PersonJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
 import "../globals.css";
 
 const inter = Inter({
@@ -22,6 +24,10 @@ const vazirmatn = Vazirmatn({
   variable: "--font-sans-fa",
   weight: ["400", "600"],
 });
+
+export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -75,11 +81,12 @@ export default async function LocaleLayout({
               {t("skipToContent")}
             </a>
             <PersonJsonLd locale={locale as Locale} />
-            <Header />
+            <WebSiteJsonLd />
+            <Header locale={locale as Locale} />
             <main id="main-content" className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6">
               {children}
             </main>
-            <Footer />
+            <Footer locale={locale as Locale} />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

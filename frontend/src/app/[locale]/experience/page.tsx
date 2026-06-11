@@ -33,5 +33,5 @@ export default async function ExperiencePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <ExperienceSection locale={locale as Locale} />;
+  return <ExperienceSection locale={locale as Locale} standalone />;
 }

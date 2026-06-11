@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { MarkdownContent } from "@/components/blog/markdown-content";
-import { BlogPostingJsonLd } from "@/components/seo/json-ld";
+import { BlogPostingJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { blogPosts, getBlogPost } from "@/content/data/blog-posts";
+import { buildDetailTitle } from "@/content/data/profile";
 import { buildPageMetadata } from "@/lib/metadata";
 import { readingTime } from "@/lib/utils";
 import { routing, type Locale } from "@/i18n/routing";
@@ -30,9 +31,12 @@ export async function generateMetadata({
   if (!post) return {};
   return buildPageMetadata({
     locale: locale as Locale,
-    title: `${post.title} — Hossein Khalili`,
+    title: buildDetailTitle(locale as Locale, post.title),
     description: post.description,
     path: `/blog/${slug}`,
+    openGraphType: "article",
+    publishedTime: post.publishedAt,
+    modifiedTime: post.updatedAt,
   });
 }
 
@@ -47,9 +51,18 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const t = await getTranslations({ locale, namespace: "blog" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
 
   return (
     <article className="py-16 md:py-24">
+      <BreadcrumbJsonLd
+        locale={locale as Locale}
+        items={[
+          { name: nav("home"), path: "" },
+          { name: t("title"), path: "/blog" },
+          { name: post.title, path: `/blog/${slug}` },
+        ]}
+      />
       <BlogPostingJsonLd
         locale={locale as Locale}
         title={post.title}
@@ -75,7 +88,7 @@ export default async function BlogPostPage({
           ))}
         </div>
         <p className="mt-2 text-sm text-muted-foreground">
-          {t("readingTime", { minutes: readingTime(post.content) })}
+          {t("byline")} · {t("readingTime", { minutes: readingTime(post.content) })}
         </p>
       </header>
       <div className="mt-10">

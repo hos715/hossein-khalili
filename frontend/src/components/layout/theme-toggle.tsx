@@ -1,14 +1,38 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 
+let clientMounted = false;
+
+function subscribeToClientMounted(onStoreChange: () => void) {
+  queueMicrotask(() => {
+    clientMounted = true;
+    onStoreChange();
+  });
+  return () => {};
+}
+
+function useClientMounted() {
+  return useSyncExternalStore(
+    subscribeToClientMounted,
+    () => clientMounted,
+    () => false
+  );
+}
+
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const t = useTranslations("theme");
-  const isDark = (theme === "system" ? resolvedTheme : theme) === "dark";
+  const mounted = useClientMounted();
+
+  // Defer theme-dependent aria-label until after hydration (defaultTheme="light").
+  // The inline theme script may apply .dark from localStorage before React hydrates.
+  const isDark =
+    mounted && (theme === "system" ? resolvedTheme : theme) === "dark";
 
   return (
     <Button

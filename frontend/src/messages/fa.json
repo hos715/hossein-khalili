@@ -3,8 +3,10 @@
     "home": "خانه",
     "about": "درباره",
     "projects": "پروژه‌ها",
+    "skills": "مهارت‌ها",
     "experience": "سوابق",
     "blog": "وبلاگ",
+    "resume": "رزومه",
     "contact": "تماس",
     "menu": "باز کردن منو",
     "closeMenu": "بستن منو"
@@ -21,7 +23,8 @@
   },
   "about": {
     "title": "درباره",
-    "summary1": "از ۲۰۱۸ در فرانت‌اند کار می‌کنم — عمدتاً React و Next.js: از صرافی و فروشگاه چندپنلی تا چت‌بات AI و PWA آفلاین.",
+    "pageTitle": "درباره حسین خلیلی",
+    "summary1": "من حسین خلیلی هستم، توسعه‌دهنده فرانت‌اند از ۲۰۱۸ — عمدتاً React و Next.js: از صرافی و فروشگاه چندپنلی تا چت‌بات AI و PWA آفلاین.",
     "summary2": "هم در تیم و هم مستقل کار کرده‌ام. کد ساده و قابل نگهداری را به buzzword ترجیح می‌دهم. در LinkedIn شش توصیه از همکاران و مدیران قبلی دارم.",
     "summary3": "با WebSocket، REST API و Redux و Zustand راحت هستم. در حال یادگیری NestJS برای رشد به فول‌استک — با پروژه واقعی، نه عنوان inflated.",
     "education": "کارشناسی مهندسی نرم‌افزار — دانشگاه هدف مازندران (۲۰۱۵)",
@@ -29,10 +32,13 @@
   },
   "skills": {
     "title": "مهارت‌ها",
+    "pageTitle": "مهارت‌ها — حسین خلیلی",
+    "intro": "مهارت‌های اصلی و ابزارهایی که در پروژه‌های production استفاده می‌کنم — React، Next.js، WebSocket و یادگیری فول‌استک با NestJS.",
     "learningLabel": "در حال یادگیری"
   },
   "projects": {
     "title": "پروژه‌ها",
+    "pageTitle": "پروژه‌های حسین خلیلی",
     "featured": "کارهای برجسته",
     "all": "همه پروژه‌ها",
     "viewCaseStudy": "مطالعه مورد",
@@ -44,10 +50,13 @@
     "back": "بازگشت به پروژه‌ها"
   },
   "experience": {
-    "title": "سوابق"
+    "title": "سوابق",
+    "pageTitle": "سوابق — حسین خلیلی"
   },
   "blog": {
     "title": "وبلاگ",
+    "pageTitle": "وبلاگ — حسین خلیلی",
+    "byline": "نوشته حسین خلیلی",
     "subtitle": "یادداشت از پروژه‌های واقعی — React، Next.js، WebSocket و state management.",
     "readMore": "مطالعه مقاله",
     "readingTime": "{minutes} دقیقه مطالعه",
@@ -56,6 +65,7 @@
   },
   "contact": {
     "title": "تماس",
+    "pageTitle": "تماس با حسین خلیلی",
     "subtitle": "آماده فرصت‌های Senior Front-End و Full-Stack — ایران و ریموت.",
     "email": "ایمیل",
     "phone": "تلفن",
@@ -69,6 +79,15 @@
     "formSuccess": "در حال باز کردن ایمیل… اگر باز نشد، مستقیم ایمیل بزنید.",
     "formError": "لطفاً همه فیلدها را درست پر کنید.",
     "mailtoFallback": "یا مستقیم ایمیل بزنید"
+  },
+  "resume": {
+    "pageTitle": "رزومه — حسین خلیلی",
+    "intro": "خلاصه رزومه و دانلود PDF — حسین خلیلی، توسعه‌دهنده فرانت‌اند از ۲۰۱۸.",
+    "download": "دانلود PDF",
+    "downloadNote": "فایل placeholder را در public/resume/ با رزومه نهایی جایگزین کنید.",
+    "skillsHeading": "مهارت‌ها",
+    "experienceHeading": "سوابق",
+    "educationHeading": "تحصیلات"
   },
   "footer": {
     "rights": "تمامی حقوق محفوظ است.",
@@ -112,6 +131,14 @@
     "contact": {
       "title": "تماس — حسین خلیلی",
       "description": "تماس برای فرصت‌های Senior Front-End و Full-Stack."
+    },
+    "skills": {
+      "title": "مهارت‌ها — حسین خلیلی",
+      "description": "React، Next.js، TypeScript، WebSocket، Redux، Zustand، Tailwind — و NestJS در مسیر یادگیری."
+    },
+    "resume": {
+      "title": "رزومه — حسین خلیلی",
+      "description": "رزومه توسعه‌دهنده فرانت‌اند — React، Next.js، صرافی، e-commerce و اپ real-time از ۲۰۱۸."
     }
   },
   "home": {

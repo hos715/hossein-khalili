@@ -79,7 +79,7 @@ export default async function ContactPage({
 
   return (
     <section className="py-16 md:py-24">
-      <SectionHeading title={t("title")} subtitle={t("subtitle")} />
+      <SectionHeading title={t("pageTitle")} subtitle={t("subtitle")} as="h1" />
       <div className="grid gap-12 lg:grid-cols-2">
         <ul className="space-y-4">
           {links.map(({ icon: Icon, label, href, text, external, ltr }) => (

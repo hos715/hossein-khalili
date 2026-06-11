@@ -29,6 +29,9 @@ export async function HeroSection({ locale }: { locale: Locale }) {
           <Button asChild variant="outline" size="lg">
             <Link href="/projects">{t("ctaProjects")}</Link>
           </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link href="/resume">{t("ctaResume")}</Link>
+          </Button>
           <Button asChild variant="ghost" size="lg">
             <a
               href={social.linkedin}

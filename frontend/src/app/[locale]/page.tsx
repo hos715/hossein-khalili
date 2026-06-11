@@ -7,6 +7,7 @@ import { ExperienceTeaser } from "@/components/sections/experience-teaser";
 import { BlogTeaser } from "@/components/sections/blog-teaser";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { getFeaturedProjects } from "@/content/data/projects";
+import { ProfilePageJsonLd } from "@/components/seo/json-ld";
 import { buildPageMetadata } from "@/lib/metadata";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -43,6 +44,7 @@ export default async function HomePage({
 
   return (
     <>
+      <ProfilePageJsonLd locale={locale as Locale} />
       <HeroSection locale={locale as Locale} />
       <SkillsSection locale={locale as Locale} />
       <section className="py-16 md:py-20">

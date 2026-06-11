@@ -11,8 +11,10 @@ const links = [
   { href: "/", key: "home" },
   { href: "/about", key: "about" },
   { href: "/projects", key: "projects" },
+  { href: "/skills", key: "skills" },
   { href: "/experience", key: "experience" },
   { href: "/blog", key: "blog" },
+  { href: "/resume", key: "resume" },
   { href: "/contact", key: "contact" },
 ] as const;
 
@@ -22,7 +24,7 @@ export function MobileNav() {
   const a11y = useTranslations("a11y");
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <Button
         type="button"
         variant="ghost"

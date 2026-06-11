@@ -47,7 +47,7 @@ export default async function BlogPage({
 
   return (
     <section className="py-16 md:py-24">
-      <SectionHeading title={t("title")} subtitle={t("subtitle")} />
+      <SectionHeading title={t("pageTitle")} subtitle={t("subtitle")} as="h1" />
       <div className="grid gap-6">
         {posts.map((post) => (
           <Card key={post.slug} className="transition-colors hover:border-accent/40">

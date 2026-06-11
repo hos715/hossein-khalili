@@ -53,8 +53,12 @@ npm run start    # serve production build
 - All marketing pages are **SSG** (`force-static`)
 - Contact form lazy-loaded on `/contact` only
 - Lighthouse gates: Performance ≥ 90, SEO ≥ 95 (mobile)
+- `sitemap.xml`, `robots.txt`, JSON-LD (`Person`, `WebSite`, `ProfilePage`, `BlogPosting`, `BreadcrumbList`)
+- Dedicated `/skills` and `/resume` routes for discoverability
 
 See `.cursor/rules/seo.mdc` and `performance.mdc` for details.
+
+**After deploy:** set `NEXT_PUBLIC_SITE_URL` on Vercel and follow [docs/SEO-DEPLOY.md](./docs/SEO-DEPLOY.md) (Google Search Console, LinkedIn links).
 
 ## Cursor
 

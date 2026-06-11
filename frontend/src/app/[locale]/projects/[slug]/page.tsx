@@ -4,7 +4,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getProject, projects } from "@/content/data/projects";
+import { buildDetailTitle } from "@/content/data/profile";
 import { buildPageMetadata } from "@/lib/metadata";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -26,7 +28,7 @@ export async function generateMetadata({
   if (!project) return {};
   return buildPageMetadata({
     locale: locale as Locale,
-    title: `${project.title[locale as Locale]} — Hossein Khalili`,
+    title: buildDetailTitle(locale as Locale, project.title[locale as Locale]),
     description: project.summary[locale as Locale],
     path: `/projects/${slug}`,
   });
@@ -43,10 +45,19 @@ export default async function ProjectDetailPage({
   if (!project) notFound();
 
   const t = await getTranslations({ locale, namespace: "projects" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
   const loc = locale as Locale;
 
   return (
     <article className="py-16 md:py-24">
+      <BreadcrumbJsonLd
+        locale={loc}
+        items={[
+          { name: nav("home"), path: "" },
+          { name: t("title"), path: "/projects" },
+          { name: project.title[loc], path: `/projects/${slug}` },
+        ]}
+      />
       <Link
         href="/projects"
         className="mb-8 inline-block text-sm text-accent hover:underline"

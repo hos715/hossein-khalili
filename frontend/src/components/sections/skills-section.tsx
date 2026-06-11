@@ -4,12 +4,22 @@ import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/sections/section-heading";
 import type { Locale } from "@/i18n/routing";
 
-export async function SkillsSection({ locale }: { locale: Locale }) {
+export async function SkillsSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const t = await getTranslations({ locale, namespace: "skills" });
 
   return (
     <section className="py-16 md:py-20">
-      <SectionHeading title={t("title")} />
+      <SectionHeading
+        title={standalone ? t("pageTitle") : t("title")}
+        subtitle={standalone ? t("intro") : undefined}
+        as={standalone ? "h1" : "h2"}
+      />
       <div className="grid gap-6 md:grid-cols-2">
         {skillGroups.map((group) => (
           <div

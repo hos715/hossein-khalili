@@ -7,6 +7,9 @@ type PageMetadataOptions = {
   title: string;
   description: string;
   path: string;
+  openGraphType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
 };
 
 export function buildPageMetadata({
@@ -14,20 +17,39 @@ export function buildPageMetadata({
   title,
   description,
   path,
+  openGraphType = "website",
+  publishedTime,
+  modifiedTime,
 }: PageMetadataOptions): Metadata {
   const base = getSiteUrl();
   const url = `${base}/${locale}${path}`;
+  const ogImage = `${base}/opengraph-image`;
+
+  const openGraph: Metadata["openGraph"] = {
+    title,
+    description,
+    url,
+    type: openGraphType,
+    locale: locale === "fa" ? "fa_IR" : "en_US",
+    images: [{ url: ogImage, width: 1200, height: 630 }],
+    ...(openGraphType === "article" && publishedTime
+      ? {
+          publishedTime,
+          ...(modifiedTime ? { modifiedTime } : {}),
+        }
+      : {}),
+  };
 
   return {
     title,
     description,
-    openGraph: {
+    robots: { index: true, follow: true },
+    openGraph,
+    twitter: {
+      card: "summary_large_image",
       title,
       description,
-      url,
-      type: "website",
-      locale: locale === "fa" ? "fa_IR" : "en_US",
-      images: [{ url: `${base}/og-image.png`, width: 1200, height: 630 }],
+      images: [ogImage],
     },
     alternates: {
       canonical: url,

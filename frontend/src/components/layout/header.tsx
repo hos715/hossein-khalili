@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { MoodSwitcher } from "@/components/layout/mood-switcher";
 import { getProfileName } from "@/content/data/profile";
 import type { Locale } from "@/i18n/routing";
 
@@ -26,7 +27,7 @@ export async function Header({ locale }: { locale: Locale }) {
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
-          className="max-w-[10rem] truncate text-sm font-semibold tracking-tight hover:text-accent sm:max-w-none"
+          className="max-w-[10rem] cursor-pointer truncate text-sm font-semibold tracking-tight hover:text-accent sm:max-w-none"
           aria-label={name}
         >
           {name}
@@ -39,7 +40,7 @@ export async function Header({ locale }: { locale: Locale }) {
             <Link
               key={key}
               href={href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="cursor-pointer text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {t(key)}
             </Link>
@@ -47,6 +48,7 @@ export async function Header({ locale }: { locale: Locale }) {
         </nav>
         <div className="flex items-center gap-1 sm:gap-2">
           <LocaleSwitcher className="hidden sm:inline-flex" />
+          <MoodSwitcher />
           <ThemeToggle />
           <MobileNav />
         </div>

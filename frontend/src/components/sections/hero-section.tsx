@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { social } from "@/content/data/social";
 import type { Locale } from "@/i18n/routing";
+import { HeroMoodEyebrow } from "@/components/sections/hero-mood-eyebrow";
 
 export async function HeroSection({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "hero" });
@@ -11,8 +12,8 @@ export async function HeroSection({ locale }: { locale: Locale }) {
   return (
     <section className="py-16 md:py-24">
       <div className="max-w-3xl">
-        <p className="mb-3 text-sm font-medium text-accent">{t("eyebrow")}</p>
-        <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+        <HeroMoodEyebrow />
+        <h1 className="hero-title text-balance text-4xl font-semibold tracking-tight md:text-5xl">
           {t("name")}
         </h1>
         <p className="mt-4 text-xl text-foreground md:text-2xl">{t("title")}</p>

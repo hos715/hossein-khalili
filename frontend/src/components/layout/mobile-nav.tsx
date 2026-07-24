@@ -48,7 +48,7 @@ export function MobileNav() {
                 key={key}
                 href={href}
                 className={cn(
-                  "rounded-md px-3 py-3 text-base font-medium hover:bg-foreground/5",
+                  "cursor-pointer rounded-md px-3 py-3 text-base font-medium hover:bg-foreground/5",
                 )}
                 onClick={() => setOpen(false)}
               >

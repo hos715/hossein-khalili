@@ -28,7 +28,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
           type="button"
           onClick={() => switchLocale(loc)}
           className={cn(
-            "rounded px-2 py-1 transition-colors",
+            "cursor-pointer rounded px-2 py-1 transition-colors",
             loc === locale
               ? "bg-foreground text-background"
               : "text-muted-foreground hover:text-foreground",

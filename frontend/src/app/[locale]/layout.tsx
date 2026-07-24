@@ -8,7 +8,10 @@ import { routing, type Locale } from "@/i18n/routing";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ThemeProvider } from "@/components/layout/theme-provider";
+import { MoodProvider } from "@/components/layout/mood-provider";
+import { ThemeMoodScript } from "@/components/layout/theme-mood-script";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
+import { DEFAULT_MOOD } from "@/lib/mood";
 import "../globals.css";
 
 const inter = Inter({
@@ -55,6 +58,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={isFa ? "rtl" : "ltr"}
       suppressHydrationWarning
+      data-mood={DEFAULT_MOOD}
       className={`h-full ${inter.variable} ${vazirmatn.variable}`}
       style={
         {
@@ -64,16 +68,11 @@ export default async function LocaleLayout({
         } as React.CSSProperties
       }
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})();`,
-          }}
-        />
-      </head>
       <body className="flex min-h-full flex-col">
+        <ThemeMoodScript />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
+            <MoodProvider>
             <a
               href="#main-content"
               className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-accent-foreground"
@@ -83,10 +82,11 @@ export default async function LocaleLayout({
             <PersonJsonLd locale={locale as Locale} />
             <WebSiteJsonLd />
             <Header locale={locale as Locale} />
-            <main id="main-content" className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6">
+            <main id="main-content" className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6">
               {children}
             </main>
             <Footer locale={locale as Locale} />
+            </MoodProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

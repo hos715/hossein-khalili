@@ -97,6 +97,45 @@
     "light": "Switch to light mode",
     "dark": "Switch to dark mode"
   },
+  "mood": {
+    "title": "What vibe do you prefer?",
+    "subtitle": "Choose a mood for the site. You can change it anytime from the header.",
+    "skip": "Skip — keep professional",
+    "close": "Close",
+    "changeMood": "Change site mood",
+    "options": {
+      "professional": {
+        "label": "Professional",
+        "description": "Clean and recruiter-friendly — the default."
+      },
+      "classic": {
+        "label": "Classic",
+        "description": "Warm tones, serif feel, understated elegance."
+      },
+      "energy": {
+        "label": "High energy",
+        "description": "Bold neon accents and a dynamic grid."
+      },
+      "fantasy": {
+        "label": "Fantasy",
+        "description": "Purple and gold glow with subtle particles."
+      }
+    },
+    "hero": {
+      "professional": {
+        "eyebrow": "Front-End · since 2018"
+      },
+      "classic": {
+        "eyebrow": "Est. 2018 · Software craftsmanship"
+      },
+      "energy": {
+        "eyebrow": "BUILD · SHIP · ITERATE"
+      },
+      "fantasy": {
+        "eyebrow": "✦ Front-End realm ✦"
+      }
+    }
+  },
   "locale": {
     "switchToEn": "English",
     "switchToFa": "فارسی",

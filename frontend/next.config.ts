@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   experimental: {
     externalDir: true,
   },
+  allowedDevOrigins: ['172.17.32.1'],
 };
 
 export default withNextIntl(nextConfig);

@@ -97,6 +97,45 @@
     "light": "حالت روشن",
     "dark": "حالت تیره"
   },
+  "mood": {
+    "title": "چه حال‌وهوایی را ترجیح می‌دهید؟",
+    "subtitle": "حالت نمایش سایت را انتخاب کنید. هر وقت بخواهید از هدر عوضش کنید.",
+    "skip": "رد کردن — همان حرفه‌ای",
+    "close": "بستن",
+    "changeMood": "تغییر حال‌وهوای سایت",
+    "options": {
+      "professional": {
+        "label": "حرفه‌ای",
+        "description": "تمیز و مناسب recruiter — پیش‌فرض سایت."
+      },
+      "classic": {
+        "label": "کلاسیک",
+        "description": "رنگ‌های گرم، حس باوقار و کلاسیک."
+      },
+      "energy": {
+        "label": "پرانرژی",
+        "description": "نئون جسور و گرید پس‌زمینهٔ پویا."
+      },
+      "fantasy": {
+        "label": "فانتزی",
+        "description": "بنفش و طلایی با ذرات ملایم."
+      }
+    },
+    "hero": {
+      "professional": {
+        "eyebrow": "Front-End · از ۲۰۱۸"
+      },
+      "classic": {
+        "eyebrow": "از ۲۰۱۸ · صنعت نرم‌افزار"
+      },
+      "energy": {
+        "eyebrow": "بساز · منتشر کن · تکرار کن"
+      },
+      "fantasy": {
+        "eyebrow": "✦ قلمرو فرانت‌اند ✦"
+      }
+    }
+  },
   "locale": {
     "switchToEn": "English",
     "switchToFa": "فارسی",

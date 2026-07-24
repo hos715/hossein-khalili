@@ -17,7 +17,7 @@ Bilingual (EN/FA) portfolio built with **Next.js 16**, **TypeScript**, **Tailwin
 
 ```bash
 cd frontend
-cp .env.example .env.local
+cp ../.env.example .env.local
 npm install
 npm run dev
 ```
@@ -26,9 +26,13 @@ Open [http://localhost:3000/en](http://localhost:3000/en) or [http://localhost:3
 
 ## Environment
 
+Copy from the repo-root [`.env.example`](./.env.example). Optional / future vars are commented there until wired.
+
 | Variable | Description |
 |----------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for SEO (update when domain is chosen) |
+| `CONTACT_API_URL` | Optional — Nest contact API base URL (uncomment when wired) |
+| `RESEND_API_KEY` / `CONTACT_TO_EMAIL` / `EMAIL_FROM` | Backend only — never use `NEXT_PUBLIC_` |
 
 ## Project structure
 

@@ -8,7 +8,7 @@
 
 ```bash
 cd frontend
-cp .env.example .env.local
+cp ../.env.example .env.local
 npm install
 npm run dev
 ```
@@ -17,9 +17,13 @@ npm run dev
 
 ## متغیر محیطی
 
+از [`.env.example`](./.env.example) در ریشهٔ مخزن کپی کنید. متغیرهای اختیاری / آینده آنجا به‌صورت کامنت هستند تا زمانی که وصل شوند.
+
 | متغیر | توضیح |
 |--------|--------|
 | `NEXT_PUBLIC_SITE_URL` | URL اصلی برای SEO (بعد از انتخاب دامنه) |
+| `CONTACT_API_URL` | اختیاری — آدرس API تماس Nest (وقتی وصل شد uncomment کنید) |
+| `RESEND_API_KEY` / `CONTACT_TO_EMAIL` / `EMAIL_FROM` | فقط backend — هرگز با `NEXT_PUBLIC_` نگذارید |
 
 ## ساختار
 

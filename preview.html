@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theme Preview — Hossein Khalili Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Base reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+      transition: background 0.8s ease, color 0.6s ease;
+    }
+
+    /* ─── Theme switcher bar ─── */
+    .theme-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border, rgba(255,255,255,0.1));
+      background: var(--bar-bg, rgba(0,0,0,0.6));
+    }
+    .theme-bar span.label {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-left: 0.5rem;
+    }
+    .theme-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border, rgba(255,255,255,0.2));
+      background: transparent;
+      color: inherit;
+      font-family: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+    }
+    .theme-btn:hover { transform: translateY(-2px); }
+    .theme-btn.active {
+      background: var(--accent);
+      color: var(--accent-fg, #fff);
+      border-color: transparent;
+      box-shadow: 0 0 20px var(--accent-glow, transparent);
+    }
+
+    /* ─── Layout ─── */
+    .page { padding-top: 4.5rem; }
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem 4rem;
+      overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .hero-content { position: relative; z-index: 2; max-width: 52rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      opacity: 0.85;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--btn-radius, 0.5rem);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-fg, #fff);
+      box-shadow: 0 4px 24px var(--accent-glow, transparent);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: inherit;
+      border: 1px solid var(--border);
+    }
+
+    /* ─── Cards section ─── */
+    .section {
+      padding: 4rem 1.5rem;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .section > p.desc {
+      text-align: center;
+      opacity: 0.75;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      padding: 1.5rem;
+      border-radius: var(--card-radius, 0.75rem);
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow, none); }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.875rem; opacity: 0.8; line-height: 1.55; }
+    .card .tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: var(--tag-bg, rgba(255,255,255,0.1));
+    }
+
+  /* ═══════════════════════════════════════
+     THEME: PROFESSIONAL (current site)
+     ═══════════════════════════════════════ */
+    body[data-theme="professional"] {
+      --bg: #fafafa;
+      --fg: #18181b;
+      --muted: #71717a;
+      --border: #e4e4e7;
+      --accent: #2563eb;
+      --accent-fg: #fff;
+      --accent-glow: rgba(37, 99, 235, 0.35);
+      --card: #ffffff;
+      --bar-bg: rgba(255,255,255,0.85);
+      --btn-radius: 0.5rem;
+      --card-radius: 0.75rem;
+      --card-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --tag-bg: #f4f4f5;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', 'Vazirmatn', sans-serif;
+    }
+
+  /* ═══════════════════════════════════════
+     THEME: FANTASY — جادویی و خیره‌کننده
+     ═══════════════════════════════════════ */
+    body[data-theme="fantasy"] {
+      --bg: #0a0612;
+      --fg: #f3e8ff;
+      --muted: #c4b5fd;
+      --border: rgba(167, 139, 250, 0.35);
+      --accent: linear-gradient(135deg, #fbbf24, #a855f7, #6366f1);
+      --accent-solid: #a855f7;
+      --accent-fg: #1e0a2e;
+      --accent-glow: rgba(168, 85, 247, 0.6);
+      --card: rgba(30, 10, 46, 0.75);
+      --bar-bg: rgba(10, 6, 18, 0.85);
+      --btn-radius: 999px;
+      --card-radius: 1.25rem;
+      --card-shadow: 0 0 40px rgba(168, 85, 247, 0.25), inset 0 1px 0 rgba(255,255,255,0.08);
+      --tag-bg: rgba(251, 191, 36, 0.15);
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Cinzel', 'Vazirmatn', serif;
+    }
+    body[data-theme="fantasy"] .btn-primary {
+      background: linear-gradient(135deg, #fbbf24, #a855f7);
+      color: #1e0a2e;
+    }
+    body[data-theme="fantasy"] h1 {
+      background: linear-gradient(135deg, #fde68a 0%, #e9d5ff 40%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fantasy-shimmer 4s ease-in-out infinite;
+    }
+    @keyframes fantasy-shimmer {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.25); }
+    }
+    body[data-theme="fantasy"] .card {
+      backdrop-filter: blur(12px);
+      animation: fantasy-float 6s ease-in-out infinite;
+    }
+    body[data-theme="fantasy"] .card:nth-child(2) { animation-delay: -2s; }
+    body[data-theme="fantasy"] .card:nth-child(3) { animation-delay: -4s; }
+    @keyframes fantasy-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    /* Fantasy particles canvas */
+    #fantasy-canvas { display: none; }
+    body[data-theme="fantasy"] #fantasy-canvas { display: block; }
+    /* Floating orbs */
+    .fantasy-orbs { display: none; }
+    body[data-theme="fantasy"] .fantasy-orbs { display: block; }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.5;
+      animation: orb-drift 12s ease-in-out infinite;
+    }
+    .orb-1 { width: 300px; height: 300px; background: #7c3aed; top: 10%; left: 5%; }
+    .orb-2 { width: 250px; height: 250px; background: #f59e0b; top: 50%; right: 10%; animation-delay: -4s; }
+    .orb-3 { width: 200px; height: 200px; background: #6366f1; bottom: 15%; left: 30%; animation-delay: -8s; }
+    @keyframes orb-drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.1); }
+      66% { transform: translate(-20px, 15px) scale(0.95); }
+    }
+    /* Magic sparkles on hover */
+    body[data-theme="fantasy"] .btn-primary:hover {
+      box-shadow: 0 0 40px rgba(251, 191, 36, 0.5), 0 0 80px rgba(168, 85, 247, 0.3);
+    }
+    body[data-theme="fantasy"] .badge {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(168, 85, 247, 0.3); }
+      50% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.4); }
+    }
+
+  /* ═══════════════════════════════════════
+     THEME: CLASSIC — کلاسیک و باوقار
+     ═══════════════════════════════════════ */
+    body[data-theme="classic"] {
+      --bg: #f5f0e8;
+      --fg: #2c2416;
+      --muted: #6b5d4d;
+      --border: #d4c4a8;
+      --accent: #8b4513;
+      --accent-fg: #fff8f0;
+      --accent-glow: rgba(139, 69, 19, 0.2);
+      --card: #fffdf8;
+      --bar-bg: rgba(245, 240, 232, 0.95);
+      --btn-radius: 2px;
+      --card-radius: 2px;
+      --card-shadow: 0 4px 20px rgba(44, 36, 22, 0.08);
+      --tag-bg: #ebe4d6;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Playfair Display', 'Vazirmatn', Georgia, serif;
+    }
+    body[data-theme="classic"] h1 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    body[data-theme="classic"] .subtitle {
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+    body[data-theme="classic"] .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(139, 69, 19, 0.03) 2px,
+        rgba(139, 69, 19, 0.03) 4px
+      );
+      pointer-events: none;
+    }
+    body[data-theme="classic"] .card {
+      border-top: 3px solid var(--accent);
+    }
+    body[data-theme="classic"] .badge {
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+    }
+
+  /* ═══════════════════════════════════════
+     THEME: ENERGY — پرانرژی و جسور
+     ═══════════════════════════════════════ */
+    body[data-theme="energy"] {
+      --bg: #0f0f0f;
+      --fg: #ffffff;
+      --muted: #a3a3a3;
+      --border: rgba(255, 255, 255, 0.15);
+      --accent: #ff3366;
+      --accent-fg: #fff;
+      --accent-glow: rgba(255, 51, 102, 0.5);
+      --card: #1a1a1a;
+      --bar-bg: rgba(15, 15, 15, 0.9);
+      --btn-radius: 0;
+      --card-radius: 0;
+      --card-shadow: 8px 8px 0 #ff3366;
+      --tag-bg: rgba(255, 51, 102, 0.2);
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', 'Vazirmatn', sans-serif;
+    }
+    body[data-theme="energy"] h1 {
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      background: linear-gradient(90deg, #ff3366, #ff6b35, #f7c948, #ff3366);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: energy-gradient 3s linear infinite;
+    }
+    @keyframes energy-gradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+    body[data-theme="energy"] .hero-bg {
+      background: 
+        linear-gradient(135deg, transparent 40%, rgba(255, 51, 102, 0.08) 40%, rgba(255, 51, 102, 0.08) 60%, transparent 60%),
+        linear-gradient(45deg, transparent 40%, rgba(255, 107, 53, 0.06) 40%, rgba(255, 107, 53, 0.06) 60%, transparent 60%);
+      background-size: 80px 80px;
+      animation: energy-grid 20s linear infinite;
+    }
+    @keyframes energy-grid {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 80px 80px, -80px -80px; }
+    }
+    body[data-theme="energy"] .btn-primary {
+      animation: energy-pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes energy-pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 51, 102, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(255, 51, 102, 0.7), 0 0 60px rgba(255, 107, 53, 0.3); }
+    }
+    body[data-theme="energy"] .card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0 #ff3366;
+    }
+    body[data-theme="energy"] .badge {
+      background: #ff3366;
+      color: #fff;
+      border: none;
+      transform: skewX(-6deg);
+    }
+
+  /* ═══════════════════════════════════════
+     THEME: AURORA — شفاف و نور شمالی (ایده اضافه)
+     ═══════════════════════════════════════ */
+    body[data-theme="aurora"] {
+      --bg: #0c1222;
+      --fg: #e2e8f0;
+      --muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.2);
+      --accent: #22d3ee;
+      --accent-fg: #0c1222;
+      --accent-glow: rgba(34, 211, 238, 0.4);
+      --card: rgba(15, 23, 42, 0.6);
+      --bar-bg: rgba(12, 18, 34, 0.8);
+      --btn-radius: 0.75rem;
+      --card-radius: 1rem;
+      --card-shadow: 0 8px 32px rgba(34, 211, 238, 0.1);
+      --tag-bg: rgba(34, 211, 238, 0.12);
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', 'Vazirmatn', sans-serif;
+    }
+    body[data-theme="aurora"] .aurora-lights { display: block; }
+    .aurora-lights {
+      display: none;
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .aurora-lights::before,
+    .aurora-lights::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 60%;
+      top: -20%;
+      left: -50%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(34, 211, 238, 0.15),
+        rgba(167, 139, 250, 0.2),
+        rgba(52, 211, 153, 0.15),
+        transparent
+      );
+      filter: blur(40px);
+      animation: aurora-wave 8s ease-in-out infinite;
+    }
+    .aurora-lights::after {
+      animation-delay: -4s;
+      opacity: 0.7;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(167, 139, 250, 0.2),
+        rgba(34, 211, 238, 0.15),
+        transparent
+      );
+    }
+    @keyframes aurora-wave {
+      0%, 100% { transform: translateX(-10%) rotate(-2deg); }
+      50% { transform: translateX(10%) rotate(2deg); }
+    }
+    body[data-theme="aurora"] .card {
+      backdrop-filter: blur(16px);
+      border-color: rgba(34, 211, 238, 0.25);
+    }
+
+  /* ═══════════════════════════════════════
+     THEME: TERMINAL — توسعه‌دهنده / هکر اخلاقی (ایده اضافه)
+     ═══════════════════════════════════════ */
+    body[data-theme="terminal"] {
+      --bg: #0d1117;
+      --fg: #39d353;
+      --muted: #7ee787;
+      --border: #30363d;
+      --accent: #39d353;
+      --accent-fg: #0d1117;
+      --accent-glow: rgba(57, 211, 83, 0.35);
+      --card: #161b22;
+      --bar-bg: rgba(13, 17, 23, 0.95);
+      --btn-radius: 4px;
+      --card-radius: 4px;
+      --card-shadow: 0 0 0 1px #30363d;
+      --tag-bg: rgba(57, 211, 83, 0.1);
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    body[data-theme="terminal"] h1::before { content: '> '; opacity: 0.6; }
+    body[data-theme="terminal"] .subtitle::after {
+      content: '_';
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    body[data-theme="terminal"] .hero-bg {
+      background-image: 
+        linear-gradient(rgba(57, 211, 83, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 211, 83, 0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    body[data-theme="terminal"] .card {
+      font-size: 0.85rem;
+    }
+    body[data-theme="terminal"] .card h3::before { content: '// '; opacity: 0.5; }
+
+  /* ═══════════════════════════════════════
+     THEME: MINIMAL ZEN — آرام و مینیمال (ایده اضافه)
+     ═══════════════════════════════════════ */
+    body[data-theme="zen"] {
+      --bg: #fefefe;
+      --fg: #1a1a1a;
+      --muted: #888;
+      --border: #eee;
+      --accent: #1a1a1a;
+      --accent-fg: #fefefe;
+      --accent-glow: transparent;
+      --card: #fefefe;
+      --bar-bg: rgba(254, 254, 254, 0.95);
+      --btn-radius: 0;
+      --card-radius: 0;
+      --card-shadow: none;
+      --tag-bg: #f5f5f5;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', 'Vazirmatn', sans-serif;
+    }
+    body[data-theme="zen"] h1 {
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+    }
+    body[data-theme="zen"] .badge,
+    body[data-theme="zen"] .card {
+      border: none;
+      box-shadow: none;
+    }
+    body[data-theme="zen"] .card {
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 0;
+      border-radius: 0;
+    }
+    body[data-theme="zen"] .btn-primary {
+      background: var(--fg);
+      border-radius: 0;
+    }
+    body[data-theme="zen"] .btn-secondary {
+      border-radius: 0;
+      border-color: var(--fg);
+    }
+
+    /* ─── Idea notes panel ─── */
+    .ideas-panel {
+      max-width: 52rem;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+    }
+    .ideas-panel details {
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius, 0.75rem);
+      background: var(--card);
+      overflow: hidden;
+    }
+    .ideas-panel summary {
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      font-weight: 600;
+      list-style: none;
+    }
+    .ideas-panel summary::-webkit-details-marker { display: none; }
+    .ideas-panel .ideas-body {
+      padding: 0 1.25rem 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+    .ideas-panel ul { padding-right: 1.25rem; margin-top: 0.5rem; }
+    .ideas-panel li { margin-bottom: 0.5rem; }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body data-theme="professional">
+
+  <nav class="theme-bar" aria-label="انتخاب تم">
+    <span class="label">تم:</span>
+    <button class="theme-btn active" data-theme="professional">حرفه‌ای (فعلی)</button>
+    <button class="theme-btn" data-theme="fantasy">فانتزی ✨</button>
+    <button class="theme-btn" data-theme="classic">کلاسیک</button>
+    <button class="theme-btn" data-theme="energy">پرانرژی ⚡</button>
+    <button class="theme-btn" data-theme="aurora">شفافیت / Aurora</button>
+    <button class="theme-btn" data-theme="terminal">ترمینال</button>
+    <button class="theme-btn" data-theme="zen">Zen مینیمال</button>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-bg">
+        <canvas id="fantasy-canvas" aria-hidden="true"></canvas>
+        <div class="fantasy-orbs" aria-hidden="true">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="orb orb-3"></div>
+        </div>
+        <div class="aurora-lights" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-content">
+        <span class="badge" id="theme-badge">پورتفولیو حرفه‌ای</span>
+        <h1>حسین خلیلی</h1>
+        <p class="subtitle" id="theme-subtitle">
+          توسعه‌دهنده فرانت‌اند · متخصص React / Next.js<br />
+          TypeScript و معماری وب مدرن
+        </p>
+        <div class="cta-row">
+          <a href="#" class="btn btn-primary" onclick="return false">تماس</a>
+          <a href="#" class="btn btn-secondary" onclick="return false">مشاهده پروژه‌ها</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>پروژه‌های برجسته</h2>
+      <p class="desc" id="section-desc">نمونه کارت‌ها در هر تم — برای مقایسه حس بصری</p>
+      <div class="cards">
+        <article class="card">
+          <h3>arz.me</h3>
+          <p>صرافی رمزارز — WebSocket، تریدینگ، کیف پول و داشبورد گزارش‌گیری.</p>
+          <span class="tag">React · Next.js · WebSocket</span>
+        </article>
+        <article class="card">
+          <h3>xpay.co</h3>
+          <p>پلتفرم مرتبط با اکوسیستم صرافی — UI پیچیده و real-time.</p>
+          <span class="tag">TypeScript · Redux</span>
+        </article>
+        <article class="card">
+          <h3>ariascale.ir</h3>
+          <p>پروژه خارجی — پیاده‌سازی فرانت‌اند با تمرکز بر UX.</p>
+          <span class="tag">Next.js · Tailwind</span>
+        </article>
+      </div>
+    </section>
+
+    <aside class="ideas-panel">
+      <details open>
+        <summary>💡 ایده‌های اضافه + نکات برای تصمیم‌گیری</summary>
+        <div class="ideas-body">
+          <p><strong>تم‌های بالا:</strong></p>
+          <ul>
+            <li><strong>فانتزی:</strong> طلایی + بنفش، ذرات شناور، درخشش — مناسب «wow factor» اما با قوانین performance سایت اصلی سازگار نیست مگر به‌صورت حالت اختیاری (toggle).</li>
+            <li><strong>کلاسیک:</strong> serif، کرم و قهوه‌ای — حس باوقار و قابل اعتماد برای recruiterهای سنتی‌تر.</li>
+            <li><strong>پرانرژی:</strong> نئون، گرید متحرک، سایه‌های جسور — برای برند شخصی جسور و جوان.</li>
+            <li><strong>Aurora:</strong> شیشه‌ای + نور شمالی — مدرن بدون شلوغی فانتزی.</li>
+            <li><strong>Terminal:</strong> مونواسپیس سبز — برای audience توسعه‌دهنده؛ storytelling فنی قوی.</li>
+            <li><strong>Zen:</strong> فضای سفید زیاد — مینیمال افراطی؛ LCP عالی، تمرکز روی تایپوگرافی.</li>
+          </ul>
+          <p style="margin-top:1rem"><strong>ایده‌های دیگر (قابل اضافه شدن):</strong></p>
+          <ul>
+            <li><strong>Retro 90s / Vaporwave:</strong> صورتی-بنفش، grid افق، فونت‌های pixel — نostالژیک و متمایز.</li>
+            <li><strong>Blueprint / مهندسی:</strong> پس‌زمینه شبیه نقشه فنی — برای نقش full-stack در حال رشد.</li>
+            <li><strong>Seasonal:</strong> تم عوض‌شونده (مثلاً Nowruz با رنگ‌های سنتی ایران) — engagement موقت.</li>
+            <li><strong>Accessibility-first:</strong> کنتراست بالا، بدون انیمیشن — نشان‌دهنده ارزش‌های a11y.</li>
+            <li><strong>Dual personality:</strong> روز = حرفه‌ای، شب = فانتزی/ترمینال — با theme toggle موجود.</li>
+          </ul>
+          <p style="margin-top:1rem; opacity:0.75; font-size:0.85rem">
+            ⚠️ برای سایت production طبق قوانین پروژه: SEO و سرعت اولویت ۱ هستند. تم‌های سنگین (فانتزی، پرانرژی) فقط به‌صورت <em>اختیاری</em> یا در صفحه جدا (مثل این preview) پیشنهاد می‌شوند — نه به‌عنوان default.
+          </p>
+        </div>
+      </details>
+    </aside>
+  </main>
+
+  <script>
+    const themeMeta = {
+      professional: {
+        badge: 'پورتفولیو حرفه‌ای',
+        subtitle: 'توسعه‌دهنده فرانت‌اند · متخصص React / Next.js<br />TypeScript و معماری وب مدرن',
+        desc: 'تم فعلی سایت — تمیز، قابل اعتماد، مناسب recruiter'
+      },
+      fantasy: {
+        badge: '✦ قلمرو کد جادویی ✦',
+        subtitle: 'جادوگر فرانت‌اند · معماری‌های افسانه‌ای با React<br />هر کامپوننت، یک طلسم ماژولار',
+        desc: 'رنگ‌های طلایی و بنفش · ذرات و درخشش · حس epic'
+      },
+      classic: {
+        badge: 'Est. 2018',
+        subtitle: 'توسعه‌دهنده نرم‌افزار · استاد صنایع وب<br />کیفیت، نظم، و معماری پایدار',
+        desc: 'باوقار و کلاسیک — serif و پالت گرم'
+      },
+      energy: {
+        badge: 'BUILD · SHIP · REPEAT',
+        subtitle: 'فرانت‌اند پرقدرت · React در سرعت نور<br />بدون buzzword — فقط نتیجه',
+        desc: 'نئون، گرید متحرک، انرژی بالا'
+      },
+      aurora: {
+        badge: 'Glass & Light',
+        subtitle: 'معماری مدرن · UI شفاف و لایه‌ای<br />تجربه‌ای آرام اما آینده‌نگر',
+        desc: 'شیشه‌ای + نور شمالی — مدرن بدون شلوغی'
+      },
+      terminal: {
+        badge: '$ whoami',
+        subtitle: 'hossein@portfolio:~$ cat skills.txt<br />React, Next.js, TypeScript, WebSocket...',
+        desc: 'برای developer audience — storytelling فنی'
+      },
+      zen: {
+        badge: '—',
+        subtitle: 'فرانت‌اند<br />سادگی · دقت · عمق',
+        desc: 'مینیمال افراطی — تمرکز کامل روی محتوا'
+      }
+    };
+
+    const buttons = document.querySelectorAll('.theme-btn');
+    const badge = document.getElementById('theme-badge');
+    const subtitle = document.getElementById('theme-subtitle');
+    const sectionDesc = document.getElementById('section-desc');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.dataset.theme;
+        document.body.dataset.theme = theme;
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+        const meta = themeMeta[theme];
+        if (meta) {
+          badge.textContent = meta.badge;
+          subtitle.innerHTML = meta.subtitle;
+          sectionDesc.textContent = meta.desc;
+        }
+        if (theme === 'fantasy') startParticles();
+        else stopParticles();
+      });
+    });
+
+    /* ─── Fantasy particle system ─── */
+    let particleAnimId = null;
+    const canvas = document.getElementById('fantasy-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function createParticles(count = 80) {
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2.5 + 0.5,
+          dx: (Math.random() - 0.5) * 0.6,
+          dy: (Math.random() - 0.5) * 0.6 - 0.3,
+          hue: Math.random() > 0.5 ? 45 : 270,
+          alpha: Math.random() * 0.6 + 0.2
+        });
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        p.alpha += (Math.random() - 0.5) * 0.05;
+        p.alpha = Math.max(0.1, Math.min(0.8, p.alpha));
+
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+        grad.addColorStop(0, `hsla(${p.hue}, 80%, 70%, ${p.alpha})`);
+        grad.addColorStop(1, `hsla(${p.hue}, 80%, 50%, 0)`);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+      });
+      particleAnimId = requestAnimationFrame(drawParticles);
+    }
+
+    function startParticles() {
+      stopParticles();
+      resizeCanvas();
+      createParticles();
+      drawParticles();
+    }
+
+    function stopParticles() {
+      if (particleAnimId) {
+        cancelAnimationFrame(particleAnimId);
+        particleAnimId = null;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>

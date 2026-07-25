@@ -50,27 +50,41 @@ Use these as primary case studies. Link externally when allowed.
 
 | Project | URL | Highlights |
 |---------|-----|------------|
-| Crypto exchange | https://arz.me | Landing, app, reporting, trading, wallet; WebSocket live prices; complex trade state |
-| Crypto exchange | https://xpay.co | Related exchange work — confirm scope in copy; link if same portfolio piece |
+| Crypto exchange — arz.me | https://arz.me | Landing + authenticated app (wallet, buy/sell, prices, support); Socket.io live markets; Next.js, Zustand, TanStack Query |
+| Crypto exchange — xpay.co | https://xpay.co | User SPA + ops admin + digital receipts; Redux Toolkit, Ant Design, SignalR; app.xpay.co |
 | Ariascale | https://ariascale.ir | Include as featured external work — describe role/stack from known facts only |
 
-## Additional Projects (case study, no public link required)
+## Additional Projects (case study; link only when public URL is confirmed)
 
-| Project | Highlights |
-|---------|------------|
-| Full e-commerce (multi-panel) | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux |
-| AI chatbot — Techsnovel | Real-time chat, typing indicators, message queue, RBAC; React, TS, Zustand, SignalR |
-| Marketplace — Pars Data | Listings, seller dashboard, multi-step checkout |
-| Hypermarket PWA — Arsal Web | Offline PWA, logistics dashboard, customer panel; Next.js + Tailwind |
-| Drug monitoring system | Mazandaran University of Medical Sciences — controlled drug monitoring UI |
+| Project | URL (optional) | Highlights |
+|---------|----------------|------------|
+| Crypto exchange — VisaPay | https://visapay.me | Next.js marketing + user panel; Vite Ant Design admin |
+| Crypto exchange — SwapNet | https://swapnet.app | Next.js landing; Telegram/PWA user panel; Ant Design admin (repos may still say Bitshahr) |
+| Crypto exchange — EppoChange | — (case study only) | Next.js customer dashboard (Socket.io) + Vite Ant Design admin |
+| Adgame — Telegram mini-app | https://miniapp.adgame.fun | Vite/React; Telegram SDK, TON Connect, ads/referral/wallet UI |
+| PSPro — OpenCart storefront | — | Vite static HTML/SCSS RTL storefront for OpenCart handoff |
+| Bookstore — Ketabfeed | https://ketabfeed.com | WooCommerce / Elementor theme customization (Parsan-based) |
+| Full e-commerce (multi-panel) | — | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux |
+| AI chatbot — Techsnovel | — | Real-time chat, typing indicators, message queue, RBAC; React, TS, Zustand, SignalR |
+| Marketplace — Pars Data | — | Listings, seller dashboard, multi-step checkout |
+| Hypermarket PWA — Arsal Web | — | Offline PWA, logistics dashboard, customer panel; Next.js + Tailwind |
+| Drug monitoring system | — | Mazandaran University of Medical Sciences — controlled drug monitoring UI |
+
+### Related work (do not invent as separate cards unless expanded)
+
+| Work | Notes |
+|------|-------|
+| Graphay Octopus plugins | Wasp + OpenAI plugin suite (funding, law consultant, research, generators) — prefer mention under graphay experience or a small chip, not a thin exchange-style card |
+| XPay static error pages | Branded maintenance/error HTML for XPay — fold into xpay.co case study, not a separate card |
 
 ## Experience / Collaborations
 
 | Org | Notes |
 |-----|-------|
-| barman-tech | Led to arz.me — front-end architecture from scratch; WebSocket, trading, wallet, backend coordination |
-| graphay | AI projects — Llama/OpenAI chatbots, image processing; startup, architecture, features, fixes |
-| Others | Takanesh Academy, arz.me, xpay, etc. — Figma implementation, bug fixes, features, performance |
+| barman-tech | Led to arz.me — front-end architecture from scratch; WebSocket/Socket.io, trading, wallet, backend coordination |
+| graphay | AI projects — Llama/OpenAI chatbots, image processing, Octopus plugins; also houses arz.me front/landing work; Adgame mini-app |
+| viral-team | Exchange UIs — xpay.co, VisaPay, SwapNet, EppoChange; Ketabfeed WooCommerce |
+| Others | Takanesh Academy, etc. — Figma implementation, bug fixes, features, performance |
 
 ## Bilingual Content Rules
 

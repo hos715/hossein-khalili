@@ -52,8 +52,12 @@ export const experience: ExperienceEntry[] = [
     },
     highlights: [
       {
-        en: "Takanesh Academy, xpay, and others — Figma implementation, performance, and feature work on existing apps.",
-        fa: "Takanesh Academy، xpay و پروژه‌های دیگر — پیاده‌سازی Figma، بهینه‌سازی و توسعه فیچر.",
+        en: "XPay, VisaPay, SwapNet, and related exchange UIs — user panels, admin consoles, landings, and Telegram/PWA surfaces.",
+        fa: "XPay، VisaPay، SwapNet و UIهای صرافی مرتبط — پنل کاربر، ادمین، لندینگ و سطوح تلگرام/PWA.",
+      },
+      {
+        en: "Takanesh Academy and others — Figma implementation, performance, and feature work on existing apps.",
+        fa: "Takanesh Academy و پروژه‌های دیگر — پیاده‌سازی Figma، بهینه‌سازی و توسعه فیچر.",
       },
     ],
   },

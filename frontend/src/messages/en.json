@@ -13,45 +13,116 @@
   },
   "hero": {
     "name": "Hossein Khalili",
-    "title": "Front-End Developer · React / Next.js Specialist",
-    "subtitle": "TypeScript & modern web architectures — expanding into full-stack with NestJS",
-    "ctaContact": "Get in touch",
-    "ctaProjects": "View projects",
+    "eyebrow": "Senior Frontend Engineer",
+    "headline": "Complex Products. Thoughtful Frontends. Built for Production.",
+    "subtitle": "I design and build React / Next.js frontends for real-time platforms, trading systems, multi-role dashboards, admin tools, and data-heavy web applications.",
+    "ctaContact": "Let's Work Together",
+    "ctaProjects": "View Selected Work",
     "ctaResume": "Download resume",
-    "linkedinBadge": "{count} LinkedIn recommendations",
-    "eyebrow": "Front-End · since 2018"
+    "availability": "Open to freelance projects and product teams",
+    "linkedinCta": "View LinkedIn"
+  },
+  "credibility": {
+    "title": "Built for real products, not just demos.",
+    "subtitle": "Production frontends across the surfaces that matter for complex web apps.",
+    "items": {
+      "realtime": {
+        "title": "Real-Time",
+        "description": "Live prices, chat, and Socket.io / SignalR feeds wired into reliable UI state."
+      },
+      "trading": {
+        "title": "Trading & FinTech",
+        "description": "Crypto exchange surfaces — wallet, buy/sell, markets, and authenticated trading flows."
+      },
+      "dashboards": {
+        "title": "Multi-Role Dashboards",
+        "description": "Role-specific panels that share one domain without sharing the wrong UI density."
+      },
+      "admin": {
+        "title": "Admin & Ops",
+        "description": "Dense back-office consoles for markets, users, support, and day-to-day operations."
+      },
+      "commerce": {
+        "title": "E-commerce & Marketplace",
+        "description": "Storefronts, seller tools, multi-step checkout, and multi-panel order operations."
+      },
+      "pwa": {
+        "title": "PWA & Telegram Mini Apps",
+        "description": "Offline-capable PWAs and Telegram-native mini-app UIs with wallet integrations."
+      }
+    }
+  },
+  "specialize": {
+    "title": "What I specialize in",
+    "subtitle": "Capability areas shaped by shipped production work — not a generic tech laundry list.",
+    "items": {
+      "complex": {
+        "title": "Complex Web Applications",
+        "description": "Authenticated apps with multi-step flows, shared state, and production constraints."
+      },
+      "realtime": {
+        "title": "Real-Time Interfaces",
+        "description": "Live market and chat UIs where subscriptions and client state stay maintainable."
+      },
+      "dashboards": {
+        "title": "Dashboards & Admin",
+        "description": "Ops-dense screens for teams that need clarity under volume — Ant Design and custom."
+      },
+      "fintech": {
+        "title": "FinTech & Trading",
+        "description": "Exchange frontends: wallet, trading, receipts, and multi-surface product domains."
+      },
+      "commerce": {
+        "title": "E-commerce & Multi-Role",
+        "description": "Admin, warehouse, fulfillment, and storefront panels on one order domain."
+      },
+      "emerging": {
+        "title": "PWA & Emerging Interfaces",
+        "description": "PWAs, Telegram Mini Apps, and wallet-connected UI where the shell is the product."
+      }
+    }
   },
   "about": {
     "title": "About",
     "pageTitle": "About Hossein Khalili",
-    "summary1": "I'm Hossein Khalili, a front-end developer since 2018 — mostly with React and Next.js, from crypto exchanges and multi-panel e-commerce to AI chatbots and offline PWAs.",
-    "summary2": "I work well in teams and independently. I prefer simple, maintainable code over buzzwords. On LinkedIn, colleagues and managers have left six recommendations.",
-    "summary3": "I'm comfortable with WebSocket, REST APIs, and state libraries like Redux and Zustand. I'm actively learning NestJS to grow into full-stack work — honestly, with real projects, not inflated titles.",
+    "summary1": "I'm a senior frontend engineer for complex production web applications — crypto and fintech exchanges, multi-role e-commerce, AI chat, dashboards, admin tools, and real-time surfaces.",
+    "summary2": "Since 2018 I've worked primarily with React and Next.js, often owning or leading frontend architecture on demanding products. I prefer clear structure and maintainable state over buzzwords.",
+    "summary3": "I'm comfortable with WebSocket, REST APIs, and libraries like Redux and Zustand. I'm also building with NestJS to grow into full-stack work — honestly, with real projects.",
     "education": "Bachelor of Software Engineering — HADAF University of Mazandaran (2015)",
-    "since": "Building web UIs since 2018"
+    "since": "Building web UIs since 2018",
+    "homeTitle": "About",
+    "homeCta": "More about me"
   },
   "skills": {
-    "title": "Skills",
+    "title": "Tools & stack",
     "pageTitle": "Skills — Hossein Khalili",
-    "intro": "Core strengths and tools I use on production projects — React, Next.js, real-time WebSocket apps, and honest full-stack learning with NestJS.",
-    "learningLabel": "Building with"
+    "intro": "Technologies I use on production projects — grouped by purpose. The sell is complex product frontend, not the badge list.",
+    "learningLabel": "Building with",
+    "homeSubtitle": "Supporting toolkit — React, Next.js, real-time, and state libraries used across the case studies above."
   },
   "projects": {
     "title": "Projects",
     "pageTitle": "Projects by Hossein Khalili",
-    "featured": "Featured work",
+    "featured": "Selected work",
+    "featuredSubtitle": "Complex production frontends — trading, multi-surface exchanges, and multi-role commerce.",
+    "supporting": "Additional projects",
+    "supportingSubtitle": "More production work across exchanges, chat, marketplace, PWA, and institutional UI.",
     "all": "All projects",
-    "viewCaseStudy": "Case study",
+    "viewCaseStudy": "View case study",
     "visitSite": "Visit site",
-    "stack": "Stack",
-    "problem": "Problem & context",
+    "stack": "Technologies",
+    "context": "Context",
+    "challenge": "Challenge",
     "role": "My role",
+    "keyWork": "What I built",
+    "complexity": "Technical complexity",
     "outcome": "Outcome",
     "back": "Back to projects"
   },
   "experience": {
     "title": "Experience",
-    "pageTitle": "Experience — Hossein Khalili"
+    "pageTitle": "Experience — Hossein Khalili",
+    "homeSubtitle": "Organizations and collaborations where complex frontend systems shipped."
   },
   "blog": {
     "title": "Blog",
@@ -66,7 +137,7 @@
   "contact": {
     "title": "Contact",
     "pageTitle": "Contact Hossein Khalili",
-    "subtitle": "Open to senior front-end and full-stack opportunities — Iran and remote.",
+    "subtitle": "Have a complex frontend project in mind? Let's talk about scope, stack, and how I can help.",
     "email": "Email",
     "phone": "Phone",
     "telegram": "Telegram",
@@ -78,11 +149,15 @@
     "formSending": "Sending…",
     "formSuccess": "Opening your email client… If nothing happens, email me directly.",
     "formError": "Please fill in all fields correctly.",
-    "mailtoFallback": "Or email directly"
+    "mailtoFallback": "Or email directly",
+    "ctaTitle": "Have a complex frontend project in mind?",
+    "ctaSubtitle": "Open to freelance engagements and product teams that need production-ready React / Next.js work.",
+    "ctaButton": "Start a Project",
+    "ctaLinkedIn": "Message on LinkedIn"
   },
   "resume": {
     "pageTitle": "Resume — Hossein Khalili",
-    "intro": "On-page summary and downloadable PDF — Hossein Khalili, front-end developer since 2018.",
+    "intro": "On-page summary and downloadable PDF — Hossein Khalili, senior frontend engineer since 2018.",
     "download": "Download PDF",
     "downloadNote": "Replace the placeholder PDF in public/resume/ with your latest resume.",
     "skillsHeading": "Skills",
@@ -91,7 +166,10 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "builtWith": "Built with Next.js"
+    "builtWith": "Built with Next.js",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram"
   },
   "theme": {
     "light": "Switch to light mode",
@@ -123,7 +201,7 @@
     },
     "hero": {
       "professional": {
-        "eyebrow": "Front-End · since 2018"
+        "eyebrow": "Senior Frontend Engineer"
       },
       "classic": {
         "eyebrow": "Est. 2018 · Software craftsmanship"
@@ -148,36 +226,36 @@
   },
   "metadata": {
     "home": {
-      "title": "Hossein Khalili — React & Next.js Developer",
-      "description": "Senior front-end developer specializing in React, Next.js, and TypeScript. Crypto exchanges, e-commerce, real-time WebSocket apps — expanding into NestJS."
+      "title": "Hossein Khalili — Senior Frontend Engineer | React, Next.js & Complex Web Apps",
+      "description": "Senior frontend engineer for complex production web applications — real-time trading, multi-role dashboards, admin tools, and data-heavy React / Next.js systems."
     },
     "about": {
-      "title": "About — Hossein Khalili",
-      "description": "Front-end developer since 2018. React, Next.js, WebSocket, Redux, Zustand — clean code and real project experience."
+      "title": "About — Hossein Khalili | Senior Frontend Engineer",
+      "description": "Senior frontend engineer since 2018. React, Next.js, WebSocket, Redux, Zustand — complex production apps across fintech, e-commerce, and real-time products."
     },
     "projects": {
-      "title": "Projects — Hossein Khalili",
-      "description": "Case studies: arz.me, xpay.co, ariascale.ir, multi-panel e-commerce, AI chatbots, and PWAs."
+      "title": "Projects — Hossein Khalili | Complex Frontend Case Studies",
+      "description": "Case studies: arz.me, xpay.co, multi-panel e-commerce, Telegram mini apps, AI chat, marketplaces, and PWAs."
     },
     "experience": {
-      "title": "Experience — Hossein Khalili",
-      "description": "Front-end architecture for crypto exchanges, AI products, and e-commerce platforms."
+      "title": "Experience — Hossein Khalili | Frontend Architecture",
+      "description": "Frontend architecture for crypto exchanges, AI products, multi-panel commerce, and product UI collaborations."
     },
     "blog": {
       "title": "Blog — Hossein Khalili",
       "description": "Technical articles on React, Next.js, WebSocket, and state management from production projects."
     },
     "contact": {
-      "title": "Contact — Hossein Khalili",
-      "description": "Get in touch for senior front-end and full-stack roles. Email, Telegram, LinkedIn."
+      "title": "Contact — Hossein Khalili | Start a Frontend Project",
+      "description": "Get in touch for complex frontend freelance work and product teams. Email, LinkedIn, Telegram."
     },
     "skills": {
-      "title": "Skills — Hossein Khalili",
+      "title": "Skills — Hossein Khalili | React, Next.js, Real-Time",
       "description": "React, Next.js, TypeScript, WebSocket, Redux, Zustand, Tailwind — and NestJS in progress."
     },
     "resume": {
-      "title": "Resume — Hossein Khalili",
-      "description": "Front-end developer resume — React, Next.js, crypto exchanges, e-commerce, and real-time apps since 2018."
+      "title": "Resume — Hossein Khalili | Senior Frontend Engineer",
+      "description": "Senior frontend engineer resume — React, Next.js, crypto exchanges, multi-role e-commerce, and real-time apps since 2018."
     }
   },
   "home": {

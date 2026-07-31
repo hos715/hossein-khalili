@@ -61,7 +61,8 @@ export default async function ResumePage({
       <div className="max-w-prose space-y-10">
         <div>
           <h2 className="text-xl font-semibold">{profile.name[loc]}</h2>
-          <p className="mt-2 text-muted-foreground">{hero("title")}</p>
+          <p className="mt-2 text-muted-foreground">{hero("eyebrow")}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{hero("headline")}</p>
           <p className="mt-4 leading-relaxed text-muted-foreground">{about("summary1")}</p>
         </div>
 
@@ -92,6 +93,7 @@ export default async function ResumePage({
               <article key={entry.id}>
                 <h3 className="font-semibold">{entry.org}</h3>
                 <p className="text-sm text-accent">{entry.role[loc]}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{entry.scope[loc]}</p>
                 <ul className="mt-2 list-disc space-y-1 ps-4 text-sm text-muted-foreground">
                   {entry.highlights.map((item, i) => (
                     <li key={i}>{item[loc]}</li>

@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProjectsGrid } from "@/components/sections/project-card";
 import { SectionHeading } from "@/components/sections/section-heading";
-import { projects } from "@/content/data/projects";
+import {
+  getFeaturedProjects,
+  getSupportingProjects,
+} from "@/content/data/projects";
 import { buildPageMetadata } from "@/lib/metadata";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -35,11 +38,27 @@ export default async function ProjectsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "projects" });
+  const loc = locale as Locale;
+  const featured = getFeaturedProjects();
+  const supporting = getSupportingProjects();
 
   return (
-    <section className="py-16 md:py-24">
-      <SectionHeading title={t("pageTitle")} subtitle={t("all")} as="h1" />
-      <ProjectsGrid items={projects} locale={locale as Locale} />
-    </section>
+    <div className="py-16 md:py-24">
+      <SectionHeading title={t("pageTitle")} as="h1" />
+      <section className="mt-10">
+        <SectionHeading
+          title={t("featured")}
+          subtitle={t("featuredSubtitle")}
+        />
+        <ProjectsGrid items={featured} locale={loc} />
+      </section>
+      <section className="mt-16 md:mt-20">
+        <SectionHeading
+          title={t("supporting")}
+          subtitle={t("supportingSubtitle")}
+        />
+        <ProjectsGrid items={supporting} locale={loc} />
+      </section>
+    </div>
   );
 }

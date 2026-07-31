@@ -7,8 +7,8 @@ export const profile = {
   },
   alternateName: ["حسین خلیلی", "Hossein Khalili"],
   jobTitle: {
-    en: "Front-End Developer",
-    fa: "توسعه‌دهنده فرانت‌اند",
+    en: "Senior Frontend Engineer",
+    fa: "مهندس ارشد فرانت‌اند",
   },
   experienceSince: 2018,
   education: {
@@ -21,6 +21,8 @@ export const profile = {
     "Next.js",
     "TypeScript",
     "WebSocket",
+    "Real-time applications",
+    "Multi-role dashboards",
     "NestJS",
   ],
 } as const;

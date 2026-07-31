@@ -7,21 +7,28 @@ import type { Locale } from "@/i18n/routing";
 export async function SkillsSection({
   locale,
   standalone = false,
+  compact = false,
 }: {
   locale: Locale;
   standalone?: boolean;
+  compact?: boolean;
 }) {
   const t = await getTranslations({ locale, namespace: "skills" });
+  const groups = compact
+    ? skillGroups.filter((g) => g.id !== "tools" && g.id !== "ai")
+    : skillGroups;
 
   return (
     <section className="py-16 md:py-20">
       <SectionHeading
         title={standalone ? t("pageTitle") : t("title")}
-        subtitle={standalone ? t("intro") : undefined}
+        subtitle={
+          standalone ? t("intro") : compact ? t("homeSubtitle") : undefined
+        }
         as={standalone ? "h1" : "h2"}
       />
       <div className="grid gap-6 md:grid-cols-2">
-        {skillGroups.map((group) => (
+        {groups.map((group) => (
           <div
             key={group.id}
             className={
@@ -33,13 +40,13 @@ export async function SkillsSection({
             <h3 className="mb-3 text-sm font-semibold">
               {group.learning ? t("learningLabel") : group.label[locale]}
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2">
               {group.skills.map((skill) => (
-                <Badge key={skill} learning={group.learning}>
-                  {skill}
-                </Badge>
+                <li key={skill}>
+                  <Badge learning={group.learning}>{skill}</Badge>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>

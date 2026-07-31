@@ -13,45 +13,116 @@
   },
   "hero": {
     "name": "حسین خلیلی",
-    "title": "توسعه‌دهنده فرانت‌اند · متخصص React / Next.js",
-    "subtitle": "TypeScript و معماری وب مدرن — در مسیر فول‌استک با NestJS",
-    "ctaContact": "تماس",
-    "ctaProjects": "مشاهده پروژه‌ها",
+    "eyebrow": "مهندس ارشد فرانت‌اند",
+    "headline": "محصولات پیچیده. فرانت‌اند دقیق. آمادهٔ Production.",
+    "subtitle": "فرانت‌اند React / Next.js برای پلتفرم‌های بلادرنگ، سیستم‌های ترید، داشبوردهای چندنقشی، ابزار ادمین و اپلیکیشن‌های داده‌محور می‌سازم.",
+    "ctaContact": "شروع همکاری",
+    "ctaProjects": "مشاهده کارهای منتخب",
     "ctaResume": "دانلود رزومه",
-    "linkedinBadge": "{count} توصیه در LinkedIn",
-    "eyebrow": "Front-End · از ۲۰۱۸"
+    "availability": "آماده‌ام برای پروژه‌های فریلنس و تیم‌های محصول",
+    "linkedinCta": "پروفایل LinkedIn"
+  },
+  "credibility": {
+    "title": "برای محصول واقعی ساخته شده — نه فقط دمو.",
+    "subtitle": "فرانت‌اند production در سطحی که برای اپ‌های پیچیده اهمیت دارد.",
+    "items": {
+      "realtime": {
+        "title": "بلادرنگ",
+        "description": "قیمت زنده، چت، و فید Socket.io / SignalR متصل به state قابل نگهداری UI."
+      },
+      "trading": {
+        "title": "ترید و FinTech",
+        "description": "سطوح صرافی کریپتو — کیف پول، خرید/فروش، بازار و فلوهای ترید لاگین‌شده."
+      },
+      "dashboards": {
+        "title": "داشبورد چندنقشی",
+        "description": "پنل‌های نقش‌محور که یک دامنه را شریک می‌شوند، بدون تراکم UI اشتباه."
+      },
+      "admin": {
+        "title": "ادمین و عملیات",
+        "description": "کنسول‌های فشردهٔ بک‌آفیس برای بازار، کاربران، پشتیبانی و عملیات روزمره."
+      },
+      "commerce": {
+        "title": "فروشگاه و مارکت‌پلیس",
+        "description": "استورفرانت، ابزار فروشنده، checkout چندمرحله‌ای و عملیات چندپنلی سفارش."
+      },
+      "pwa": {
+        "title": "PWA و مینی‌اپ تلگرام",
+        "description": "PWA با قابلیت آفلاین و UI بومی تلگرام با یکپارچه‌سازی کیف پول."
+      }
+    }
+  },
+  "specialize": {
+    "title": "روی چه چیزی تمرکز دارم",
+    "subtitle": "قابلیت‌هایی که از کار واقعی production آمده‌اند — نه لیست عمومی تکنولوژی.",
+    "items": {
+      "complex": {
+        "title": "اپلیکیشن‌های وب پیچیده",
+        "description": "اپ‌های لاگین‌شده با فلو چندمرحله‌ای، state مشترک و محدودیت‌های production."
+      },
+      "realtime": {
+        "title": "رابط‌های بلادرنگ",
+        "description": "UI بازار و چت زنده، جایی که subscription و state کلاینت قابل نگهداری بماند."
+      },
+      "dashboards": {
+        "title": "داشبورد و ادمین",
+        "description": "صفحه‌های فشردهٔ عملیات برای تیم‌هایی که زیر حجم بالا به وضوح نیاز دارند."
+      },
+      "fintech": {
+        "title": "FinTech و ترید",
+        "description": "فرانت‌اند صرافی: کیف پول، ترید، رسید و دامنه‌های محصول چندسطحی."
+      },
+      "commerce": {
+        "title": "فروشگاه و چندنقشه",
+        "description": "پنل ادمین، انبار، fulfillment و فروشگاه روی یک دامنهٔ سفارش."
+      },
+      "emerging": {
+        "title": "PWA و رابط‌های نوظهور",
+        "description": "PWA، مینی‌اپ تلگرام و UI متصل به کیف پول، جایی که پوسته خود محصول است."
+      }
+    }
   },
   "about": {
     "title": "درباره",
     "pageTitle": "درباره حسین خلیلی",
-    "summary1": "من حسین خلیلی هستم، توسعه‌دهنده فرانت‌اند از ۲۰۱۸ — عمدتاً React و Next.js: از صرافی و فروشگاه چندپنلی تا چت‌بات AI و PWA آفلاین.",
-    "summary2": "هم در تیم و هم مستقل کار کرده‌ام. کد ساده و قابل نگهداری را به buzzword ترجیح می‌دهم. در LinkedIn شش توصیه از همکاران و مدیران قبلی دارم.",
-    "summary3": "با WebSocket، REST API و Redux و Zustand راحت هستم. در حال یادگیری NestJS برای رشد به فول‌استک — با پروژه واقعی، نه عنوان inflated.",
+    "summary1": "مهندس ارشد فرانت‌اند برای اپلیکیشن‌های وب پیچیده در production هستم — صرافی کریپتو و fintech، فروشگاه چندنقشی، چت AI، داشبورد، ابزار ادمین و سطوح بلادرنگ.",
+    "summary2": "از ۲۰۱۸ عمدتاً با React و Next.js کار کرده‌ام؛ اغلب معماری فرانت‌اند محصولات پرتقاضا را رهبری یا مالکیت کرده‌ام. ساختار روشن و state قابل نگهداری را به buzzword ترجیح می‌دهم.",
+    "summary3": "با WebSocket، REST API و کتابخانه‌هایی مثل Redux و Zustand راحت هستم. همچنین با NestJS کار می‌کنم تا مسیر فول‌استک را با پروژه واقعی پیش ببرم.",
     "education": "کارشناسی مهندسی نرم‌افزار — دانشگاه هدف مازندران (۲۰۱۵)",
-    "since": "ساخت UI وب از ۲۰۱۸"
+    "since": "ساخت UI وب از ۲۰۱۸",
+    "homeTitle": "درباره",
+    "homeCta": "بیشتر درباره من"
   },
   "skills": {
-    "title": "مهارت‌ها",
+    "title": "ابزار و استک",
     "pageTitle": "مهارت‌ها — حسین خلیلی",
-    "intro": "مهارت‌های اصلی و ابزارهایی که در پروژه‌های production استفاده می‌کنم — React، Next.js، WebSocket و یادگیری فول‌استک با NestJS.",
-    "learningLabel": "در حال یادگیری"
+    "intro": "تکنولوژی‌هایی که در پروژه‌های production استفاده می‌کنم — گروه‌بندی‌شده بر اساس هدف. فروش اصلی فرانت‌اند محصول پیچیده است، نه لیست badge.",
+    "learningLabel": "در حال یادگیری",
+    "homeSubtitle": "ابزار پشتیبان — React، Next.js، بلادرنگ و state libraryهایی که در کیس‌استادی‌های بالا آمده‌اند."
   },
   "projects": {
     "title": "پروژه‌ها",
     "pageTitle": "پروژه‌های حسین خلیلی",
-    "featured": "کارهای برجسته",
+    "featured": "کارهای منتخب",
+    "featuredSubtitle": "فرانت‌اندهای پیچیدهٔ production — ترید، صرافی چندسطحی و فروشگاه چندنقشی.",
+    "supporting": "پروژه‌های بیشتر",
+    "supportingSubtitle": "کارهای بیشتر در صرافی، چت، مارکت‌پلیس، PWA و UI سازمانی.",
     "all": "همه پروژه‌ها",
-    "viewCaseStudy": "مطالعه موردی",
+    "viewCaseStudy": "مشاهده مطالعه موردی",
     "visitSite": "مشاهده سایت",
-    "stack": "استک فنی",
-    "problem": "مسئله و زمینه",
+    "stack": "تکنولوژی‌ها",
+    "context": "زمینه",
+    "challenge": "چالش",
     "role": "نقش من",
+    "keyWork": "آنچه ساختم",
+    "complexity": "پیچیدگی فنی",
     "outcome": "نتیجه",
     "back": "بازگشت به پروژه‌ها"
   },
   "experience": {
     "title": "سوابق",
-    "pageTitle": "سوابق — حسین خلیلی"
+    "pageTitle": "سوابق — حسین خلیلی",
+    "homeSubtitle": "سازمان‌ها و همکاری‌هایی که سیستم‌های فرانت‌اند پیچیده در آن‌ها تحویل شده."
   },
   "blog": {
     "title": "وبلاگ",
@@ -66,7 +137,7 @@
   "contact": {
     "title": "تماس",
     "pageTitle": "تماس با حسین خلیلی",
-    "subtitle": "آماده فرصت‌های Senior Front-End و Full-Stack — ایران و ریموت.",
+    "subtitle": "پروژه فرانت‌اند پیچیده‌ای در ذهن دارید؟ دربارهٔ scope، استک و نحوهٔ همکاری حرف بزنیم.",
     "email": "ایمیل",
     "phone": "تلفن",
     "telegram": "تلگرام",
@@ -78,11 +149,15 @@
     "formSending": "در حال ارسال…",
     "formSuccess": "در حال باز کردن ایمیل… اگر باز نشد، مستقیم ایمیل بزنید.",
     "formError": "لطفاً همه فیلدها را درست پر کنید.",
-    "mailtoFallback": "یا مستقیم ایمیل بزنید"
+    "mailtoFallback": "یا مستقیم ایمیل بزنید",
+    "ctaTitle": "پروژه فرانت‌اند پیچیده‌ای در ذهن دارید؟",
+    "ctaSubtitle": "آماده‌ام برای همکاری فریلنس و تیم‌های محصولی که به کار React / Next.js آمادهٔ production نیاز دارند.",
+    "ctaButton": "شروع پروژه",
+    "ctaLinkedIn": "پیام در LinkedIn"
   },
   "resume": {
     "pageTitle": "رزومه — حسین خلیلی",
-    "intro": "خلاصه رزومه و دانلود PDF — حسین خلیلی، توسعه‌دهنده فرانت‌اند از ۲۰۱۸.",
+    "intro": "خلاصه رزومه و دانلود PDF — حسین خلیلی، مهندس ارشد فرانت‌اند از ۲۰۱۸.",
     "download": "دانلود PDF",
     "downloadNote": "فایل placeholder را در public/resume/ با رزومه نهایی جایگزین کنید.",
     "skillsHeading": "مهارت‌ها",
@@ -91,7 +166,10 @@
   },
   "footer": {
     "rights": "تمامی حقوق محفوظ است.",
-    "builtWith": "ساخته‌شده با Next.js"
+    "builtWith": "ساخته‌شده با Next.js",
+    "email": "ایمیل",
+    "linkedin": "LinkedIn",
+    "telegram": "تلگرام"
   },
   "theme": {
     "light": "حالت روشن",
@@ -123,7 +201,7 @@
     },
     "hero": {
       "professional": {
-        "eyebrow": "Front-End · از ۲۰۱۸"
+        "eyebrow": "مهندس ارشد فرانت‌اند"
       },
       "classic": {
         "eyebrow": "از ۲۰۱۸ · صنعت نرم‌افزار"
@@ -148,36 +226,36 @@
   },
   "metadata": {
     "home": {
-      "title": "حسین خلیلی — توسعه‌دهنده React و Next.js",
-      "description": "توسعه‌دهنده Senior Front-End — React، Next.js، TypeScript. صرافی، e-commerce، WebSocket — در مسیر NestJS."
+      "title": "حسین خلیلی — مهندس ارشد فرانت‌اند | React، Next.js و اپ‌های پیچیده",
+      "description": "مهندس ارشد فرانت‌اند برای اپلیکیشن‌های وب پیچیده در production — ترید بلادرنگ، داشبورد چندنقشی، ابزار ادمین و سیستم‌های React / Next.js داده‌محور."
     },
     "about": {
-      "title": "درباره — حسین خلیلی",
-      "description": "توسعه‌دهنده فرانت‌اند از ۲۰۱۸. React، Next.js، WebSocket، Redux، Zustand."
+      "title": "درباره — حسین خلیلی | مهندس ارشد فرانت‌اند",
+      "description": "مهندس ارشد فرانت‌اند از ۲۰۱۸. React، Next.js، WebSocket، Redux، Zustand — اپ‌های پیچیده در fintech، فروشگاه و محصولات بلادرنگ."
     },
     "projects": {
-      "title": "پروژه‌ها — حسین خلیلی",
-      "description": "arz.me، xpay.co، ariascale.ir، فروشگاه چندپنلی، چت‌بات AI و PWA."
+      "title": "پروژه‌ها — حسین خلیلی | مطالعات موردی فرانت‌اند پیچیده",
+      "description": "مطالعات موردی: arz.me، xpay.co، فروشگاه چندپنلی، مینی‌اپ تلگرام، چت AI، مارکت‌پلیس و PWA."
     },
     "experience": {
-      "title": "سوابق — حسین خلیلی",
-      "description": "معماری فرانت‌اند برای صرافی، محصولات AI و e-commerce."
+      "title": "سوابق — حسین خلیلی | معماری فرانت‌اند",
+      "description": "معماری فرانت‌اند برای صرافی، محصولات AI، فروشگاه چندپنلی و همکاری‌های UI محصول."
     },
     "blog": {
       "title": "وبلاگ — حسین خلیلی",
       "description": "مقالات React، Next.js، WebSocket و state management از پروژه production."
     },
     "contact": {
-      "title": "تماس — حسین خلیلی",
-      "description": "تماس برای فرصت‌های Senior Front-End و Full-Stack."
+      "title": "تماس — حسین خلیلی | شروع پروژه فرانت‌اند",
+      "description": "تماس برای کار فریلنس فرانت‌اند پیچیده و تیم‌های محصول. ایمیل، LinkedIn، تلگرام."
     },
     "skills": {
-      "title": "مهارت‌ها — حسین خلیلی",
+      "title": "مهارت‌ها — حسین خلیلی | React، Next.js، بلادرنگ",
       "description": "React، Next.js، TypeScript، WebSocket، Redux، Zustand، Tailwind — و NestJS در مسیر یادگیری."
     },
     "resume": {
-      "title": "رزومه — حسین خلیلی",
-      "description": "رزومه توسعه‌دهنده فرانت‌اند — React، Next.js، صرافی، e-commerce و اپ real-time از ۲۰۱۸."
+      "title": "رزومه — حسین خلیلی | مهندس ارشد فرانت‌اند",
+      "description": "رزومه مهندس ارشد فرانت‌اند — React، Next.js، صرافی، فروشگاه چندنقشی و اپ real-time از ۲۰۱۸."
     }
   },
   "home": {

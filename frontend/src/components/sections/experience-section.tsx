@@ -31,6 +31,9 @@ export async function ExperienceSection({
               )}
             </div>
             <p className="mt-1 text-sm text-accent">{entry.role[locale]}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {entry.scope[locale]}
+            </p>
             <ul className="mt-3 list-disc space-y-2 ps-4 text-muted-foreground">
               {entry.highlights.map((item, i) => (
                 <li key={i}>{item[locale]}</li>

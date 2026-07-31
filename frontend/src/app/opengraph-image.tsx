@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Hossein Khalili — React & Next.js Developer";
+export const alt =
+  "Hossein Khalili — Senior Frontend Engineer for Complex Web Applications";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -20,11 +21,14 @@ export default function OpenGraphImage() {
           fontFamily: "system-ui, sans-serif",
         }}
       >
+        <div style={{ fontSize: 22, color: "#60a5fa", marginBottom: 16 }}>
+          Senior Frontend Engineer
+        </div>
         <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: -1 }}>
           Hossein Khalili
         </div>
-        <div style={{ marginTop: 24, fontSize: 32, color: "#94a3b8" }}>
-          Front-End Developer · React / Next.js
+        <div style={{ marginTop: 24, fontSize: 28, color: "#94a3b8", maxWidth: 900 }}>
+          Complex products · React / Next.js · Production web apps
         </div>
       </div>
     ),

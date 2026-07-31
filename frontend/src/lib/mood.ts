@@ -2,7 +2,7 @@ export const MOODS = ["professional", "classic", "energy", "fantasy"] as const;
 
 export type Mood = (typeof MOODS)[number];
 
-export const DEFAULT_MOOD: Mood = "fantasy";
+export const DEFAULT_MOOD: Mood = "professional";
 
 export const MOOD_STORAGE_KEY = "mood";
 export const MOOD_PROMPT_SEEN_KEY = "mood-prompt-seen";

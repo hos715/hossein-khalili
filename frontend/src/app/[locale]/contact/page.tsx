@@ -46,7 +46,9 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "contact" });
+  const a11y = await getTranslations({ locale, namespace: "a11y" });
 
+  // Email and LinkedIn first — primary paths for international clients
   const links = [
     {
       icon: Mail,
@@ -55,11 +57,11 @@ export default async function ContactPage({
       text: social.email,
     },
     {
-      icon: Phone,
-      label: t("phone"),
-      href: `tel:${social.phone}`,
-      text: social.phone,
-      ltr: true,
+      icon: ExternalLink,
+      label: t("linkedin"),
+      href: social.linkedin,
+      external: true,
+      text: "LinkedIn",
     },
     {
       icon: Send,
@@ -69,11 +71,11 @@ export default async function ContactPage({
       text: "Telegram",
     },
     {
-      icon: ExternalLink,
-      label: t("linkedin"),
-      href: social.linkedin,
-      external: true,
-      text: "LinkedIn",
+      icon: Phone,
+      label: t("phone"),
+      href: `tel:${social.phone}`,
+      text: social.phone,
+      ltr: true,
     },
   ];
 
@@ -91,11 +93,14 @@ export default async function ContactPage({
                   : {})}
                 className="flex items-center gap-3 rounded-lg border border-border p-4 transition-colors hover:border-accent/40"
               >
-                <Icon className="h-5 w-5 shrink-0 text-accent" />
+                <Icon className="h-5 w-5 shrink-0 text-accent" aria-hidden />
                 <div>
                   <p className="text-sm text-muted-foreground">{label}</p>
                   <p className="font-medium" dir={ltr ? "ltr" : undefined}>
                     {text}
+                    {external && (
+                      <span className="sr-only"> {a11y("externalLink")}</span>
+                    )}
                   </p>
                 </div>
               </a>
@@ -106,7 +111,10 @@ export default async function ContactPage({
           <ContactForm />
           <p className="mt-4 text-sm text-muted-foreground">
             {t("mailtoFallback")}:{" "}
-            <a href={`mailto:${social.email}`} className="text-accent hover:underline">
+            <a
+              href={`mailto:${social.email}`}
+              className="text-accent hover:underline"
+            >
               {social.email}
             </a>
           </p>

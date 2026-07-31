@@ -12,10 +12,10 @@ All site copy must be **accurate**, **specific**, and **honest**. Do not invent 
 | Field | Value |
 |-------|--------|
 | Name | Hossein Khalili |
-| Title (EN) | Front-End Developer · React / Next.js Specialist |
-| Subtitle (EN) | TypeScript & Modern Web Architectures — expanding into Full-Stack (NestJS) |
-| Title (FA) | توسعه‌دهنده فرانت‌اند · متخصص React / Next.js |
-| Subtitle (FA) | TypeScript و معماری وب مدرن — در مسیر فول‌استک (NestJS) |
+| Title (EN) | Senior Frontend Engineer for Complex Web Applications |
+| Subtitle (EN) | React / Next.js — real-time, trading, multi-role dashboards, admin & data-heavy apps; expanding into Full-Stack (NestJS) |
+| Title (FA) | مهندس ارشد فرانت‌اند برای اپلیکیشن‌های وب پیچیده |
+| Subtitle (FA) | React / Next.js — بلادرنگ، ترید، داشبورد چندنقشی، ادمین و اپ‌های داده‌محور؛ در مسیر فول‌استک (NestJS) |
 | Experience since | 2018 |
 | Education | Bachelor of Software Engineering — HADAF University of Mazandaran (2015) |
 | Email | iamhosseinkhalili@gmail.com |
@@ -25,8 +25,9 @@ All site copy must be **accurate**, **specific**, and **honest**. Do not invent 
 
 ## Positioning (both locales)
 
-- Primary strength: **Senior Front-End** — React, Next.js, TypeScript, real-time (WebSocket), complex UI state
+- Primary strength: **Senior Frontend Engineer for Complex Web Applications** — React, Next.js, TypeScript, real-time (WebSocket), multi-role dashboards, trading/fintech UIs
 - Secondary (honest): **Full-Stack path** — NestJS with AI-assisted development; show learning + small API work, not "10 years backend"
+- Audience emphasis: international freelance clients and product teams needing production frontend systems — not landing-page-only work
 - Voice: clean code, modular architecture, continuous learning — **no buzzwords, no overpromising**
 - Avoid: "guru", "ninja", "10x", "AI expert", claiming deep Nest/production backend without evidence
 
@@ -44,15 +45,15 @@ All site copy must be **accurate**, **specific**, and **honest**. Do not invent 
 
 **Learning / growing:** NestJS, Node.js backend patterns — label as "Learning" or "Building with" in UI
 
-## Featured Projects (with live links)
+## Featured Projects (primary case studies)
 
-Use these as primary case studies. Link externally when allowed.
+Lead the site with complex production systems. Link externally when allowed.
 
 | Project | URL | Highlights |
 |---------|-----|------------|
 | Crypto exchange — arz.me | https://arz.me | Landing + authenticated app (wallet, buy/sell, prices, support); Socket.io live markets; Next.js, Zustand, TanStack Query |
 | Crypto exchange — xpay.co | https://xpay.co | User SPA + ops admin + digital receipts; Redux Toolkit, Ant Design, SignalR; app.xpay.co |
-| Ariascale | https://ariascale.ir | Include as featured external work — describe role/stack from known facts only |
+| Full e-commerce (multi-panel) | — (case study) | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux — featured for multi-role complexity |
 
 ## Additional Projects (case study; link only when public URL is confirmed)
 
@@ -60,15 +61,15 @@ Use these as primary case studies. Link externally when allowed.
 |---------|----------------|------------|
 | Crypto exchange — VisaPay | https://visapay.me | Next.js marketing + user panel; Vite Ant Design admin |
 | Crypto exchange — SwapNet | https://swapnet.app | Next.js landing; Telegram/PWA user panel; Ant Design admin (repos may still say Bitshahr) |
-| Crypto exchange — EppoChange | — (case study only) | Next.js customer dashboard (Socket.io) + Vite Ant Design admin |
 | Adgame — Telegram mini-app | https://miniapp.adgame.fun | Vite/React; Telegram SDK, TON Connect, ads/referral/wallet UI |
-| PSPro — OpenCart storefront | https://pspro.ir | Vite static HTML/SCSS RTL storefront for OpenCart handoff; live gaming retail shop |
-| Bookstore — Ketabfeed | https://ketabfeed.com | WooCommerce / Elementor theme customization (Parsan-based) |
-| Full e-commerce (multi-panel) | — | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux |
 | AI chatbot — Techsnovel | https://www.teechats.com | Real-time chat, typing indicators, message queue, RBAC; React, TS, Zustand, SignalR |
 | Marketplace — Pars Data | https://www.parsdata.com | Listings, seller dashboard, multi-step checkout |
 | Hypermarket PWA — Arsal Web | — | Offline PWA, logistics dashboard, customer panel; Next.js + Tailwind |
+| Ariascale | https://ariascale.ir | Public web platform — React / Next.js / TypeScript / Tailwind |
+| PSPro — OpenCart storefront | https://pspro.ir | Vite static HTML/SCSS RTL storefront for OpenCart handoff; live gaming retail shop |
+| Bookstore — Ketabfeed | https://ketabfeed.com | WooCommerce / Elementor theme customization (Parsan-based) |
 | Drug monitoring system | — | Mazandaran University of Medical Sciences — controlled drug monitoring UI |
+| Crypto exchange — EppoChange | — (case study only) | Next.js customer dashboard (Socket.io) + Vite Ant Design admin |
 
 ### Related work (do not invent as separate cards unless expanded)
 

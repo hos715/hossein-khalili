@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/routing";
 
 export async function Footer({ locale }: { locale: Locale }) {
   const t = await getTranslations("footer");
+  const a11y = await getTranslations("a11y");
   const year = new Date().getFullYear();
   const name = getProfileName(locale);
 
@@ -19,27 +20,27 @@ export async function Footer({ locale }: { locale: Locale }) {
           <a
             href={`mailto:${social.email}`}
             className="text-muted-foreground hover:text-foreground"
-            aria-label={social.email}
+            aria-label={t("email")}
           >
-            <Mail className="h-4 w-4" />
+            <Mail className="h-4 w-4" aria-hidden />
           </a>
           <a
             href={social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground"
-            aria-label="LinkedIn"
+            aria-label={`${t("linkedin")} ${a11y("externalLink")}`}
           >
-            <ExternalLink className="h-4 w-4" />
+            <ExternalLink className="h-4 w-4" aria-hidden />
           </a>
           <a
             href={social.telegram}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground"
-            aria-label="Telegram"
+            aria-label={`${t("telegram")} ${a11y("externalLink")}`}
           >
-            <Send className="h-4 w-4" />
+            <Send className="h-4 w-4" aria-hidden />
           </a>
         </div>
         <p className="text-xs text-muted-foreground">{t("builtWith")}</p>

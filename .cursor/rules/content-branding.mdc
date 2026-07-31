@@ -62,11 +62,11 @@ Use these as primary case studies. Link externally when allowed.
 | Crypto exchange — SwapNet | https://swapnet.app | Next.js landing; Telegram/PWA user panel; Ant Design admin (repos may still say Bitshahr) |
 | Crypto exchange — EppoChange | — (case study only) | Next.js customer dashboard (Socket.io) + Vite Ant Design admin |
 | Adgame — Telegram mini-app | https://miniapp.adgame.fun | Vite/React; Telegram SDK, TON Connect, ads/referral/wallet UI |
-| PSPro — OpenCart storefront | — | Vite static HTML/SCSS RTL storefront for OpenCart handoff |
+| PSPro — OpenCart storefront | https://pspro.ir | Vite static HTML/SCSS RTL storefront for OpenCart handoff; live gaming retail shop |
 | Bookstore — Ketabfeed | https://ketabfeed.com | WooCommerce / Elementor theme customization (Parsan-based) |
 | Full e-commerce (multi-panel) | — | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux |
-| AI chatbot — Techsnovel | — | Real-time chat, typing indicators, message queue, RBAC; React, TS, Zustand, SignalR |
-| Marketplace — Pars Data | — | Listings, seller dashboard, multi-step checkout |
+| AI chatbot — Techsnovel | https://www.teechats.com | Real-time chat, typing indicators, message queue, RBAC; React, TS, Zustand, SignalR |
+| Marketplace — Pars Data | https://www.parsdata.com | Listings, seller dashboard, multi-step checkout |
 | Hypermarket PWA — Arsal Web | — | Offline PWA, logistics dashboard, customer panel; Next.js + Tailwind |
 | Drug monitoring system | — | Mazandaran University of Medical Sciences — controlled drug monitoring UI |
 

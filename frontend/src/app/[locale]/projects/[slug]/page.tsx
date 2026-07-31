@@ -64,47 +64,58 @@ export default async function ProjectDetailPage({
       >
         ← {t("back")}
       </Link>
-      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-        {project.title[loc]}
-      </h1>
-      <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        {project.summary[loc]}
-      </p>
-      {project.url && (
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
-        >
-          {t("visitSite")}
-          <ArrowUpRight className="h-4 w-4" />
-        </a>
-      )}
-      <div className="mt-8 flex flex-wrap gap-2">
-        {project.stack.map((tag) => (
-          <Badge key={tag}>{tag}</Badge>
-        ))}
-      </div>
-      <div className="mt-12 max-w-prose space-y-8">
-        <div>
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            {t("problem")}
-          </h2>
-          <p className="leading-relaxed text-muted-foreground">{project.problem[loc]}</p>
-        </div>
-        <div>
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            {t("role")}
-          </h2>
-          <p className="leading-relaxed text-muted-foreground">{project.role[loc]}</p>
-        </div>
-        <div>
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            {t("outcome")}
-          </h2>
-          <p className="leading-relaxed text-muted-foreground">{project.outcome[loc]}</p>
-        </div>
+
+      {/* Hero: title + summary + optional visit — one composition, no card chrome */}
+      <header className="max-w-prose">
+        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+          {project.title[loc]}
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          {project.summary[loc]}
+        </p>
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
+          >
+            {t("visitSite")}
+            <ArrowUpRight className="h-4 w-4" aria-hidden />
+          </a>
+        )}
+      </header>
+
+      {/* Case study: problem → role → stack → outcome — one job per section */}
+      <div className="mt-14 max-w-prose space-y-10">
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">{t("problem")}</h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            {project.problem[loc]}
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">{t("role")}</h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            {project.role[loc]}
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">{t("stack")}</h2>
+          <ul className="mt-4 flex flex-wrap gap-2" aria-label={t("stack")}>
+            {project.stack.map((tag) => (
+              <li key={tag}>
+                <Badge>{tag}</Badge>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">{t("outcome")}</h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            {project.outcome[loc]}
+          </p>
+        </section>
       </div>
     </article>
   );

@@ -4,20 +4,24 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
+import dynamic from "next/dynamic";
 import {
   DEFAULT_MOOD,
   isMood,
-  MOOD_PROMPT_SEEN_KEY,
   MOOD_STORAGE_KEY,
   type Mood,
 } from "@/lib/mood";
-import { MoodPicker } from "@/components/layout/mood-picker";
-import { MoodEffects } from "@/components/layout/mood-effects";
+
+const MoodPicker = dynamic(
+  () =>
+    import("@/components/layout/mood-picker").then((m) => m.MoodPicker),
+  { ssr: false },
+);
 
 type MoodContextValue = {
   mood: Mood;
@@ -32,6 +36,15 @@ function readMoodFromDom(): Mood {
   return isMood(value) ? value : DEFAULT_MOOD;
 }
 
+function subscribeMood(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-mood"],
+  });
+  return () => observer.disconnect();
+}
+
 function applyMood(mood: Mood) {
   document.documentElement.dataset.mood = mood;
   try {
@@ -42,34 +55,16 @@ function applyMood(mood: Mood) {
 }
 
 export function MoodProvider({ children }: { children: ReactNode }) {
-  const [mood, setMoodState] = useState<Mood>(() =>
-    typeof document !== "undefined" ? readMoodFromDom() : DEFAULT_MOOD,
+  // Blocking script may set html[data-mood] before hydration; DOM is the source of truth.
+  const mood = useSyncExternalStore(
+    subscribeMood,
+    readMoodFromDom,
+    () => DEFAULT_MOOD,
   );
   const [pickerOpen, setPickerOpen] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    const initial = readMoodFromDom();
-    setMoodState(initial);
-    setHydrated(true);
-
-    try {
-      if (!localStorage.getItem(MOOD_PROMPT_SEEN_KEY)) {
-        setPickerOpen(true);
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
 
   const setMood = useCallback((next: Mood) => {
     applyMood(next);
-    setMoodState(next);
-    try {
-      localStorage.setItem(MOOD_PROMPT_SEEN_KEY, "1");
-    } catch {
-      /* ignore */
-    }
     setPickerOpen(false);
   }, []);
 
@@ -78,11 +73,6 @@ export function MoodProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const dismissPicker = useCallback(() => {
-    try {
-      localStorage.setItem(MOOD_PROMPT_SEEN_KEY, "1");
-    } catch {
-      /* ignore */
-    }
     setPickerOpen(false);
   }, []);
 
@@ -94,15 +84,14 @@ export function MoodProvider({ children }: { children: ReactNode }) {
   return (
     <MoodContext.Provider value={value}>
       {children}
-      {hydrated && <MoodEffects mood={mood} />}
-      {hydrated && (
+      {pickerOpen ? (
         <MoodPicker
-          open={pickerOpen}
+          open
           currentMood={mood}
           onSelect={setMood}
           onDismiss={dismissPicker}
         />
-      )}
+      ) : null}
     </MoodContext.Provider>
   );
 }

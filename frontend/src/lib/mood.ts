@@ -5,7 +5,6 @@ export type Mood = (typeof MOODS)[number];
 export const DEFAULT_MOOD: Mood = "fantasy";
 
 export const MOOD_STORAGE_KEY = "mood";
-export const MOOD_PROMPT_SEEN_KEY = "mood-prompt-seen";
 
 export function isMood(value: string | undefined | null): value is Mood {
   return MOODS.includes(value as Mood);

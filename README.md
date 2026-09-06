@@ -33,7 +33,7 @@ Copy from the repo-root [`.env.example`](./.env.example). Optional / future vars
 | Variable | Description |
 |----------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for SEO (update when domain is chosen) |
-| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional — Google Search Console HTML-tag token |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional — Search Console HTML-tag token (not needed if you use `frontend/public/google*.html`) |
 | `CONTACT_API_URL` | Optional — Nest contact API base URL (uncomment when wired) |
 | `RESEND_API_KEY` / `CONTACT_TO_EMAIL` / `EMAIL_FROM` | Backend only — never use `NEXT_PUBLIC_` |
 

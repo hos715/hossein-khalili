@@ -24,7 +24,7 @@ npm run dev
 | متغیر | توضیح |
 |--------|--------|
 | `NEXT_PUBLIC_SITE_URL` | URL اصلی برای SEO (بعد از انتخاب دامنه) |
-| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | اختیاری — توکن HTML-tag گوگل سرچ کنسول |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | اختیاری — توکن HTML-tag سرچ کنسول (اگر فایل `frontend/public/google*.html` را گذاشته‌اید لازم نیست) |
 | `CONTACT_API_URL` | اختیاری — آدرس API تماس Nest (وقتی وصل شد uncomment کنید) |
 | `RESEND_API_KEY` / `CONTACT_TO_EMAIL` / `EMAIL_FROM` | فقط backend — هرگز با `NEXT_PUBLIC_` نگذارید |
 

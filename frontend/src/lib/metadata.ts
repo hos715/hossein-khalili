@@ -12,6 +12,7 @@ type PageMetadataOptions = {
   modifiedTime?: string;
 };
 
+/** Optional meta-tag verification. The HTML-file method (`public/google*.html`) does not need this env var. */
 export function googleSiteVerification():
   | Pick<Metadata, "verification">
   | undefined {

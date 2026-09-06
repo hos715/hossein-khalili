@@ -30,8 +30,11 @@ npm run build && npm run start
 
 1. [Google Search Console](https://search.google.com/search-console)
 2. افزودن property با URL production
-3. تأیید مالکیت: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` را با توکن HTML-tag تنظیم کنید و redeploy کنید (تگ `<meta name="google-site-verification">` ساخته می‌شود)، یا با دامنه اختصاصی از DNS استفاده کنید.
-4. ارسال sitemap: `https://xxx.vercel.app/sitemap.xml`
+3. تأیید مالکیت (یکی از روش‌ها کافی است؛ می‌توانند هم‌زمان باشند):
+   - **فایل HTML (روش فعلی):** فایل `frontend/public/googleec09f1cde02cab51.html` را deploy کنید تا گوگل بتواند `https://hossein-khalili.vercel.app/googleec09f1cde02cab51.html` را بدون پیشوند locale بخواند. این روش به `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` نیاز ندارد.
+   - **تگ HTML (جایگزین):** `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` را با توکن HTML-tag تنظیم کنید و redeploy کنید (تگ `<meta name="google-site-verification">` ساخته می‌شود).
+   - **DNS:** وقتی دامنه اختصاصی دارید.
+4. ارسال sitemap: `https://hossein-khalili.vercel.app/sitemap.xml`
 5. URL inspection برای `/en` و `/fa` → Request indexing
 
 ایندکس سایت جدید معمولاً **۲ تا ۸ هفته** طول می‌کشد. رتبه اول روی نام به بک‌لینک و اعتبار دامنه هم بستگی دارد.

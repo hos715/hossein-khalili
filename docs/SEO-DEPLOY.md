@@ -32,8 +32,11 @@ Check:
 
 1. Go to [Google Search Console](https://search.google.com/search-console).
 2. **Add property** → URL prefix → your production URL (`https://xxx.vercel.app`).
-3. Verify ownership: set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` to the HTML-tag token and redeploy (emits `<meta name="google-site-verification">`), or use DNS when you have a custom domain.
-4. **Sitemaps** → submit `https://xxx.vercel.app/sitemap.xml`.
+3. Verify ownership (pick one method — they can coexist):
+   - **HTML file (current):** deploy `frontend/public/googleec09f1cde02cab51.html` so Google can fetch `https://hossein-khalili.vercel.app/googleec09f1cde02cab51.html`. Locale middleware must not rewrite this path. This method does **not** need `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
+   - **HTML tag (alternative):** set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` to the meta-tag token and redeploy (emits `<meta name="google-site-verification">`).
+   - **DNS:** when you have a custom domain.
+4. **Sitemaps** → submit `https://hossein-khalili.vercel.app/sitemap.xml`.
 5. Use **URL inspection** on `/en` and `/fa` → **Request indexing**.
 
 Indexing for a new site typically takes **2–8 weeks**. Ranking #1 for your name also depends on backlinks and domain authority.

@@ -20,8 +20,9 @@ All site copy must be **accurate**, **specific**, and **honest**. Do not invent 
 | Education | Bachelor of Software Engineering — HADAF University of Mazandaran (2015) |
 | Email | iamhosseinkhalili@gmail.com |
 | Phone | +989039228802 |
-| LinkedIn | Link from env or `content/data/social.ts` — highlight **6 recommendations** |
-| Telegram | Link from `content/data/social.ts` |
+| LinkedIn | https://www.linkedin.com/in/iamhosseinkhalili/ — highlight **6 recommendations** |
+| GitHub | https://github.com/hos715 — keep in both `content/data/social.ts` and `frontend/src/content/data/social.ts` |
+| Telegram | https://t.me/iamhosseinkhalili |
 
 ## Positioning (both locales)
 

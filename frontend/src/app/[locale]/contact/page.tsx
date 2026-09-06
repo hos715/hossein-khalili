@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import nextDynamic from "next/dynamic";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Mail, Phone, Send, ExternalLink } from "lucide-react";
+import { Mail, Phone, Send, ExternalLink, GitBranch } from "lucide-react";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { social } from "@/content/data/social";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -62,6 +62,13 @@ export default async function ContactPage({
       href: social.linkedin,
       external: true,
       text: "LinkedIn",
+    },
+    {
+      icon: GitBranch,
+      label: t("github"),
+      href: social.github,
+      external: true,
+      text: "GitHub",
     },
     {
       icon: Send,

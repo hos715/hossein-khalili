@@ -142,6 +142,7 @@
     "phone": "Phone",
     "telegram": "Telegram",
     "linkedin": "LinkedIn",
+    "github": "GitHub",
     "formName": "Name",
     "formEmail": "Email",
     "formMessage": "Message",
@@ -169,6 +170,7 @@
     "builtWith": "Built with Next.js",
     "email": "Email",
     "linkedin": "LinkedIn",
+    "github": "GitHub",
     "telegram": "Telegram"
   },
   "theme": {
@@ -247,7 +249,7 @@
     },
     "contact": {
       "title": "Contact — Hossein Khalili | Start a Frontend Project",
-      "description": "Get in touch for complex frontend freelance work and product teams. Email, LinkedIn, Telegram."
+      "description": "Get in touch for complex frontend freelance work and product teams. Email, LinkedIn, GitHub, Telegram."
     },
     "skills": {
       "title": "Skills — Hossein Khalili | React, Next.js, Real-Time",

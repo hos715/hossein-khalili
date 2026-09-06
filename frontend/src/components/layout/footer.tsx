@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Mail, Send, ExternalLink } from "lucide-react";
+import { Mail, Send, ExternalLink, GitBranch } from "lucide-react";
 import { getProfileName } from "@/content/data/profile";
 import { social } from "@/content/data/social";
 import type { Locale } from "@/i18n/routing";
@@ -32,6 +32,15 @@ export async function Footer({ locale }: { locale: Locale }) {
             aria-label={`${t("linkedin")} ${a11y("externalLink")}`}
           >
             <ExternalLink className="h-4 w-4" aria-hidden />
+          </a>
+          <a
+            href={social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground"
+            aria-label={`${t("github")} ${a11y("externalLink")}`}
+          >
+            <GitBranch className="h-4 w-4" aria-hidden />
           </a>
           <a
             href={social.telegram}

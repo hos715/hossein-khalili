@@ -4,6 +4,8 @@
 
 پورتfolio دوزبانه (EN/FA) با **Next.js 16**، **TypeScript**، **Tailwind CSS** و **next-intl**.
 
+سایت زنده: [https://hossein-khalili.vercel.app/](https://hossein-khalili.vercel.app/)
+
 ## اجرا
 
 ```bash
@@ -22,6 +24,7 @@ npm run dev
 | متغیر | توضیح |
 |--------|--------|
 | `NEXT_PUBLIC_SITE_URL` | URL اصلی برای SEO (بعد از انتخاب دامنه) |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | اختیاری — توکن HTML-tag گوگل سرچ کنسول |
 | `CONTACT_API_URL` | اختیاری — آدرس API تماس Nest (وقتی وصل شد uncomment کنید) |
 | `RESEND_API_KEY` / `CONTACT_TO_EMAIL` / `EMAIL_FROM` | فقط backend — هرگز با `NEXT_PUBLIC_` نگذارید |
 

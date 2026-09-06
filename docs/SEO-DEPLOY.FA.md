@@ -11,8 +11,9 @@
 | متغیر | مقدار |
 |-------|--------|
 | `NEXT_PUBLIC_SITE_URL` | `https://your-project.vercel.app` (یا دامنه اختصاصی) |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | اختیاری — فقط توکن HTML-tag سرچ کنسول. تا وقتی مقدار ندارید خالی بگذارید. توکن واقعی را commit نکنید. |
 
-بعد از تغییر، redeploy کنید. بدون این متغیر، canonical و `sitemap.xml` به `localhost` اشاره می‌کنند.
+بعد از تغییر، redeploy کنید. بدون `NEXT_PUBLIC_SITE_URL`، canonical و `sitemap.xml` به `localhost` اشاره می‌کنند.
 
 ## ۲. بررسی خروجی build
 
@@ -29,7 +30,7 @@ npm run build && npm run start
 
 1. [Google Search Console](https://search.google.com/search-console)
 2. افزودن property با URL production
-3. تأیید مالکیت (HTML tag یا DNS با دامنه اختصاصی)
+3. تأیید مالکیت: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` را با توکن HTML-tag تنظیم کنید و redeploy کنید (تگ `<meta name="google-site-verification">` ساخته می‌شود)، یا با دامنه اختصاصی از DNS استفاده کنید.
 4. ارسال sitemap: `https://xxx.vercel.app/sitemap.xml`
 5. URL inspection برای `/en` و `/fa` → Request indexing
 
@@ -41,7 +42,7 @@ npm run build && npm run start
 
 - **Featured** — لینک سایت
 - **About** — همان URL
-- **Headline** — هم‌راستا با عنوان سایت
+- **Headline** — هم‌راستا با عنوان سایت: *مهندس ارشد فرانت‌اند*
 
 همین URL را در bio تلگرام و GitHub قرار دهید.
 

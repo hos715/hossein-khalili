@@ -12,6 +12,13 @@ type PageMetadataOptions = {
   modifiedTime?: string;
 };
 
+export function googleSiteVerification():
+  | Pick<Metadata, "verification">
+  | undefined {
+  const google = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+  return google ? { verification: { google } } : undefined;
+}
+
 export function buildPageMetadata({
   locale,
   title,
@@ -43,6 +50,8 @@ export function buildPageMetadata({
   return {
     title,
     description,
+    authors: [{ name: "Hossein Khalili", url: base }],
+    creator: "Hossein Khalili",
     robots: { index: true, follow: true },
     openGraph,
     twitter: {
@@ -59,5 +68,6 @@ export function buildPageMetadata({
         "x-default": `${base}/en${path}`,
       },
     },
+    ...googleSiteVerification(),
   };
 }

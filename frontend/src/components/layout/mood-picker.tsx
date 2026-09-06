@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { MOODS, type Mood } from "@/lib/mood";
+import { DEFAULT_MOOD, MOODS, type Mood } from "@/lib/mood";
 import { Button } from "@/components/ui/button";
 
 type MoodPickerProps = {
@@ -104,7 +104,7 @@ export function MoodPicker({
           type="button"
           variant="ghost"
           className="mt-4 w-full"
-          onClick={() => onSelect("professional")}
+          onClick={() => onSelect(DEFAULT_MOOD)}
         >
           {t("skip")}
         </Button>

@@ -178,13 +178,13 @@
   "mood": {
     "title": "What vibe do you prefer?",
     "subtitle": "Choose a mood for the site. You can change it anytime from the header.",
-    "skip": "Skip — keep professional",
+    "skip": "Skip — keep fantasy",
     "close": "Close",
     "changeMood": "Change site mood",
     "options": {
       "professional": {
         "label": "Professional",
-        "description": "Clean and recruiter-friendly — the default."
+        "description": "Clean and recruiter-friendly."
       },
       "classic": {
         "label": "Classic",
@@ -196,7 +196,7 @@
       },
       "fantasy": {
         "label": "Fantasy",
-        "description": "Purple and gold glow with subtle particles."
+        "description": "Purple and gold glow with subtle particles — the default."
       }
     },
     "hero": {

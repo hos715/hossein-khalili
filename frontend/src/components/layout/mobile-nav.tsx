@@ -42,7 +42,7 @@ export function MobileNav() {
           aria-modal="true"
           aria-label={a11y("mainNav")}
         >
-          <nav className="flex flex-col gap-1 p-4">
+          <nav className="flex flex-col gap-1 p-4 bg-background">
             {links.map(({ href, key }) => (
               <Link
                 key={key}

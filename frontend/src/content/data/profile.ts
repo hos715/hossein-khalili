@@ -10,6 +10,11 @@ export const profile = {
     en: "Senior Frontend Engineer",
     fa: "مهندس ارشد فرانت‌اند",
   },
+  // Matches metadata.home.description — reused for Person JSON-LD.
+  description: {
+    en: "Senior frontend engineer for complex production web applications — real-time trading, multi-role dashboards, admin tools, and data-heavy React / Next.js systems.",
+    fa: "مهندس ارشد فرانت‌اند برای اپلیکیشن‌های وب پیچیده در production — ترید بلادرنگ، داشبورد چندنقشی، ابزار ادمین و سیستم‌های React / Next.js داده‌محور.",
+  },
   experienceSince: 2018,
   education: {
     en: "Bachelor of Software Engineering — HADAF University of Mazandaran (2015)",

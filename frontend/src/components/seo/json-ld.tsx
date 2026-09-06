@@ -3,17 +3,24 @@ import { social } from "@/content/data/social";
 import { getSiteUrl } from "@/lib/utils";
 import type { Locale } from "@/i18n/routing";
 
+function personSameAs() {
+  return [social.linkedin, social.github, social.telegram];
+}
+
 function personEntity(locale: Locale) {
   const base = getSiteUrl();
   return {
     "@type": "Person" as const,
     name: profile.name.en,
     alternateName: profile.alternateName,
+    givenName: "Hossein",
+    familyName: "Khalili",
+    description: profile.description[locale],
     jobTitle: profile.jobTitle[locale],
     url: `${base}/${locale}`,
     email: social.email,
     image: `${base}/opengraph-image`,
-    sameAs: [social.linkedin, social.telegram],
+    sameAs: personSameAs(),
     knowsAbout: profile.knowsAbout,
   };
 }
@@ -130,6 +137,8 @@ export function BlogPostingJsonLd({
       "@type": "Person",
       name: profile.name.en,
       alternateName: profile.alternateName,
+      url: getSiteUrl(),
+      sameAs: personSameAs(),
     },
     inLanguage: locale === "fa" ? "fa" : "en",
   };

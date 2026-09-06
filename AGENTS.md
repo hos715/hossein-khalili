@@ -91,6 +91,7 @@ cd backend && npm run start:dev
 | Variable | Where |
 |----------|--------|
 | `NEXT_PUBLIC_SITE_URL` | Frontend — canonical URL (placeholder until domain) |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Frontend — optional Search Console HTML-tag token |
 | `CONTACT_API_URL` | Frontend — Nest contact endpoint |
 | `RESEND_API_KEY` | Backend only |
 | `CONTACT_TO_EMAIL` | Backend only |

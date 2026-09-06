@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { googleSiteVerification } from "@/lib/metadata";
 import { getSiteUrl } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
@@ -16,6 +17,7 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
+  ...googleSiteVerification(),
 };
 
 export function generateStaticParams() {

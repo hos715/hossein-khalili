@@ -142,6 +142,7 @@
     "phone": "تلفن",
     "telegram": "تلگرام",
     "linkedin": "LinkedIn",
+    "github": "GitHub",
     "formName": "نام",
     "formEmail": "ایمیل",
     "formMessage": "پیام",
@@ -169,6 +170,7 @@
     "builtWith": "ساخته‌شده با Next.js",
     "email": "ایمیل",
     "linkedin": "LinkedIn",
+    "github": "GitHub",
     "telegram": "تلگرام"
   },
   "theme": {
@@ -247,7 +249,7 @@
     },
     "contact": {
       "title": "تماس — حسین خلیلی | شروع پروژه فرانت‌اند",
-      "description": "تماس برای کار فریلنس فرانت‌اند پیچیده و تیم‌های محصول. ایمیل، LinkedIn، تلگرام."
+      "description": "تماس برای کار فریلنس فرانت‌اند پیچیده و تیم‌های محصول. ایمیل، LinkedIn، GitHub، تلگرام."
     },
     "skills": {
       "title": "مهارت‌ها — حسین خلیلی | React، Next.js، بلادرنگ",

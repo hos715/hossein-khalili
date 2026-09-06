@@ -11,8 +11,9 @@ In Vercel **Project → Settings → Environment Variables**, set:
 | Variable | Value |
 |----------|--------|
 | `NEXT_PUBLIC_SITE_URL` | `https://your-project.vercel.app` (or custom domain) |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional — Search Console HTML-tag token only. Leave unset until you have one. Never commit a real token. |
 
-Redeploy after changing this variable. Without it, canonical URLs and `sitemap.xml` point to `http://localhost:3000`.
+Redeploy after changing these variables. Without `NEXT_PUBLIC_SITE_URL`, canonical URLs and `sitemap.xml` point to `http://localhost:3000`.
 
 ## 2. Verify build output
 
@@ -31,8 +32,11 @@ Check:
 
 1. Go to [Google Search Console](https://search.google.com/search-console).
 2. **Add property** → URL prefix → your production URL (`https://xxx.vercel.app`).
-3. Verify ownership (HTML tag in layout, or DNS when you have a custom domain).
-4. **Sitemaps** → submit `https://xxx.vercel.app/sitemap.xml`.
+3. Verify ownership (pick one method — they can coexist):
+   - **HTML file (current):** deploy `frontend/public/googleec09f1cde02cab51.html` so Google can fetch `https://hossein-khalili.vercel.app/googleec09f1cde02cab51.html`. Locale middleware must not rewrite this path. This method does **not** need `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
+   - **HTML tag (alternative):** set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` to the meta-tag token and redeploy (emits `<meta name="google-site-verification">`).
+   - **DNS:** when you have a custom domain.
+4. **Sitemaps** → submit `https://hossein-khalili.vercel.app/sitemap.xml`.
 5. Use **URL inspection** on `/en` and `/fa` → **Request indexing**.
 
 Indexing for a new site typically takes **2–8 weeks**. Ranking #1 for your name also depends on backlinks and domain authority.
@@ -43,7 +47,7 @@ Update [LinkedIn profile](https://www.linkedin.com/in/iamhosseinkhalili/):
 
 - **Featured** — add your site URL with label “Portfolio”
 - **About** — include the same URL
-- **Headline** — align with site title: *Front-End Developer · React / Next.js*
+- **Headline** — align with site title: *Senior Frontend Engineer*
 
 Repeat the site URL in Telegram bio and GitHub profile when available.
 

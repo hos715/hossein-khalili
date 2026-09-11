@@ -69,17 +69,19 @@ SUMMARY = {
         "Senior frontend engineer (since 2018) for complex production web applications. "
         "I build React / Next.js / TypeScript UIs for real-time trading, crypto and fintech products, "
         "multi-role dashboards, and data-heavy admin tools — with WebSocket, Socket.io, and SignalR "
-        "wired into reliable client state (Redux, Zustand, TanStack Query). Owns frontend architecture "
-        "from landing through authenticated product surfaces. Expanding into full-stack with NestJS "
-        "on real projects — learning and shipping, not claiming backend expertise."
+        "wired into reliable client state (Redux, Zustand, TanStack Query). Freelance frontend: "
+        "owns the frontend implementation from landing through authenticated product surfaces; "
+        "other tech and design members are a team. Building with NestJS on small practice projects — "
+        "learning the backend path, not a shipped production backend."
     ),
     "fa": (
         "مهندس ارشد فرانت‌اند (از ۲۰۱۸) برای اپلیکیشن‌های وب پیچیده در production. "
         "با React / Next.js / TypeScript رابط ترید بلادرنگ، محصولات کریپتو و fintech، "
         "داشبورد چندنقشی و ابزار ادمین داده‌محور می‌سازم — با WebSocket، Socket.io و SignalR "
         "متصل به state قابل نگهداری کلاینت (Redux، Zustand، TanStack Query). "
-        "معماری فرانت‌اند را از لندینگ تا سطوح لاگین‌شده محصول بر عهده می‌گیرم. "
-        "مسیر فول‌استک را با NestJS روی پروژه واقعی دنبال می‌کنم — یادگیری و ساخت، نه ادعای تخصص بک‌اند."
+        "فریلنسر فرانت‌اند: پیاده‌سازی فرانت‌اند از لندینگ تا سطوح لاگین‌شده با من است؛ "
+        "نقش‌های دیگر فنی و دیزاین تیمی‌اند. NestJS را روی پروژه‌های کوچک و تمرینی پیش می‌برم — "
+        "مسیر یادگیری بک‌اند، نه بک‌اند کامل در production."
     ),
 }
 
@@ -105,7 +107,7 @@ SKILL_GROUPS = [
         "items": "OpenAI, Llama, image processing",
     },
     {
-        "label": {"en": "Learning", "fa": "در حال یادگیری"},
+        "label": {"en": "Building with", "fa": "در حال یادگیری و ساخت"},
         "items": "NestJS, Node.js backend patterns",
     },
 ]
@@ -142,12 +144,12 @@ JOBS = [
         },
         "bullets": [
             {
-                "en": "Built the full frontend for an AI customer-service product (teechats.com): embeddable widget (AI assistant with business rules and human handoff) plus admin for rules, analytics, and live-support takeover.",
-                "fa": "کل فرانت‌اند محصول پشتیبانی مشتری مبتنی بر AI (teechats.com) را ساختم: ویجت چت شناور (دستیار AI محدود به قوانین کسب‌وکار و ارجاع به انسان) به‌همراه پنل ادمین برای قوانین، analytics و ورود به پشتیبانی زنده.",
+                "en": "Frontend for an AI shopping-guide bot for e-commerce stores, shipped as a Wix plugin (teechats.com). The bot uses the store’s products plus defined rules and extra rules the merchant adds so guidance is store-specific — to speed sales and walk the customer through buying.",
+                "fa": "فرانت‌اند دستیار خرید AI برای فروشگاه‌های اینترنتی، به‌صورت پلاگین Wix (teechats.com). بات از محصولات همان فروشگاه به‌علاوهٔ قوانین تعریف‌شده و قوانین اضافه‌ای که فروشنده می‌گذارد استفاده می‌کند تا راهنمایی مخصوص همان فروشگاه باشد — برای تسریع فروش و هدایت مشتری در مسیر خرید.",
             },
             {
-                "en": "Real-time chat UI with SignalR — typing indicators, message queue, and RBAC-aware roles (React, TypeScript, Zustand).",
-                "fa": "UI چت بلادرنگ با SignalR — نشانگر تایپ، صف پیام و نقش‌های آگاه از RBAC (React، TypeScript، Zustand).",
+                "en": "Real-time chat UI with SignalR — typing indicators, message queue, and RBAC-aware roles (React, TypeScript, Zustand). Separate engagement from Graphay Octopus work.",
+                "fa": "UI چت بلادرنگ با SignalR — نشانگر تایپ، صف پیام و نقش‌های آگاه از RBAC (React، TypeScript، Zustand). قراردادی جدا از کار Octopus در Graphay.",
             },
         ],
     },
@@ -164,34 +166,24 @@ JOBS = [
         },
         "bullets": [
             {
-                "en": "Led frontend architecture for arz.me (barman-tech / Graphay): SEO landing and authenticated exchange app — wallet, buy/sell, live prices, support. Socket.io market feeds; Next.js, TypeScript, Zustand, TanStack Query.",
-                "fa": "معماری فرانت‌اند arz.me را رهبری کردم (زمینه barman-tech / Graphay): لندینگ SEO و اپ لاگین‌شده صرافی — کیف پول، خرید/فروش، قیمت زنده، پشتیبانی. فید بازار Socket.io؛ Next.js، TypeScript، Zustand، TanStack Query.",
+                "en": "As a freelance frontend developer I built the full frontend for arz.me myself — public landing and authenticated exchange app (wallet, buy/sell, live prices, support) — through barman-tech / Graphay; other disciplines were a team. Socket.io market feeds; Next.js, TypeScript, Zustand, TanStack Query.",
+                "fa": "به‌عنوان فریلنسر فرانت‌اند، کل فرانت‌اند arz.me را خودم ساختم — لندینگ عمومی و اپ لاگین‌شده صرافی (کیف پول، خرید/فروش، قیمت زنده، پشتیبانی) — از مسیر barman-tech / Graphay؛ نقش‌های دیگر تیمی بودند. فید بازار Socket.io؛ Next.js، TypeScript، Zustand، TanStack Query.",
             },
             {
-                "en": "Frontend for AI chatbot products (Llama / OpenAI) — real-time chat UIs, image-processing integrations, and related Graphay Octopus plugin surfaces.",
-                "fa": "فرانت‌اند محصولات چت‌بات AI (Llama / OpenAI) — UI چت بلادرنگ، یکپارچه‌سازی پردازش تصویر، و سطوح پلاگین Graphay Octopus.",
+                "en": "Octopus AI — Graphay freelance product, ChatGPT-like but more specialized at the time: generate video, Excel files, and research, plus plugins added by writing Python scripts (when that was not yet trivial in ChatGPT).",
+                "fa": "Octopus AI — پروژه فریلنس Graphay، شبیه ChatGPT اما در آن زمان تخصصی‌تر: تولید ویدیو، فایل Excel و پژوهش، به‌علاوه پلاگین با نوشتن اسکریپت Python (وقتی هنوز در ChatGPT ساده نبود).",
+            },
+            {
+                "en": "Frontend for other Graphay AI work (Llama / OpenAI chat UIs and image-processing integrations).",
+                "fa": "فرانت‌اند کارهای AI دیگر Graphay (UI چت Llama / OpenAI و یکپارچه‌سازی پردازش تصویر).",
             },
             {
                 "en": "Adgame Telegram mini-app (miniapp.adgame.fun): Telegram SDK, TON Connect wallet UI, ads / referral / leaderboard (React, Vite, Zustand, TanStack Query).",
                 "fa": "مینی‌اپ تلگرام Adgame (miniapp.adgame.fun): Telegram SDK، UI کیف پول TON Connect، تبلیغات / رفرال / لیدربورد (React، Vite، Zustand، TanStack Query).",
             },
-        ],
-    },
-    {
-        "company": {"en": "Detifi", "fa": "Detifi"},
-        "role": {
-            "en": "Senior Frontend Developer, Contract",
-            "fa": "توسعه‌دهنده ارشد فرانت‌اند، قراردادی",
-        },
-        "dates": {"en": "Mar 2024 – Aug 2024", "fa": "مارس ۲۰۲۴ – اوت ۲۰۲۴"},
-        "location": {
-            "en": "London Area, UK",
-            "fa": "لندن، بریتانیا",
-        },
-        "bullets": [
             {
-                "en": "Frontend for an AI crypto-research product (insights, chatbot, landing), including UX/accessibility on data-heavy investor screens. React / JavaScript frontend — not independent market analysis.",
-                "fa": "فرانت‌اند محصول پژوهشی کریپتو مبتنی بر AI (insights، چت‌بات و لندینگ)، شامل UX و دسترسی‌پذیری روی صفحه‌های داده‌محور سرمایه‌گذار. کار فرانت‌اند / JavaScript — نه تحلیل بازار مستقل.",
+                "en": "Detifi — a Graphay AI crypto-research product (insights, chatbot, landing) that was stopped; same founder as Graphay. Frontend only — not a separate employer.",
+                "fa": "Detifi — محصول پژوهشی کریپتو Graphay (insights، چت‌بات، لندینگ) که ادامه پیدا نکرد؛ همان بنیان‌گذار Graphay. فقط فرانت‌اند — نه کارفرمای جدا.",
             },
         ],
     },
@@ -226,16 +218,16 @@ JOBS = [
         },
         "bullets": [
             {
-                "en": "Built the Ronda24 hypermarket PWA (Next.js, Tailwind): customer shopping plus organization and logistics panels.",
-                "fa": "PWA هایپرمارکت Ronda24 را ساختم (Next.js، Tailwind): خرید مشتری به‌همراه پنل سازمان و لجستیک.",
+                "en": "Built the Ronda24 hypermarket PWA (Arsal Web) with Next.js and Tailwind: customer shopping plus organization and logistics panels.",
+                "fa": "PWA هایپرمارکت راندا۲۴ (Arsal Web) را با Next.js و Tailwind ساختم: خرید مشتری به‌همراه پنل سازمان و لجستیک.",
             },
             {
                 "en": "Implemented organization-management UI and a statistics panel (daily / weekly / monthly sales, open orders, customers, revenue).",
                 "fa": "UI مدیریت سازمان و پنل آمار (فروش روزانه / هفتگی / ماهانه، سفارش‌های جاری، مشتریان، درآمد) را پیاده کردم.",
             },
             {
-                "en": "Shipped two PWA features — shopping history and repurchase of a previous cart — associated with about a 10% sales increase.",
-                "fa": "دو قابلیت PWA — تاریخچه خرید و خرید مجدد سبد قبلی — که با افزایش حدود ۱۰٪ فروش همراه بود.",
+                "en": "Shipped two PWA features — shopping history and repurchase of a previous cart.",
+                "fa": "دو قابلیت PWA — تاریخچه خرید و خرید مجدد سبد قبلی.",
             },
             {
                 "en": "Refactored and debugged production panels (live ops, monitoring, inventory) and conversion-focused landing pages.",
@@ -279,46 +271,6 @@ JOBS = [
             },
         ],
     },
-    {
-        "company": {"en": "alborztd.ir", "fa": "alborztd.ir"},
-        "role": {
-            "en": "Frontend Web Developer",
-            "fa": "توسعه‌دهنده فرانت‌اند وب",
-        },
-        "dates": {"en": "Dec 2018 – Sep 2020", "fa": "دسامبر ۲۰۱۸ – سپتامبر ۲۰۲۰"},
-        "location": {
-            "en": "On-site · Sari, Mazandaran, Iran",
-            "fa": "حضوری · ساری، مازندران",
-        },
-        "bullets": [
-            {
-                "en": "Frontend for a narcotic-drug control application for Mazandaran province, used by 400+ centers and 20,000+ patients.",
-                "fa": "فرانت‌اند سامانه کنترل داروهای مخدر استان مازندران، مورد استفاده بیش از ۴۰۰ مرکز و بیش از ۲۰٬۰۰۰ بیمار.",
-            },
-            {
-                "en": "Appointment UI for patients to receive medicines; monthly consumption checks; per-center consumption reporting (HTML, CSS, jQuery).",
-                "fa": "UI نوبت‌دهی برای دریافت دارو؛ کنترل مصرف ماهانه؛ گزارش مصرف به‌ازای هر مرکز (HTML، CSS، jQuery).",
-            },
-        ],
-    },
-    {
-        "company": {"en": "alborztd.ir", "fa": "alborztd.ir"},
-        "role": {
-            "en": "Frontend Web Developer",
-            "fa": "توسعه‌دهنده فرانت‌اند وب",
-        },
-        "dates": {"en": "Aug 2016 – May 2017", "fa": "اوت ۲۰۱۶ – مه ۲۰۱۷"},
-        "location": {
-            "en": "Sari, Mazandaran, Iran",
-            "fa": "ساری، مازندران",
-        },
-        "bullets": [
-            {
-                "en": "Frontend web development with HTML and CSS. Earlier tenure at the same company.",
-                "fa": "توسعه فرانت‌اند وب با HTML و CSS. دوره قبلی همکاری با همان شرکت.",
-            },
-        ],
-    },
 ]
 
 PROJECTS = [
@@ -326,16 +278,16 @@ PROJECTS = [
         "title": {"en": "Crypto Exchange", "fa": "صرافی ارز"},
         "url": "https://arz.me",
         "blurb": {
-            "en": "Led frontend architecture from scratch: public landing + authenticated trading (wallet, buy/sell, support). Socket.io live markets. Next.js, TypeScript, Zustand, TanStack Query.",
-            "fa": "معماری فرانت‌اند از صفر: لندینگ عمومی + ترید لاگین‌شده (کیف پول، خرید/فروش، پشتیبانی). بازار زنده Socket.io. Next.js، TypeScript، Zustand، TanStack Query.",
+            "en": "Freelance frontend: I built the full arz.me frontend myself (landing + authenticated exchange) through barman-tech / Graphay; other disciplines were a team. Socket.io live markets. Next.js, TypeScript, Zustand, TanStack Query.",
+            "fa": "فریلنس فرانت‌اند: کل فرانت‌اند arz.me را خودم ساختم (لندینگ + صرافی لاگین‌شده) از مسیر barman-tech / Graphay؛ نقش‌های دیگر تیمی بودند. بازار زنده Socket.io. Next.js، TypeScript، Zustand، TanStack Query.",
         },
     },
     {
         "title": {"en": "Crypto Exchange", "fa": "صرافی ارز"},
         "url": "https://xpay.co",
         "blurb": {
-            "en": "User trading SPA (app.xpay.co), ops admin, and public digital receipts (viral-team). SignalR live updates, Redux Toolkit, Ant Design; RTL and Jalali date UX.",
-            "fa": "SPA ترید کاربر (app.xpay.co)، ادمین عملیات و رسید دیجیتال عمومی (همکاری viral-team). به‌روزرسانی زنده SignalR، Redux Toolkit، Ant Design؛ UX راست‌چین و تاریخ جلالی.",
+            "en": "Contributed user trading SPA (app.xpay.co), ops admin, and public digital receipts (viral-team) — not a sole from-scratch build. Still supporting features, bugfixes, and frontend improvements. SignalR, Redux Toolkit, Ant Design; RTL and Jalali UX.",
+            "fa": "مشارکت در SPA ترید کاربر (app.xpay.co)، ادمین عملیات و رسید دیجیتال عمومی (viral-team) — نه ساخت انحصاری از صفر. هنوز پشتیبانی فنی: فیچر، رفع باگ و بهبود فرانت‌اند. SignalR، Redux Toolkit، Ant Design؛ UX راست‌چین و جلالی.",
         },
     },
     {
@@ -345,8 +297,8 @@ PROJECTS = [
         },
         "url": None,
         "blurb": {
-            "en": "Admin, warehouse, basket-picker, postman, storefront, and PWA on one shared order domain. Next.js, Redux, TypeScript. Internal delivery — no public marketing URL.",
-            "fa": "ادمین، انبار، انتخاب‌گر سبد، پستچی، فروشگاه و PWA روی یک دامنه سفارش مشترک. Next.js، Redux، TypeScript. تحویل داخلی — بدون URL عمومی مارکتینگ.",
+            "en": "Admin, warehouse, basket-picker, postman, storefront, and PWA on one shared order domain. Next.js, Redux, TypeScript. Confidential client work (NDA) — no public marketing URL and no client name.",
+            "fa": "ادمین، انبار، انتخاب‌گر سبد، پستچی، فروشگاه و PWA روی یک دامنه سفارش مشترک. Next.js، Redux، TypeScript. کار محرمانه مشتری (NDA) — بدون URL عمومی مارکتینگ و بدون نام مشتری.",
         },
     },
     {
@@ -356,8 +308,8 @@ PROJECTS = [
         },
         "url": None,
         "blurb": {
-            "en": "VisaPay (visapay.me), SwapNet (swapnet.app), Adgame (miniapp.adgame.fun), Ariascale (ariascale.ir), PSPro (pspro.ir), Ketabfeed (ketabfeed.com), and internal exchange UI (EppoChange).",
-            "fa": "VisaPay (visapay.me)، SwapNet (swapnet.app)، Adgame (miniapp.adgame.fun)، Ariascale (ariascale.ir)، PSPro (pspro.ir)، کتاب‌فید (ketabfeed.com) و UI داخلی صرافی (EppoChange).",
+            "en": "SwapNet (swapnet.app): full frontend, still supporting. VisaPay (visapay.me) and xpay.co: historical contribution plus ongoing tech-side support. Also Adgame (miniapp.adgame.fun), Ariascale (ariascale.ir), PSPro (pspro.ir), Ketabfeed (ketabfeed.com), and internal exchange UI (EppoChange).",
+            "fa": "SwapNet (swapnet.app): کل فرانت‌اند، پشتیبانی جاری. VisaPay (visapay.me) و xpay.co: مشارکت تاریخی به‌علاوه پشتیبانی فنی جاری. همچنین Adgame (miniapp.adgame.fun)، Ariascale (ariascale.ir)، PSPro (pspro.ir)، کتاب‌فید (ketabfeed.com) و UI داخلی صرافی (EppoChange).",
         },
     },
 ]
@@ -992,6 +944,9 @@ def verify(path: Path, kind: str) -> dict:
                 raise RuntimeError(f"PDF text extraction missing name: {path}")
         if "Senior Frontend Engineer for Complex" in folded:
             raise RuntimeError(f"PDF still has the long headline: {path}")
+        for banned in ("alborztd", "10% sales", "10٪ فروش", "20,000+", "20٬000"):
+            if banned in folded:
+                raise RuntimeError(f"PDF still has banned phrase {banned!r}: {path}")
         header = folded.split("SUMMARY")[0] if "SUMMARY" in folded else folded.split("خلاصه")[0]
         for banned in ("Tehran", "Iran", "تهران", "ایران"):
             if banned in header:

@@ -39,7 +39,6 @@ export const profile = {
     "WebSocket",
     "Real-time applications",
     "Multi-role dashboards",
-    "NestJS",
   ],
 } as const;
 

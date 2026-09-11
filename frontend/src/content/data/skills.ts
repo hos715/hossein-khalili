@@ -14,12 +14,27 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "state",
     label: { en: "State & APIs", fa: "State و API" },
-    skills: ["Redux", "Zustand", "REST API", "WebSocket", "Socket.io", "SignalR"],
+    skills: [
+      "Redux",
+      "Zustand",
+      "TanStack Query",
+      "REST API",
+      "WebSocket",
+      "Socket.io",
+      "SignalR",
+    ],
   },
   {
     id: "ui",
     label: { en: "UI", fa: "رابط کاربری" },
-    skills: ["Tailwind CSS", "Radix UI", "ShadCN", "Material UI", "SCSS"],
+    skills: [
+      "Tailwind CSS",
+      "Radix UI",
+      "ShadCN",
+      "Material UI",
+      "Ant Design",
+      "SCSS",
+    ],
   },
   {
     id: "tools",
@@ -33,7 +48,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "learning",
-    label: { en: "Building with", fa: "در حال یادگیری" },
+    label: { en: "Building with", fa: "در حال یادگیری و ساخت" },
     skills: ["NestJS", "Node.js backend patterns"],
     learning: true,
   },

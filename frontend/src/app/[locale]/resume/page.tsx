@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { experience } from "@/content/data/experience";
 import { profile } from "@/content/data/profile";
 import { skillGroups } from "@/content/data/skills";
+import { social } from "@/content/data/social";
 import { buildPageMetadata } from "@/lib/metadata";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -42,6 +43,7 @@ export default async function ResumePage({
   const t = await getTranslations({ locale, namespace: "resume" });
   const about = await getTranslations({ locale, namespace: "about" });
   const hero = await getTranslations({ locale, namespace: "hero" });
+  const a11y = await getTranslations({ locale, namespace: "a11y" });
   const loc = locale as Locale;
   const files = profile.resumeFiles[loc];
   const otherLocale = loc === "fa" ? "en" : "fa";
@@ -78,6 +80,19 @@ export default async function ResumePage({
           <p className="mt-2 text-muted-foreground">{hero("eyebrow")}</p>
           <p className="mt-1 text-sm text-muted-foreground">{hero("headline")}</p>
           <p className="mt-4 leading-relaxed text-muted-foreground">{about("summary1")}</p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            <a
+              href={social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              {t("linkedinRecommendations", {
+                count: social.linkedinRecommendations,
+              })}
+              <span className="sr-only"> {a11y("externalLink")}</span>
+            </a>
+          </p>
         </div>
 
         <div>

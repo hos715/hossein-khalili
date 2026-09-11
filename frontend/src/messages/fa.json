@@ -86,8 +86,9 @@
     "title": "درباره",
     "pageTitle": "درباره حسین خلیلی",
     "summary1": "مهندس ارشد فرانت‌اند برای اپلیکیشن‌های وب پیچیده در production هستم — صرافی کریپتو و fintech، فروشگاه چندنقشی، چت AI، داشبورد، ابزار ادمین و سطوح بلادرنگ.",
-    "summary2": "از ۲۰۱۸ عمدتاً با React و Next.js کار کرده‌ام؛ اغلب معماری فرانت‌اند محصولات پرتقاضا را رهبری یا مالکیت کرده‌ام. ساختار روشن و state قابل نگهداری را به buzzword ترجیح می‌دهم.",
-    "summary3": "با WebSocket، REST API و کتابخانه‌هایی مثل Redux و Zustand راحت هستم. همچنین با NestJS کار می‌کنم تا مسیر فول‌استک را با پروژه واقعی پیش ببرم.",
+    "summary2": "از ۲۰۱۸ به‌صورت فریلنس عمدتاً با React و Next.js کار کرده‌ام. اغلب پیاده‌سازی فرانت‌اند محصولات پرتقاضا با من بوده؛ نقش‌های دیگر فنی و دیزاین تیمی بوده‌اند. ساختار روشن و state قابل نگهداری را به buzzword ترجیح می‌دهم.",
+    "summary3": "با WebSocket، REST API و کتابخانه‌هایی مثل Redux و Zustand راحت هستم. NestJS را روی پروژه‌های کوچک و تمرینی پیش می‌برم — مسیر یادگیری بک‌اند، نه ادعای بک‌اند کامل در production.",
+    "linkedinRecommendations": "{count} توصیه در LinkedIn",
     "education": "کارشناسی مهندسی نرم‌افزار — دانشگاه هدف مازندران (۲۰۱۵)",
     "since": "ساخت UI وب از ۲۰۱۸",
     "homeTitle": "درباره",
@@ -97,7 +98,7 @@
     "title": "ابزار و استک",
     "pageTitle": "مهارت‌ها — حسین خلیلی",
     "intro": "تکنولوژی‌هایی که در پروژه‌های production استفاده می‌کنم — گروه‌بندی‌شده بر اساس هدف. فروش اصلی فرانت‌اند محصول پیچیده است، نه لیست badge.",
-    "learningLabel": "در حال یادگیری",
+    "learningLabel": "در حال یادگیری و ساخت",
     "homeSubtitle": "ابزار پشتیبان — React، Next.js، بلادرنگ و state libraryهایی که در کیس‌استادی‌های بالا آمده‌اند."
   },
   "projects": {
@@ -117,12 +118,13 @@
     "keyWork": "آنچه ساختم",
     "complexity": "پیچیدگی فنی",
     "outcome": "نتیجه",
-    "back": "بازگشت به پروژه‌ها"
+    "back": "بازگشت به پروژه‌ها",
+    "confidential": "کار محرمانهٔ مشتری (NDA) — بدون URL عمومی."
   },
   "experience": {
     "title": "سوابق",
     "pageTitle": "سوابق — حسین خلیلی",
-    "homeSubtitle": "سازمان‌ها و همکاری‌هایی که سیستم‌های فرانت‌اند پیچیده در آن‌ها تحویل شده."
+    "homeSubtitle": "فریلنس فرانت‌اند از مسیر استودیوهای همکار و تیم‌های محصول."
   },
   "blog": {
     "title": "وبلاگ",
@@ -142,6 +144,7 @@
     "phone": "تلفن",
     "telegram": "تلگرام",
     "linkedin": "LinkedIn",
+    "linkedinRecommendations": "{count} توصیه در LinkedIn",
     "github": "GitHub",
     "formName": "نام",
     "formEmail": "ایمیل",
@@ -165,7 +168,8 @@
     "downloadNote": "نسخهٔ فارسی PDF و Word. نسخهٔ انگلیسی هم موجود است.",
     "skillsHeading": "مهارت‌ها",
     "experienceHeading": "سوابق",
-    "educationHeading": "تحصیلات"
+    "educationHeading": "تحصیلات",
+    "linkedinRecommendations": "{count} توصیه در LinkedIn"
   },
   "footer": {
     "rights": "تمامی حقوق محفوظ است.",

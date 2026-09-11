@@ -27,24 +27,25 @@ All site copy must be **accurate**, **specific**, and **honest**. Do not invent 
 ## Positioning (both locales)
 
 - Primary strength: **Senior Frontend Engineer for Complex Web Applications** — React, Next.js, TypeScript, real-time (WebSocket), multi-role dashboards, trading/fintech UIs
-- Secondary (honest): **Full-Stack path** — NestJS with AI-assisted development; show learning + small API work, not "10 years backend"
+- Secondary (honest): **Full-Stack path** — NestJS on small practice / test projects only; has **not** shipped a complete production backend. Label as "Building with" / "در حال یادگیری و ساخت". Do **not** put NestJS in Person JSON-LD `knowsAbout`.
+- Employment: **freelancer**. Exchange and similar products came **through barman-tech and Graphay** as collaborating studios — not two full-time employers he "is". He owned frontend implementation; other tech and design members were a team.
 - Audience emphasis: international freelance clients and product teams needing production frontend systems — not landing-page-only work
 - Voice: clean code, modular architecture, continuous learning — **no buzzwords, no overpromising**
-- Avoid: "guru", "ninja", "10x", "AI expert", claiming deep Nest/production backend without evidence
+- Avoid: "guru", "ninja", "10x", "AI expert", claiming Nest expertise or a shipped production backend, fake KPIs (including unattributed sales %)
 
 ## Skills to List (grouped)
 
 **Core:** JavaScript, TypeScript, React.js, Next.js
 
-**State & data:** Redux, Zustand, REST API, WebSocket (Socket.io, SignalR)
+**State & data:** Redux, Zustand, TanStack Query, REST API, WebSocket (Socket.io, SignalR)
 
-**UI:** Tailwind CSS, Radix UI, ShadCN, Material UI, SCSS
+**UI:** Tailwind CSS, Radix UI, ShadCN, Material UI, Ant Design, SCSS
 
 **Tools:** Git, basic Agile/Scrum
 
 **AI / adjacent (as used in projects):** OpenAI, Llama, image processing — scope to project needs only
 
-**Learning / growing:** NestJS, Node.js backend patterns — label as "Learning" or "Building with" in UI
+**Learning / growing:** NestJS, Node.js backend patterns — one honest label in both locales: EN "Building with", FA "در حال یادگیری و ساخت"
 
 ## Featured Projects (primary case studies)
 
@@ -52,41 +53,44 @@ Lead the site with complex production systems. Link externally when allowed.
 
 | Project | URL | Highlights |
 |---------|-----|------------|
-| Crypto exchange — arz.me | https://arz.me | Landing + authenticated app (wallet, buy/sell, prices, support); Socket.io live markets; Next.js, Zustand, TanStack Query |
-| Crypto exchange — xpay.co | https://xpay.co | User SPA + ops admin + digital receipts; Redux Toolkit, Ant Design, SignalR; app.xpay.co |
-| Full e-commerce (multi-panel) | — (case study) | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux — featured for multi-role complexity |
+| Crypto exchange — arz.me | https://arz.me | **Full frontend himself** (landing + authenticated app: wallet, buy/sell, prices, support); freelance via barman-tech / Graphay; other disciplines were a team. Socket.io live markets; Next.js, Zustand, TanStack Query |
+| Crypto exchange — xpay.co | https://xpay.co | Historical team contribution (user SPA + ops admin + digital receipts) **and ongoing tech-side support** (features, bugfixes, frontend improvements). Redux Toolkit, Ant Design, SignalR; app.xpay.co. Not a from-scratch sole-author claim |
+| Full e-commerce (multi-panel) | — (NDA / confidential) | Admin, basket-picker, postman, warehouse, storefront, PWA; Next.js + Redux — featured for multi-role complexity. Show an NDA note; do not invent a client name or public URL |
 
 ## Additional Projects (case study; link only when public URL is confirmed)
 
 | Project | URL (optional) | Highlights |
 |---------|----------------|------------|
-| Crypto exchange — VisaPay | https://visapay.me | Next.js marketing + user panel; Vite Ant Design admin |
-| Crypto exchange — SwapNet | https://swapnet.app | Next.js landing; Telegram/PWA user panel; Ant Design admin (repos may still say Bitshahr) |
+| Crypto exchange — VisaPay | https://visapay.me | Historical team contribution (Next.js marketing + user panel; Vite Ant Design admin) **and ongoing tech-side support** — not sole ownership |
+| Crypto exchange — SwapNet | https://swapnet.app | **Full frontend himself** (Next.js landing; Telegram/PWA user panel; Ant Design admin) **and ongoing tech-side support** (with xpay and VisaPay). Repos may still say Bitshahr |
 | Adgame — Telegram mini-app | https://miniapp.adgame.fun | Vite/React; Telegram SDK, TON Connect, ads/referral/wallet UI |
-| AI chatbot — Techsnovel | https://www.teechats.com | Real-time chat, typing indicators, message queue, RBAC; React, TS, Zustand, SignalR |
+| AI shopping guide — Techsnovel | https://www.teechats.com | AI shopping-guide bot for e-commerce stores **as a Wix plugin**; store catalog + merchant-defined rules; real-time chat (SignalR), Zustand. Keep as its own engagement — do **not** merge with Graphay Octopus |
 | Marketplace — Pars Data | https://www.parsdata.com | Listings, seller dashboard, multi-step checkout |
-| Hypermarket PWA — Arsal Web | — | Offline PWA, logistics dashboard, customer panel; Next.js + Tailwind |
+| Ronda24 hypermarket PWA (Arsal Web) | — | Use **one primary name + alias** in both site and PDF. Offline PWA, logistics dashboard, customer panel; Next.js + Tailwind. No sales-increase KPI |
 | Ariascale | https://ariascale.ir | Public web platform — React / Next.js / TypeScript / Tailwind |
 | PSPro — OpenCart storefront | https://pspro.ir | Vite static HTML/SCSS RTL storefront for OpenCart handoff; live gaming retail shop |
 | Bookstore — Ketabfeed | https://ketabfeed.com | WooCommerce / Elementor theme customization (Parsan-based) |
-| Drug monitoring system | — | Mazandaran University of Medical Sciences — controlled drug monitoring UI |
+| Drug monitoring system | — | Modest case study: controlled-drug monitoring UI for Mazandaran University of Medical Sciences. **Do not name alborztd** as employer. **Do not** claim React/TS or jQuery unless confirmed; omit stack badges if unknown. **Do not** use 400+ centers / 20,000+ patients metrics |
 | Crypto exchange — EppoChange | — (case study only) | Next.js customer dashboard (Socket.io) + Vite Ant Design admin |
 
 ### Related work (do not invent as separate cards unless expanded)
 
 | Work | Notes |
 |------|-------|
-| Graphay Octopus plugins | Wasp + OpenAI plugin suite (funding, law consultant, research, generators) — prefer mention under graphay experience or a small chip, not a thin exchange-style card |
+| Graphay Octopus AI | ChatGPT-like Graphay freelance product, more specialized at the time: generate video, Excel files, research, and plugins via Python scripts. Mention on the Graphay experience card / resume Graphay bullets — **not** a thin separate project card |
+| Detifi | Graphay product that was **stopped**; same founder as Graphay. **Do not list as a separate employer** — fold into Graphay. Keep dates only if they already exist on Graphay rows |
 | XPay static error pages | Branded maintenance/error HTML for XPay — fold into xpay.co case study, not a separate card |
 
 ## Experience / Collaborations
 
 | Org | Notes |
 |-----|-------|
-| barman-tech | Led to arz.me — front-end architecture from scratch; WebSocket/Socket.io, trading, wallet, backend coordination |
-| graphay | AI projects — Llama/OpenAI chatbots, image processing, Octopus plugins; also houses arz.me front/landing work; Adgame mini-app |
-| viral-team | Exchange UIs — xpay.co, VisaPay, SwapNet, EppoChange; Ketabfeed WooCommerce |
-| Others | Takanesh Academy, etc. — Figma implementation, bug fixes, features, performance |
+| barman-tech | **Collaborating studio / channel**, not a full-time employer. Brought arz.me; he built the **full frontend** himself; other disciplines were a team |
+| graphay | **Collaborating studio / channel** (same freelance model). Octopus AI, Adgame, Detifi (stopped product, not a separate employer); also houses arz.me frontend with barman-tech. Ongoing freelance React work |
+| Techsnovel | Own contract/engagement — AI shopping-guide Wix plugin (teechats.com). Do not merge with Octopus |
+| viral-team | Exchange UIs — xpay.co, VisaPay, SwapNet, EppoChange; Ketabfeed WooCommerce. Credit: SwapNet = full FE + ongoing support; xpay/VisaPay = historical contribution + ongoing support |
+| Others | Takanesh Academy, PARSDATA, Arsalweb (Ronda24), Mark It Done — PDF jobs kept unless the owner drops them; do not invent new site cards for Mark It Done |
+| alborztd.ir | **Do not list** on resume or as a site employer, even as the career start. Career framing stays **since 2018** |
 
 ## Bilingual Content Rules
 

@@ -88,6 +88,11 @@ export default async function ProjectDetailPage({
             <span className="sr-only">{a11y("externalLink")}</span>
           </a>
         )}
+        {project.confidential && (
+          <p className="mt-5 text-sm text-muted-foreground">
+            {t("confidential")}
+          </p>
+        )}
       </header>
 
       <div className="mt-14 max-w-prose space-y-10">
@@ -127,16 +132,18 @@ export default async function ProjectDetailPage({
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-semibold tracking-tight">{t("stack")}</h2>
-          <ul className="mt-4 flex flex-wrap gap-2" aria-label={t("stack")}>
-            {project.stack.map((tag) => (
-              <li key={tag}>
-                <Badge>{tag}</Badge>
-              </li>
-            ))}
-          </ul>
-        </section>
+        {project.stack.length > 0 && (
+          <section>
+            <h2 className="text-xl font-semibold tracking-tight">{t("stack")}</h2>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label={t("stack")}>
+              {project.stack.map((tag) => (
+                <li key={tag}>
+                  <Badge>{tag}</Badge>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </article>
   );

@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
+import { profile } from "@/content/data/profile";
 import { social } from "@/content/data/social";
 import type { Locale } from "@/i18n/routing";
 
@@ -35,6 +36,11 @@ export async function HeroSection({ locale }: { locale: Locale }) {
           </Button>
           <Button asChild variant="outline" size="lg">
             <Link href="/projects">{t("ctaProjects")}</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href={profile.resumeFiles[locale].pdf} download>
+              {t("ctaResume")}
+            </a>
           </Button>
           <Button asChild variant="ghost" size="lg">
             <a

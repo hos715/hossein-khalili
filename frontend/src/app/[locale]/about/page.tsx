@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProfilePageJsonLd } from "@/components/seo/json-ld";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { social } from "@/content/data/social";
 import { buildPageMetadata } from "@/lib/metadata";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -34,6 +35,7 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "about" });
+  const a11y = await getTranslations({ locale, namespace: "a11y" });
 
   return (
     <section className="py-16 md:py-24">
@@ -44,6 +46,19 @@ export default async function AboutPage({
         <p>{t("summary2")}</p>
         <p>{t("summary3")}</p>
         <p className="pt-4 text-sm text-foreground">{t("education")}</p>
+        <p className="text-sm text-muted-foreground">
+          <a
+            href={social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            {t("linkedinRecommendations", {
+              count: social.linkedinRecommendations,
+            })}
+            <span className="sr-only"> {a11y("externalLink")}</span>
+          </a>
+        </p>
       </div>
     </section>
   );

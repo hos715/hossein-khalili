@@ -62,6 +62,9 @@ export default async function ContactPage({
       href: social.linkedin,
       external: true,
       text: "LinkedIn",
+      note: t("linkedinRecommendations", {
+        count: social.linkedinRecommendations,
+      }),
     },
     {
       icon: GitBranch,
@@ -91,7 +94,7 @@ export default async function ContactPage({
       <SectionHeading title={t("pageTitle")} subtitle={t("subtitle")} as="h1" />
       <div className="grid gap-12 lg:grid-cols-2">
         <ul className="space-y-4">
-          {links.map(({ icon: Icon, label, href, text, external, ltr }) => (
+          {links.map(({ icon: Icon, label, href, text, external, ltr, note }) => (
             <li key={label}>
               <a
                 href={href}
@@ -109,6 +112,9 @@ export default async function ContactPage({
                       <span className="sr-only"> {a11y("externalLink")}</span>
                     )}
                   </p>
+                  {note && (
+                    <p className="mt-1 text-xs text-muted-foreground">{note}</p>
+                  )}
                 </div>
               </a>
             </li>

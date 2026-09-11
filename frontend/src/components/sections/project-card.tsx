@@ -39,15 +39,22 @@ export async function ProjectCard({
         <CardDescription className="text-sm leading-relaxed">
           {project.summary[locale]}
         </CardDescription>
+        {project.confidential && (
+          <p className="mt-2 text-xs text-muted-foreground">
+            {t("confidential")}
+          </p>
+        )}
       </CardHeader>
       <CardContent className="mt-auto flex flex-col gap-4">
-        <ul className="flex flex-wrap gap-2" aria-label={t("stack")}>
-          {project.stack.slice(0, 4).map((tag) => (
-            <li key={tag}>
-              <Badge>{tag}</Badge>
-            </li>
-          ))}
-        </ul>
+        {project.stack.length > 0 && (
+          <ul className="flex flex-wrap gap-2" aria-label={t("stack")}>
+            {project.stack.slice(0, 4).map((tag) => (
+              <li key={tag}>
+                <Badge>{tag}</Badge>
+              </li>
+            ))}
+          </ul>
+        )}
         <div className="flex flex-wrap gap-3 text-sm">
           <Link
             href={`/projects/${project.slug}`}

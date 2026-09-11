@@ -86,8 +86,9 @@
     "title": "About",
     "pageTitle": "About Hossein Khalili",
     "summary1": "I'm a senior frontend engineer for complex production web applications — crypto and fintech exchanges, multi-role e-commerce, AI chat, dashboards, admin tools, and real-time surfaces.",
-    "summary2": "Since 2018 I've worked primarily with React and Next.js, often owning or leading frontend architecture on demanding products. I prefer clear structure and maintainable state over buzzwords.",
-    "summary3": "I'm comfortable with WebSocket, REST APIs, and libraries like Redux and Zustand. I'm also building with NestJS to grow into full-stack work — honestly, with real projects.",
+    "summary2": "Since 2018 I've worked as a freelancer, primarily with React and Next.js. I often own frontend implementation on demanding products, alongside other tech and design teammates. I prefer clear structure and maintainable state over buzzwords.",
+    "summary3": "I'm comfortable with WebSocket, REST APIs, and libraries like Redux and Zustand. I'm building with NestJS on small practice projects — learning the backend path, not claiming a shipped production backend.",
+    "linkedinRecommendations": "{count} LinkedIn recommendations",
     "education": "Bachelor of Software Engineering — HADAF University of Mazandaran (2015)",
     "since": "Building web UIs since 2018",
     "homeTitle": "About",
@@ -117,12 +118,13 @@
     "keyWork": "What I built",
     "complexity": "Technical complexity",
     "outcome": "Outcome",
-    "back": "Back to projects"
+    "back": "Back to projects",
+    "confidential": "Confidential client work (NDA) — no public URL."
   },
   "experience": {
     "title": "Experience",
     "pageTitle": "Experience — Hossein Khalili",
-    "homeSubtitle": "Organizations and collaborations where complex frontend systems shipped."
+    "homeSubtitle": "Freelance frontend through collaborating studios and product teams."
   },
   "blog": {
     "title": "Blog",
@@ -142,6 +144,7 @@
     "phone": "Phone",
     "telegram": "Telegram",
     "linkedin": "LinkedIn",
+    "linkedinRecommendations": "{count} LinkedIn recommendations",
     "github": "GitHub",
     "formName": "Name",
     "formEmail": "Email",
@@ -165,7 +168,8 @@
     "downloadNote": "English PDF and Word. A Persian version is also available.",
     "skillsHeading": "Skills",
     "experienceHeading": "Experience",
-    "educationHeading": "Education"
+    "educationHeading": "Education",
+    "linkedinRecommendations": "{count} LinkedIn recommendations"
   },
   "footer": {
     "rights": "All rights reserved.",

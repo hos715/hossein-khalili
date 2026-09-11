@@ -11,6 +11,7 @@ import {
 } from "react";
 import dynamic from "next/dynamic";
 import {
+  applyThemeForMood,
   DEFAULT_MOOD,
   isMood,
   MOOD_STORAGE_KEY,
@@ -47,6 +48,7 @@ function subscribeMood(onChange: () => void) {
 
 function applyMood(mood: Mood) {
   document.documentElement.dataset.mood = mood;
+  applyThemeForMood(mood);
   try {
     localStorage.setItem(MOOD_STORAGE_KEY, mood);
   } catch {

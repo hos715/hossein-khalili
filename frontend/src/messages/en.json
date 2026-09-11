@@ -160,7 +160,9 @@
     "pageTitle": "Resume — Hossein Khalili",
     "intro": "On-page summary and downloadable PDF — Hossein Khalili, senior frontend engineer since 2018.",
     "download": "Download PDF",
-    "downloadNote": "Replace the placeholder PDF in public/resume/ with your latest resume.",
+    "downloadDocx": "Download Word",
+    "downloadOtherLocale": "Persian PDF",
+    "downloadNote": "English PDF and Word. A Persian version is also available.",
     "skillsHeading": "Skills",
     "experienceHeading": "Experience",
     "educationHeading": "Education"
@@ -198,7 +200,7 @@
       },
       "fantasy": {
         "label": "Fantasy",
-        "description": "Purple and gold glow with a lively sparkle — the default."
+        "description": "A night theme — purple and gold glow with a lively sparkle. The default."
       }
     },
     "hero": {

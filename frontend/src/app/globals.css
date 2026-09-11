@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Class strategy so html.dark (Fantasy night + theme toggle) drives dark: utilities. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Fantasy is a single night scheme — no light variant. Tokens match with or without .dark. */
 /* ── Fantasy (default mood) ── */
 :root,
 [data-mood="fantasy"] {

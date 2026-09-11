@@ -4,6 +4,7 @@ import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { THEME_STORAGE_KEY } from "@/lib/mood";
 
 function subscribeTheme(onChange: () => void) {
   const observer = new MutationObserver(onChange);
@@ -27,18 +28,19 @@ export function ThemeToggle() {
     const nextDark = !document.documentElement.classList.contains("dark");
     document.documentElement.classList.toggle("dark", nextDark);
     try {
-      localStorage.setItem("theme", nextDark ? "dark" : "light");
+      localStorage.setItem(THEME_STORAGE_KEY, nextDark ? "dark" : "light");
     } catch {
       /* private browsing */
     }
   }
 
+  // Hidden via html[data-mood] so Fantasy never paints the sun/moon on first visit.
   return (
     <Button
       type="button"
       variant="ghost"
       size="icon"
-      className="relative"
+      className="relative [[data-mood=fantasy]_&]:hidden"
       aria-label={isDark ? t("light") : t("dark")}
       onClick={toggle}
     >

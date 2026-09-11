@@ -20,7 +20,18 @@ export const profile = {
     en: "Bachelor of Software Engineering — HADAF University of Mazandaran (2015)",
     fa: "کارشناسی مهندسی نرم‌افزار — دانشگاه هدف مازندران (۲۰۱۵)",
   },
+  // Legacy alias of the English PDF — keep so existing public links do not 404.
   resumePdfPath: "/resume/hossein-khalili-resume.pdf",
+  resumeFiles: {
+    en: {
+      pdf: "/resume/hossein-khalili-resume-en.pdf",
+      docx: "/resume/hossein-khalili-resume-en.docx",
+    },
+    fa: {
+      pdf: "/resume/hossein-khalili-resume-fa.pdf",
+      docx: "/resume/hossein-khalili-resume-fa.docx",
+    },
+  },
   knowsAbout: [
     "React",
     "Next.js",

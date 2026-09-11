@@ -70,6 +70,12 @@ When you buy a domain:
 3. Add the new domain in Search Console (or use change-of-address).
 4. Resubmit `sitemap.xml`.
 
-## 7. Replace placeholder resume PDF
+## 7. Resume files
 
-Replace `frontend/public/resume/hossein-khalili-resume.pdf` with your latest PDF and redeploy.
+Public downloads live in `frontend/public/resume/`:
+
+- English: `hossein-khalili-resume-en.pdf` / `.docx`
+- Persian: `hossein-khalili-resume-fa.pdf` / `.docx`
+- Legacy alias: `hossein-khalili-resume.pdf` (English PDF, keeps old links working)
+
+Regenerate with `scripts/resume/generate.py` after content changes, then redeploy.

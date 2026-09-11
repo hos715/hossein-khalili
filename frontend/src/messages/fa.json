@@ -160,7 +160,9 @@
     "pageTitle": "رزومه — حسین خلیلی",
     "intro": "خلاصه رزومه و دانلود PDF — حسین خلیلی، مهندس ارشد فرانت‌اند از ۲۰۱۸.",
     "download": "دانلود PDF",
-    "downloadNote": "فایل placeholder را در public/resume/ با رزومه نهایی جایگزین کنید.",
+    "downloadDocx": "دانلود Word",
+    "downloadOtherLocale": "English PDF",
+    "downloadNote": "نسخهٔ فارسی PDF و Word. نسخهٔ انگلیسی هم موجود است.",
     "skillsHeading": "مهارت‌ها",
     "experienceHeading": "سوابق",
     "educationHeading": "تحصیلات"
@@ -198,7 +200,7 @@
       },
       "fantasy": {
         "label": "فانتزی",
-        "description": "درخشش بنفش و طلایی زنده — پیش‌فرض سایت."
+        "description": "تم شبانه با درخشش بنفش و طلایی زنده — پیش‌فرض سایت."
       }
     },
     "hero": {

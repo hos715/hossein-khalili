@@ -35,3 +35,7 @@ next-env.d.ts
 
 # Preview
 preview.html
+
+# Resume generator
+scripts/resume/.venv/
+scripts/resume/fonts/

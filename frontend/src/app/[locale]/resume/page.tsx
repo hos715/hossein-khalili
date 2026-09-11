@@ -43,6 +43,9 @@ export default async function ResumePage({
   const about = await getTranslations({ locale, namespace: "about" });
   const hero = await getTranslations({ locale, namespace: "hero" });
   const loc = locale as Locale;
+  const files = profile.resumeFiles[loc];
+  const otherLocale = loc === "fa" ? "en" : "fa";
+  const otherFiles = profile.resumeFiles[otherLocale];
 
   return (
     <section className="py-16 md:py-24">
@@ -50,9 +53,20 @@ export default async function ResumePage({
       <SectionHeading title={t("pageTitle")} subtitle={t("intro")} as="h1" />
       <div className="mb-10 flex flex-wrap gap-3">
         <Button asChild size="lg">
-          <a href={profile.resumePdfPath} download>
+          <a href={files.pdf} download>
             <Download className="me-2 h-4 w-4" />
             {t("download")}
+          </a>
+        </Button>
+        <Button asChild variant="outline" size="lg">
+          <a href={files.docx} download>
+            <Download className="me-2 h-4 w-4" />
+            {t("downloadDocx")}
+          </a>
+        </Button>
+        <Button asChild variant="ghost" size="lg">
+          <a href={otherFiles.pdf} download>
+            {t("downloadOtherLocale")}
           </a>
         </Button>
       </div>

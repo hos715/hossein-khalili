@@ -68,6 +68,12 @@ npm run build && npm run start
 3. property جدید در Search Console
 4. ارسال مجدد sitemap
 
-## ۷. جایگزینی PDF رزومه
+## ۷. فایل‌های رزومه
 
-فایل `frontend/public/resume/hossein-khalili-resume.pdf` را با رزومه نهایی عوض کنید و redeploy کنید.
+دانلود عمومی در `frontend/public/resume/`:
+
+- انگلیسی: `hossein-khalili-resume-en.pdf` / `.docx`
+- فارسی: `hossein-khalili-resume-fa.pdf` / `.docx`
+- مسیر قدیمی: `hossein-khalili-resume.pdf` (PDF انگلیسی — لینک‌های قبلی قطع نمی‌شود)
+
+بعد از تغییر محتوا با `scripts/resume/generate.py` دوباره بسازید و redeploy کنید.
